@@ -1,0 +1,29 @@
+<div class="menu-categories-container" *ngIf="menuData">
+  <div id="starters" class="menu-category">
+    <h2 class="category-title">Starters</h2>
+    <div class="menu-items-grid">
+      <app-menu-item *ngFor="let item of menuData.starters" [item]="item"></app-menu-item>
+    </div>
+  </div>
+
+  <div id="main-course" class="menu-category">
+    <h2 class="category-title">Main Course</h2>
+    <div class="menu-items-grid">
+      <app-menu-item *ngFor="let item of menuData.main_course" [item]="item"></app-menu-item>
+    </div>
+  </div>
+
+  <div id="desserts" class="menu-category">
+    <h2 class="category-title">Desserts</h2>
+    <div class="menu-items-grid">
+      <app-menu-item *ngFor="let item of menuData.desserts" [item]="item"></app-menu-item>
+    </div>
+  </div>
+
+  <div id="beverages" class="menu-category">
+    <h2 class="category-title">Beverages</h2>
+    <div class="menu-items-grid">
+      <app-menu-item *ngFor="let item of menuData.beverages" [item]="item"></app-menu-item>
+    </div>
+  </div>
+</div>

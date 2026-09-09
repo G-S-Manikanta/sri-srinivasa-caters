@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Our Gallery</h1>
+</div>
+<section class="gallery-page-section">
+  <div class="container">
+    <div class="filter-buttons">
+      <button *ngFor="let category of categories"
+              [class.active]="category === selectedCategory"
+              (click)="filterImages(category)">
+        {{ category | titlecase }}
+      </button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item" *ngFor="let image of filteredImages" (click)="openLightbox(image.src)">
+        <img [src]="image.src" [alt]="image.alt">
+        <div class="gallery-item-overlay">
+          <div class="overlay-content">
+            <i class="fas fa-search-plus"></i>
+            <p>{{ image.category | titlecase }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" *ngIf="selectedImage" (click)="closeLightbox()">
+    <span class="close-btn" (click)="closeLightbox()">&times;</span>
+    <div class="lightbox-content">
+      <img [src]="selectedImage" alt="Lightbox image">
+    </div>
+  </div>
+</section>

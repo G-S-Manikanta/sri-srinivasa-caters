@@ -1,0 +1,35 @@
+.why-choose-us-section {
+  padding: 100px 0;
+  background-color: var(--secondary-color);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 20px;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.feature-title {
+  font-family: var(--font-family-headings);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 15px;
+}
+
+.feature-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}

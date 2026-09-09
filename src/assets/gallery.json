@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "src": "assets/images/gallery/wedding-1.jpg",
+    "category": "Wedding",
+    "alt": "Beautifully set table at a wedding reception"
+  },
+  {
+    "id": 2,
+    "src": "assets/images/gallery/corporate-1.jpg",
+    "category": "Corporate",
+    "alt": "Buffet spread at a corporate event"
+  },
+  {
+    "id": 3,
+    "src": "assets/images/gallery/birthday-1.jpg",
+    "category": "Birthday",
+    "alt": "Colorful dessert table at a birthday party"
+  },
+  {
+    "id": 4,
+    "src": "assets/images/gallery/buffet-1.jpg",
+    "category": "Buffet",
+    "alt": "A wide variety of dishes on a buffet line"
+  },
+  {
+    "id": 5,
+    "src": "assets/images/gallery/wedding-2.jpg",
+    "category": "Wedding",
+    "alt": "Elegant appetizers served at a wedding"
+  },
+  {
+    "id": 6,
+    "src": "assets/images/gallery/corporate-2.jpg",
+    "category": "Corporate",
+    "alt": "People mingling at a corporate event with food"
+  }
+]

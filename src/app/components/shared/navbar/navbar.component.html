@@ -1,0 +1,33 @@
+<nav class="navbar" [class.sticky]="isSticky">
+  <div class="navbar-container">
+    <a routerLink="/" class="navbar-logo" (click)="closeMobileMenu()">
+      Authana Caters
+    </a>
+    <div class="menu-icon" (click)="toggleMenu()">
+      <i [ngClass]="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+    </div>
+    <ul class="nav-menu" [ngClass]="{ active: isMenuOpen }">
+      <li class="nav-item">
+        <a routerLink="/" class="nav-links" (click)="closeMobileMenu()">Home</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/about" class="nav-links" (click)="closeMobileMenu()">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/services" class="nav-links" (click)="closeMobileMenu()">Services</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/menu" class="nav-links" (click)="closeMobileMenu()">Menu</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/gallery" class="nav-links" (click)="closeMobileMenu()">Gallery</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/testimonials" class="nav-links" (click)="closeMobileMenu()">Testimonials</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/contact" class="nav-links" (click)="closeMobileMenu()">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
