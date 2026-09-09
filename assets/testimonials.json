@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Emily Johnson",
+    "event": "Wedding",
+    "rating": 5,
+    "review": "Authana Caters made our wedding day absolutely perfect. The food was incredible, and the service was impeccable. Our guests are still talking about the delicious salmon!",
+    "image": "assets/images/testimonials/emily.jpg"
+  },
+  {
+    "id": 2,
+    "name": "John Smith",
+    "event": "Corporate Event",
+    "rating": 5,
+    "review": "We hired Authana for our annual corporate gala, and they exceeded all expectations. Professional, punctual, and the food was top-notch. Highly recommend!",
+    "image": "assets/images/testimonials/john.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Sarah Davis",
+    "event": "Birthday Party",
+    "rating": 4,
+    "review": "The catering for my 30th birthday was fantastic. The variety of appetizers was a huge hit. The only small issue was that they ran out of the lava cakes too quickly!",
+    "image": "assets/images/testimonials/sarah.jpg"
+  }
+]

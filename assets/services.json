@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Wedding Catering",
+    "description": "Exquisite culinary experiences for your special day. We craft bespoke menus that reflect your love story.",
+    "image": "assets/images/services/wedding.jpg",
+    "icon": "fas fa-ring"
+  },
+  {
+    "id": 2,
+    "title": "Corporate Events",
+    "description": "Impress your clients and colleagues with our professional and delicious catering for meetings, conferences, and corporate galas.",
+    "image": "assets/images/services/corporate.jpg",
+    "icon": "fas fa-briefcase"
+  },
+  {
+    "id": 3,
+    "title": "Birthday Parties",
+    "description": "Celebrate another year with a feast! From intimate gatherings to grand parties, we make birthdays memorable.",
+    "image": "assets/images/services/birthday.jpg",
+    "icon": "fas fa-birthday-cake"
+  },
+  {
+    "id": 4,
+    "title": "Private Dining",
+    "description": "Enjoy a luxurious, restaurant-quality dining experience in the comfort of your own home or chosen venue.",
+    "image": "assets/images/services/private.jpg",
+    "icon": "fas fa-user-friends"
+  },
+  {
+    "id": 5,
+    "title": "Outdoor Catering",
+    "description": "From picnics to BBQs, we bring our exceptional food and service to the great outdoors for any occasion.",
+    "image": "assets/images/services/outdoor.jpg",
+    "icon": "fas fa-tree"
+  }
+]

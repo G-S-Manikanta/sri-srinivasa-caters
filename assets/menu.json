@@ -1,0 +1,66 @@
+{
+  "starters": [
+    {
+      "id": 1,
+      "name": "Bruschetta",
+      "description": "Grilled bread with tomatoes, garlic, olive oil, and basil.",
+      "price": "$8",
+      "image": "assets/images/menu/starters/bruschetta.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Stuffed Mushrooms",
+      "description": "Mushroom caps filled with breadcrumbs, garlic, and herbs.",
+      "price": "$10",
+      "image": "assets/images/menu/starters/stuffed-mushrooms.jpg"
+    }
+  ],
+  "main_course": [
+    {
+      "id": 3,
+      "name": "Grilled Salmon",
+      "description": "Salmon fillet with a lemon-dill sauce, served with asparagus.",
+      "price": "$22",
+      "image": "assets/images/menu/main/grilled-salmon.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Filet Mignon",
+      "description": "Tender beef tenderloin with a red wine reduction sauce.",
+      "price": "$30",
+      "image": "assets/images/menu/main/filet-mignon.jpg"
+    }
+  ],
+  "desserts": [
+    {
+      "id": 5,
+      "name": "Chocolate Lava Cake",
+      "description": "Warm chocolate cake with a gooey center, served with vanilla ice cream.",
+      "price": "$9",
+      "image": "assets/images/menu/desserts/lava-cake.jpg"
+    },
+    {
+      "id": 6,
+      "name": "New York Cheesecake",
+      "description": "Classic cheesecake with a graham cracker crust and strawberry sauce.",
+      "price": "$8",
+      "image": "assets/images/menu/desserts/cheesecake.jpg"
+    }
+  ],
+  "beverages": [
+    {
+      "id": 7,
+      "name": "Fresh Lemonade",
+      "description": "Homemade lemonade with fresh lemons and a hint of mint.",
+      "price": "$4",
+      "image": "assets/images/menu/beverages/lemonade.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Iced Tea",
+      "description": "Freshly brewed black tea, served chilled.",
+      "price": "$3",
+      "image": "assets/images/menu/beverages/iced-tea.jpg"
+    }
+  ]
+}
