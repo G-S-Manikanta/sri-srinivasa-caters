@@ -8,11 +8,11 @@ import { TestimonialsComponent } from './pages/testimonials/testimonials.compone
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent, title: 'Home' },
-    { path: 'about', component: AboutUsComponent, title: 'About Us' },
-    { path: 'services', component: ServicesComponent, title: 'Services' },
-    { path: 'menu', component: MenuComponent, title: 'Menu' },
-    { path: 'gallery', component: GalleryComponent, title: 'Gallery' },
-    { path: 'testimonials', component: TestimonialsComponent, title: 'Testimonials' },
-    { path: 'contact', component: ContactUsComponent, title: 'Contact Us' },
+    { path: '', component: HomeComponent, title: 'Sri Srinivasa Caters' },
+    { path: 'about', component: AboutUsComponent, title: 'Sri Srinivasa Caters' },
+    { path: 'services', component: ServicesComponent, title: 'Sri Srinivasa Caters' },
+    { path: 'menu', component: MenuComponent, title: 'Sri Srinivasa Caters' },
+    { path: 'gallery', component: GalleryComponent, title: 'Sri Srinivasa Caters' },
+    { path: 'testimonials', component: TestimonialsComponent, title: 'Sri Srinivasa Caters' },
+    { path: 'contact', component: ContactUsComponent, title: 'Sri Srinivasa Caters' },
 ];

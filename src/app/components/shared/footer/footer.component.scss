@@ -21,11 +21,20 @@
 }
 
 .logo-text {
+  display: flex;
+  align-items: center;
   font-family: var(--font-family-headings);
   font-size: 2rem;
   font-weight: 700;
   color: var(--secondary-color);
   margin-bottom: 20px;
+
+  img {
+    width: 42px;
+    height: 42px;
+    margin-right: 12px;
+  }
+
   span {
     color: var(--primary-color);
   }

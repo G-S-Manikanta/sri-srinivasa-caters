@@ -12,16 +12,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'authana-caters' title`, () => {
+  it(`should have the 'Sri Srinivasa Caters' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('authana-caters');
+    expect(app.title).toEqual('Sri Srinivasa Caters');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('authana-caters app is running!');
+    expect(compiled.querySelector('app-navbar .navbar-logo')?.textContent).toContain('Sri Srinivasa Caters');
   });
 });

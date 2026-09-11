@@ -12,5 +12,5 @@ import { FooterComponent } from './components/shared/footer/footer.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'authana-caters';
+  title = 'Sri Srinivasa Caters';
 }

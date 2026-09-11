@@ -1,7 +1,8 @@
 <nav class="navbar" [class.sticky]="isSticky">
   <div class="navbar-container">
     <a routerLink="/" class="navbar-logo" (click)="closeMobileMenu()">
-      Authana Caters
+      <img src="assets/sri_srinivasa_caters_logo.png" alt="Sri Srinivasa Caters logo">
+      Sri Srinivasa Caters
     </a>
     <div class="menu-icon" (click)="toggleMenu()">
       <i [ngClass]="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
