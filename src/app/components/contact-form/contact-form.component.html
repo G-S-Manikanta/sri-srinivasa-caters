@@ -1,15 +1,32 @@
-<form action="https://api.web3forms.com/submit" method="POST">
-  <!-- Replace with your actual email address -->
+<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
   <input type="hidden" name="access_key" value="801abe3a-94f4-40c6-9858-e8b5c6b0909a">
+  <input type="hidden" name="subject" value="New catering inquiry">
 
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" required placeholder="Your Name">
+  <div class="form-intro">
+    <span class="form-kicker">Start planning</span>
+    <h4>Tell us about your event</h4>
+    <p>Share a few details and our team will get back to you shortly.</p>
+  </div>
 
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" required placeholder="your@email.com">
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="name">Your name</label>
+      <input class="form-control" type="text" id="name" name="name" required placeholder="Jane Smith" autocomplete="name">
+    </div>
 
-  <label for="message">Message</label>
-  <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input class="form-control" type="email" id="email" name="email" required placeholder="jane@example.com" autocomplete="email">
+    </div>
+  </div>
 
-  <button type="submit">Submit Form</button>
+  <div class="form-group">
+    <label for="message">How can we help?</label>
+    <textarea class="form-control" id="message" name="message" required placeholder="Tell us about your date, guest count, and menu ideas..."></textarea>
+  </div>
+
+  <button class="btn-submit" type="submit">
+    Send inquiry
+    <span aria-hidden="true">&#8594;</span>
+  </button>
 </form>
