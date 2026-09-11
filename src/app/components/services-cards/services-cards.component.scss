@@ -1,11 +1,11 @@
 .services-section {
-  padding: 100px 0;
+  padding: clamp(60px, 8vw, 100px) 0;
   background-color: var(--background-color);
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 40px;
 }
 
@@ -41,4 +41,14 @@
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-color);
+}
+
+@media screen and (max-width: 600px) {
+  .services-grid {
+    gap: 24px;
+  }
+
+  .service-card {
+    padding: 30px 24px;
+  }
 }

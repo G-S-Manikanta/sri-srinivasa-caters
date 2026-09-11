@@ -12,6 +12,12 @@
   --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -31,8 +37,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+h1 { font-size: clamp(2.25rem, 6vw, 3rem); }
+h2 { font-size: clamp(1.9rem, 5vw, 2.5rem); text-align: center; margin-bottom: 40px; }
 h3 { font-size: 1.8rem; }
 
 p {
@@ -52,11 +58,11 @@ a:hover {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  width: min(100% - 40px, 1200px);
 }
 
 .section {
-  padding: 100px 0;
+  padding: clamp(60px, 8vw, 100px) 0;
 }
 
 .text-center {
@@ -106,4 +112,19 @@ a:hover {
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: min(100% - 32px, 1200px);
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .btn {
+    max-width: 100%;
+    padding: 12px 20px;
+  }
 }

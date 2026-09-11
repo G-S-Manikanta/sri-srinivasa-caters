@@ -24,7 +24,7 @@
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 0 24px;
   transition: all 0.3s ease-in-out;
 
   .navbar.sticky & {
@@ -150,7 +150,7 @@
   }
   
   .navbar-logo {
-    padding-left: 25px;
+    padding-left: 0;
   }
 
   .menu-icon {
@@ -158,7 +158,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 60%);
+    transform: translate(-50%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--primary-color);
@@ -167,5 +167,31 @@
   .fa-times {
     color: var(--primary-color);
     font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar,
+  .navbar-container {
+    height: 68px;
+  }
+
+  .navbar-logo {
+    font-size: 1.45rem;
+  }
+
+  .navbar-logo img {
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+  }
+
+  .nav-menu {
+    top: 68px;
+    height: calc(100vh - 68px);
+  }
+
+  .nav-links {
+    padding: 1.25rem;
   }
 }

@@ -25,7 +25,7 @@
 }
 
 .services-page-section {
-  padding: 100px 0;
+  padding: clamp(60px, 8vw, 100px) 0;
   background-color: var(--background-color);
 }
 
@@ -41,7 +41,7 @@
 
 .services-page-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 40px;
 }
 
@@ -102,4 +102,26 @@
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-color);
+}
+
+@media screen and (max-width: 600px) {
+  .page-header {
+    padding: 72px 16px;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2.25rem, 12vw, 3.5rem);
+  }
+
+  .services-page-section {
+    padding: 56px 0;
+  }
+
+  .services-page-grid {
+    gap: 24px;
+  }
+
+  .service-card-content {
+    padding: 36px 24px 24px;
+  }
 }
