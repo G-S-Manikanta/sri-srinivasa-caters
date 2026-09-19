@@ -1,0 +1,80 @@
+{
+  "starters": [
+    {
+      "id": 1,
+      "name": "Ghee Podi Thatte Idli",
+      "description": "Soft steamed rice cakes bathed in spicy gun powder and melted pure cow ghee.",
+      "price": "Wedding Special",
+      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 2,
+      "name": "Crispy Medu Vadai",
+      "description": "Golden whole urad dal doughnut with cracked peppercorns, served with fresh coconut chutney.",
+      "price": "Breakfast Classic",
+      "image": "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 3,
+      "name": "Vazhaipoo Vadai",
+      "description": "Crunchy fritters made from freshly cleaned banana blossoms, chana dal, and spices.",
+      "price": "Heritage Recipe",
+      "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1200&auto=format&fit=crop"
+    }
+  ],
+  "main_course": [
+    {
+      "id": 4,
+      "name": "Kalyana Murungakkai Sambar & Rice",
+      "description": "Steaming aged sona masoori rice with shallots, native drumsticks, and fresh ground masala.",
+      "price": "Feast Specialty",
+      "image": "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 5,
+      "name": "Ennai Kathirikai Kulambu",
+      "description": "Stuffed tender baby brinjals simmered in a rich, tangy tamarind and roasted sesame reduction.",
+      "price": "Chef Signature",
+      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 6,
+      "name": "Koil Pulihora & Avial",
+      "description": "Temple-style tangy tamarind rice tempered with mustard, roasted peanuts, and rich garden avial.",
+      "price": "Auspicious Classic",
+      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1200&auto=format&fit=crop"
+    }
+  ],
+  "desserts": [
+    {
+      "id": 7,
+      "name": "Royal Ghee Mysore Pak",
+      "description": "Melt-in-your-mouth gram flour fudge slow-crafted with 100% pure cow ghee.",
+      "price": "Signature Sweet",
+      "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 8,
+      "name": "Elaneer Payasam",
+      "description": "Chilled condensed milk pudding delicately infused with fresh tender coconut pulp and cardamom.",
+      "price": "Bestseller",
+      "image": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1200&auto=format&fit=crop"
+    }
+  ],
+  "beverages": [
+    {
+      "id": 9,
+      "name": "Brass Davarah Filter Coffee",
+      "description": "Freshly roasted chicory blend decoction frothed with whole milk in traditional brass sets.",
+      "price": "Iconic Brew",
+      "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 10,
+      "name": "Spiced Neer Mor (Buttermilk)",
+      "description": "Churned cooling yogurt drink infused with crushed ginger, green chilies, and fresh curry leaves.",
+      "price": "Digestive Cooler",
+      "image": "https://images.unsplash.com/photo-1551893309-c4a45a3536df?q=80&w=1200&auto=format&fit=crop"
+    }
+  ]
+}
