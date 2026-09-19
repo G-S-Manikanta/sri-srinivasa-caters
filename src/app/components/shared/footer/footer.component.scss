@@ -1,133 +1,287 @@
-.footer-container {
-  background: var(--dark-color);
-  color: var(--secondary-color);
-  padding: 50px 0;
+// =============================================================================
+// SRI SRINIVASA CATERS - FOOTER COMPONENT
+// Dark Imperial Sandalwood Ground + Gold Hairline Accents + Responsive Columns
+// =============================================================================
+
+.heritage-footer {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: clamp(5rem, 8vw, 7rem) 0 2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
   position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse at top, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
 }
 
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 24px;
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr 1fr 1.2fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
-.footer-section {
-  flex: 1;
-  padding: 20px;
-  min-width: 0;
-}
-
-.logo-text {
+// -----------------------------------------------------------------------------
+// 1. BRAND COLUMN
+// -----------------------------------------------------------------------------
+.footer-logo-box {
   display: flex;
   align-items: center;
-  font-family: var(--font-family-headings);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--secondary-color);
-  margin-bottom: 20px;
+  gap: 14px;
+  margin-bottom: 1.25rem;
 
-  img {
-    width: 42px;
-    height: 42px;
-    margin-right: 12px;
+  .footer-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  }
+}
+
+.footer-brand-title {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-family: var(--font-family-display);
+    font-size: 1.45rem;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.1;
+    font-weight: var(--font-weight-bold);
   }
 
   span {
-    color: var(--primary-color);
+    font-family: var(--font-family-body);
+    font-size: 0.65rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.22em;
+    color: var(--color-gold-bright);
   }
 }
 
-.about p {
-  line-height: 1.6;
-  margin-bottom: 20px;
+.footer-brand-desc {
+  font-size: 0.885rem;
+  line-height: 1.65;
+  color: rgba(253, 251, 247, 0.75);
+  margin-bottom: 1.5rem;
 }
 
-.contact-info span {
-  display: block;
-  margin-bottom: 10px;
-}
+.footer-heritage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.45rem 0.85rem;
+  background: rgba(35, 83, 56, 0.35);
+  border: 1px solid rgba(35, 83, 56, 0.6);
+  border-radius: var(--radius-xs);
+  color: #A3E6BA;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
 
-.social-links a {
-  color: var(--secondary-color);
-  margin-right: 15px;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: var(--primary-color);
+  i {
+    color: var(--color-gold-bright);
   }
 }
 
-.links h2, .contact-form-section h2 {
-  color: var(--secondary-color);
-  margin-bottom: 20px;
-  font-family: var(--font-family-headings);
+// -----------------------------------------------------------------------------
+// 2. LINKS & SERVICE COLUMNS
+// -----------------------------------------------------------------------------
+.footer-col-title {
+  font-family: var(--font-family-display);
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  margin: 0 0 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 32px;
+    height: 1.5px;
+    background-color: var(--color-gold-bright);
+  }
 }
 
-.links ul {
+.footer-links-list {
   list-style: none;
+  margin: 0;
   padding: 0;
-}
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
 
-.links ul li a {
-  color: var(--secondary-color);
-  text-decoration: none;
-  line-height: 2;
-  transition: color 0.3s ease;
+  li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.865rem;
+    color: rgba(253, 251, 247, 0.75);
+    text-decoration: none;
+    transition: all var(--dur-fast) var(--ease-editorial);
 
-  &:hover {
-    color: var(--primary-color);
+    i {
+      font-size: 0.65rem;
+      color: var(--color-gold-700);
+      transition: transform var(--dur-fast) var(--ease-editorial);
+    }
+
+    &:hover {
+      color: var(--color-gold-bright);
+      transform: translateX(4px);
+
+      i {
+        color: var(--color-gold-bright);
+      }
+    }
   }
 }
 
-.text-input {
-  width: 100%;
-  padding: 10px;
-  background: #3a3a3a;
-  border: 1px solid #555;
-  border-radius: 5px;
-  color: var(--secondary-color);
-  margin-bottom: 15px;
-  font-family: var(--font-family-body);
+// -----------------------------------------------------------------------------
+// 3. CONTACT COLUMN
+// -----------------------------------------------------------------------------
+.footer-contact-details {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
-  &::placeholder {
-    color: #aaa;
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    i {
+      color: var(--color-gold-bright);
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.725rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-gold-light);
+    }
+
+    .contact-val {
+      font-size: 0.885rem;
+      color: rgba(253, 251, 247, 0.9);
+      text-decoration: none;
+      transition: color var(--dur-fast) var(--ease-editorial);
+
+      &:hover {
+        color: var(--color-gold-bright);
+      }
+    }
   }
 }
 
-.btn-submit {
-  background: var(--primary-color);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: var(--font-family-body);
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+.footer-social-strip {
+  display: flex;
+  gap: 10px;
 
-  &:hover {
-    filter: brightness(1.2);
+  .social-icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    transition: all var(--dur-fast) var(--ease-editorial);
+
+    &:hover {
+      background: var(--color-gold);
+      color: var(--color-maroon-900);
+      transform: translateY(-2px);
+    }
   }
 }
 
-.footer-bottom {
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid #444;
-  margin-top: 30px;
+// -----------------------------------------------------------------------------
+// 4. BOTTOM BAR
+// -----------------------------------------------------------------------------
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+
+  .divider-gold {
+    max-width: 200px;
+    margin: 0 auto 1.5rem;
+  }
 }
 
-@media screen and (max-width: 768px) {
-  .footer-content {
+.bottom-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright-text {
+  font-size: 0.8rem;
+  color: rgba(253, 251, 247, 0.6);
+  margin: 0;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+
+  a {
+    color: rgba(253, 251, 247, 0.7);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-gold-bright);
+    }
+  }
+
+  .sep {
+    color: rgba(212, 175, 55, 0.5);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 5. RESPONSIVE BEHAVIOR
+// -----------------------------------------------------------------------------
+@media (max-width: 1024px) {
+  .footer-main-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .bottom-flex {
     flex-direction: column;
-    padding: 0 16px;
-  }
-
-  .footer-section {
-    padding: 20px 0;
+    text-align: center;
   }
 }

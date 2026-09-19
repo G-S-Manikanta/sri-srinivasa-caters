@@ -1,1 +1,95 @@
-<p>gallery-grid works!</p>
+<section class="asymmetric-gallery-section" id="gallery" aria-label="Visual Gallery">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-header text-center">
+      <div class="kicker kicker-gold">
+        <span>MEMORIES IN VISUAL HARMONY</span>
+      </div>
+      <h2 class="display-title-xl">
+        Moments of <span class="text-gradient-maroon">Feast & Celebration</span>
+      </h2>
+      <div class="divider-gold">
+        <i class="fas fa-camera" aria-hidden="true"></i>
+      </div>
+      <p class="section-subtitle">
+        A curated visual tapestry of traditional mandapams, pristine banana-leaf feasts, live culinary craft, and joyous celebrations.
+      </p>
+
+      <!-- Category Filter Pills -->
+      <div class="gallery-filter-chips">
+        <button
+          type="button"
+          class="btn-pill"
+          [class.active]="activeCategory === 'all'"
+          (click)="filterCategory('all')"
+        >All Moments</button>
+        <button
+          type="button"
+          class="btn-pill"
+          [class.active]="activeCategory === 'weddings'"
+          (click)="filterCategory('weddings')"
+        >Weddings</button>
+        <button
+          type="button"
+          class="btn-pill"
+          [class.active]="activeCategory === 'feasts'"
+          (click)="filterCategory('feasts')"
+        >Banana Leaf Feasts</button>
+        <button
+          type="button"
+          class="btn-pill"
+          [class.active]="activeCategory === 'live-counters'"
+          (click)="filterCategory('live-counters')"
+        >Live Counters</button>
+        <button
+          type="button"
+          class="btn-pill"
+          [class.active]="activeCategory === 'sweets'"
+          (click)="filterCategory('sweets')"
+        >Sweets & Craft</button>
+      </div>
+    </div>
+
+    <!-- Asymmetric Editorial Gallery Grid -->
+    <div class="asymmetric-masonry-grid">
+      <div
+        *ngFor="let item of getFilteredItems()"
+        class="gallery-tile {{ item.aspectClass }}"
+        (click)="openLightbox(item)"
+        tabindex="0"
+        role="button"
+        [attr.aria-label]="item.title"
+      >
+        <div class="tile-image-container">
+          <img [src]="item.image" [alt]="item.title" loading="lazy" />
+          <div class="tile-overlay-gradient"></div>
+          
+          <div class="tile-hover-info">
+            <span class="tile-category-tag">{{ item.category | titlecase }}</span>
+            <h3 class="tile-title">{{ item.title }}</h3>
+            <span class="tile-zoom-icon"><i class="fas fa-expand-alt"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Fullscreen Modal Lightbox -->
+  <div class="gallery-lightbox-modal" *ngIf="selectedImage" (click)="closeLightbox()">
+    <button class="lightbox-close-btn" (click)="closeLightbox()" aria-label="Close Fullscreen View">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="lightbox-dialog" (click)="$event.stopPropagation()">
+      <div class="lightbox-img-frame">
+        <img [src]="selectedImage.image" [alt]="selectedImage.title" />
+      </div>
+      <div class="lightbox-caption-bar">
+        <h3 class="lightbox-title">{{ selectedImage.title }}</h3>
+        <p class="lightbox-caption-text">{{ selectedImage.caption }}</p>
+      </div>
+    </div>
+  </div>
+</section>

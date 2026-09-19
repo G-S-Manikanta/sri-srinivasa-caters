@@ -1,37 +1,37 @@
 [
   {
     "id": 1,
-    "title": "Wedding Catering",
-    "description": "Exquisite culinary experiences for your special day. We craft bespoke menus that reflect your love story.",
-    "image": "assets/images/services/wedding.jpg",
+    "title": "Grand Wedding Muhurtham Catering",
+    "description": "Exquisite 24-item royal South Indian banana-leaf dining executed with synchronized traditional servers in veshtis and grand evening reception buffets.",
+    "image": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200&auto=format&fit=crop",
     "icon": "fas fa-ring"
   },
   {
     "id": 2,
-    "title": "Corporate Events",
-    "description": "Impress your clients and colleagues with our professional and delicious catering for meetings, conferences, and corporate galas.",
-    "image": "assets/images/services/corporate.jpg",
-    "icon": "fas fa-briefcase"
+    "title": "Traditional Banana Leaf Meals (Elai Saapadu)",
+    "description": "Authentic festive meals honoring the sacred Aru Suvai balance of South Indian dining with pure cow ghee and stone-ground masalas.",
+    "image": "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=1200&auto=format&fit=crop",
+    "icon": "fas fa-leaf"
   },
   {
     "id": 3,
-    "title": "Birthday Parties",
-    "description": "Celebrate another year with a feast! From intimate gatherings to grand parties, we make birthdays memorable.",
-    "image": "assets/images/services/birthday.jpg",
-    "icon": "fas fa-birthday-cake"
+    "title": "Gruhapravesam (Housewarming)",
+    "description": "Auspicious morning homam prasad, fluffy Ghee Podi Thatte Idlis, crispy Medu Vadais, and fragrant brass davarah filter coffee.",
+    "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1200&auto=format&fit=crop",
+    "icon": "fas fa-home"
   },
   {
     "id": 4,
-    "title": "Private Dining",
-    "description": "Enjoy a luxurious, restaurant-quality dining experience in the comfort of your own home or chosen venue.",
-    "image": "assets/images/services/private.jpg",
-    "icon": "fas fa-user-friends"
+    "title": "Engagements & Sangeet",
+    "description": "Sophisticated gatherings celebrating family alliances with artisanal sweet platters, interactive live chaat, and custom buffets.",
+    "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200&auto=format&fit=crop",
+    "icon": "fas fa-handshake"
   },
   {
     "id": 5,
-    "title": "Outdoor Catering",
-    "description": "From picnics to BBQs, we bring our exceptional food and service to the great outdoors for any occasion.",
-    "image": "assets/images/services/outdoor.jpg",
-    "icon": "fas fa-tree"
+    "title": "Religious Pujas & Satvik Feasts",
+    "description": "Strictly Satvik and pure vegetarian prasadam, cooked with religious sanctity and traditional Vedic guidelines without onion or garlic.",
+    "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1200&auto=format&fit=crop",
+    "icon": "fas fa-om"
   }
 ]

@@ -1,26 +1,78 @@
-<section class="testimonials-section">
+<section class="large-testimonials-section section-dark" id="testimonials" aria-label="Client Testimonials">
   <div class="container">
-    <h2 class="section-title text-center">Words From Our Clients</h2>
-    <div class="testimonial-slider-container">
-      <div class="testimonial-slide" *ngFor="let testimonial of testimonials; let i = index" [ngClass]="{ active: i === currentTestimonial }">
-        <div class="testimonial-content">
-          <div class="testimonial-photo">
-            <img [src]="testimonial.photo" [alt]="testimonial.name">
+    
+    <!-- Section Header -->
+    <div class="section-header text-center">
+      <div class="kicker kicker-gold">
+        <span>VOICES OF HAPPINESS</span>
+      </div>
+      <h2 class="display-title-xl text-light">
+        Echoes of <span class="text-gradient-gold">Delight & Blessings</span>
+      </h2>
+      <div class="divider-gold">
+        <i class="fas fa-star" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <!-- Editorial Large Quote Carousel Showcase -->
+    <div class="large-quote-showcase">
+      
+      <!-- Big Decorative Quotation Mark -->
+      <div class="quote-mark-backdrop" aria-hidden="true">“</div>
+
+      <div class="quote-slides-wrapper">
+        <div
+          *ngFor="let item of testimonials; let i = index"
+          class="quote-slide"
+          [class.is-active]="i === currentIndex"
+        >
+          <!-- Star Rating -->
+          <div class="quote-stars">
+            <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5]"></i>
           </div>
-          <div class="testimonial-details">
-            <div class="star-rating">
-              <i *ngFor="let starClass of getStarRating(testimonial.rating)" [class]="starClass"></i>
+
+          <!-- Large Editorial Quote Text -->
+          <blockquote class="grand-quote-text">
+            “{{ item.quote }}”
+          </blockquote>
+
+          <!-- Client Meta Bar -->
+          <div class="quote-client-meta">
+            <h3 class="client-name">{{ item.clientName }}</h3>
+            <div class="client-subline">
+              <span class="event-tag">{{ item.event }}</span>
+              <span class="meta-dot"></span>
+              <span class="location-tag"><i class="fas fa-map-marker-alt"></i> {{ item.location }}</span>
+              <span class="meta-dot"></span>
+              <span class="guests-tag"><i class="fas fa-users"></i> {{ item.guestCount }}</span>
             </div>
-            <p class="testimonial-review">"{{ testimonial.review }}"</p>
-            <p class="testimonial-name">{{ testimonial.name }}</p>
-            <p class="testimonial-event">{{ testimonial.eventType }}</p>
           </div>
         </div>
       </div>
-      <div class="slider-navigation">
-        <button class="nav-button prev" (click)="previousTestimonial()"><i class="fas fa-arrow-left"></i></button>
-        <button class="nav-button next" (click)="nextTestimonial()"><i class="fas fa-arrow-right"></i></button>
+
+      <!-- Carousel Navigation & Indicators -->
+      <div class="quote-navigation-bar">
+        <button class="quote-nav-btn prev" (click)="prev()" aria-label="Previous Testimonial">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+
+        <div class="quote-dots">
+          <button
+            *ngFor="let item of testimonials; let i = index"
+            type="button"
+            class="quote-dot-btn"
+            [class.is-active]="i === currentIndex"
+            (click)="setSlide(i)"
+            [attr.aria-label]="'Go to testimonial ' + (i + 1)"
+          ></button>
+        </div>
+
+        <button class="quote-nav-btn next" (click)="next()" aria-label="Next Testimonial">
+          <i class="fas fa-arrow-right"></i>
+        </button>
       </div>
+
     </div>
+
   </div>
 </section>

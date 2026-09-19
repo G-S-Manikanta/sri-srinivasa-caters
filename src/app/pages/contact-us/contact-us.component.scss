@@ -1,93 +1,138 @@
-.page-header {
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px;
+// =============================================================================
+// SRI SRINIVASA CATERS - CONTACT US PAGE
+// =============================================================================
+
+.page-hero-header {
+  padding: clamp(6.5rem, 11vw, 9.5rem) 0 clamp(3.5rem, 6vw, 5rem);
+  background: linear-gradient(180deg, rgba(18, 14, 13, 0.95) 0%, rgba(56, 7, 15, 0.9) 100%);
   position: relative;
-}
-
-.page-header h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  position: relative;
-  z-index: 2;
-  color: #fff;
-}
-
-.page-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-.contact-us-page-section {
-  padding: 100px 0;
-  background-color: var(--background-color);
-}
-
-.contact-info-map-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 80px;
-}
-
-.contact-info {
-  .section-heading {
-    font-family: var(--font-family-headings);
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-  }
-
-  p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-color);
-    margin-bottom: 30px;
-  }
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-
-  i {
-    color: var(--primary-color);
-    margin-right: 15px;
-    width: 20px;
-    text-align: center;
-  }
-}
-
-.map-container {
-  border-radius: 10px;
   overflow: hidden;
-  box-shadow: var(--box-shadow);
 }
 
-.contact-form-section {
-  .section-heading {
-    font-family: var(--font-family-headings);
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 40px;
+.contact-main-section {
+  padding: clamp(5rem, 8vw, 8rem) 0;
+}
+
+.contact-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: flex-start;
+}
+
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    color: var(--color-maroon-800);
+    margin: 0 0 1rem;
   }
 }
 
-@media screen and (max-width: 960px) {
-  .contact-info-map-grid {
+.info-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.info-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all var(--dur-fast) var(--ease-editorial);
+
+  &:hover {
+    border-color: var(--color-border-gold);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+
+    .info-icon {
+      background: var(--color-maroon-700);
+      color: var(--color-gold-bright);
+    }
+  }
+
+  .info-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-warm);
+    color: var(--color-maroon-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: all var(--dur-fast) var(--ease-editorial);
+  }
+
+  .info-text {
+    display: flex;
+    flex-direction: column;
+
+    .info-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: 2px;
+    }
+
+    .info-val {
+      font-family: var(--font-family-display);
+      font-size: 1.25rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-maroon-800);
+      text-decoration: none;
+      transition: color var(--dur-fast) var(--ease-editorial);
+
+      &:hover {
+        color: var(--color-maroon-900);
+      }
+    }
+
+    .info-hint {
+      font-size: 0.785rem;
+      color: var(--color-text-secondary);
+      margin-top: 2px;
+    }
+  }
+}
+
+.trust-highlights {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.45rem 0.85rem;
+    background: var(--color-leaf-subtle);
+    border: 1px solid rgba(35, 83, 56, 0.2);
+    border-radius: var(--radius-xs);
+    color: var(--color-leaf);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-semibold);
+
+    i {
+      color: var(--color-leaf);
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .contact-page-grid {
     grid-template-columns: 1fr;
-  }
-
-  .map-container {
-    height: 300px;
+    gap: 3rem;
   }
 }

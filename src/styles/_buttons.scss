@@ -1,0 +1,218 @@
+// =============================================================================
+// SRI SRINIVASA CATERS - BUTTON & INTERACTIVE ACTIONS
+// Premium Editorial South Indian Aesthetic with Controlled Motion & Tactile States
+// =============================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0.875rem 2rem;
+  font-family: var(--font-family-body);
+  font-size: 0.885rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 
+    background-color var(--dur-fast) var(--ease-editorial),
+    color var(--dur-fast) var(--ease-editorial),
+    border-color var(--dur-fast) var(--ease-editorial),
+    transform var(--dur-fast) var(--ease-editorial),
+    box-shadow var(--dur-fast) var(--ease-editorial);
+  user-select: none;
+  white-space: nowrap;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  // Subtle Sheen Sweep Pseudo-element
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.22) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    transition: left var(--dur-slow) var(--ease-cinematic);
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    left: 140%;
+  }
+
+  // Icons inside buttons
+  i, svg {
+    font-size: 0.95em;
+    transition: transform var(--dur-fast) var(--ease-editorial);
+  }
+
+  &:hover i, &:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+// 1. Primary Imperial Maroon Button (Default Primary)
+.btn-primary,
+.btn-maroon {
+  background-color: var(--color-maroon-700);
+  color: #FFFFFF;
+  border-color: var(--color-maroon-700);
+  box-shadow: 0 4px 16px rgba(90, 9, 24, 0.25);
+
+  &:hover {
+    background-color: var(--color-maroon-800);
+    border-color: var(--color-maroon-800);
+    color: var(--color-gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(90, 9, 24, 0.35);
+  }
+}
+
+// 2. Royal Gold Accent Button
+.btn-gold {
+  background: linear-gradient(135deg, #DFBE74 0%, #C5A059 100%);
+  color: var(--color-maroon-900);
+  border-color: var(--color-gold);
+  font-weight: var(--font-weight-bold);
+  box-shadow: var(--shadow-gold);
+
+  &:hover {
+    background: linear-gradient(135deg, #ECC878 0%, #D4AF37 100%);
+    color: var(--color-maroon-900);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.5);
+  }
+}
+
+// 3. Secondary / Outline Maroon
+.btn-secondary,
+.btn-outline-maroon {
+  background-color: transparent;
+  color: var(--color-maroon-700);
+  border: 1.5px solid var(--color-maroon-700);
+
+  &:hover {
+    background-color: var(--color-maroon-700);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(90, 9, 24, 0.2);
+  }
+}
+
+// 4. Outline Gold (For Dark Backgrounds & Hero Sections)
+.btn-outline-gold {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: var(--color-gold-light);
+  border: 1.5px solid var(--color-gold);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  &:hover {
+    background-color: var(--color-gold);
+    color: var(--color-maroon-900);
+    border-color: var(--color-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(197, 160, 89, 0.4);
+  }
+}
+
+// 5. White / Light Ghost Button
+.btn-ghost-light {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    background-color: #FFFFFF;
+    color: var(--color-maroon-900);
+    border-color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+}
+
+// 6. Pill Tag / Filter Button
+.btn-pill {
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  background-color: var(--color-bg-warm);
+  color: var(--color-text-secondary);
+  border: 1px solid rgba(107, 15, 26, 0.1);
+
+  &.active, &:hover {
+    background-color: var(--color-maroon-700);
+    color: #FFFFFF;
+    border-color: var(--color-maroon-700);
+    box-shadow: 0 4px 12px rgba(90, 9, 24, 0.2);
+  }
+}
+
+// 7. Minimal Link Button
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: 0;
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-maroon-700);
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--color-maroon-700);
+    transition: width var(--dur-normal) var(--ease-editorial);
+  }
+
+  &:hover {
+    color: var(--color-maroon-900);
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &.btn-link-gold {
+    color: var(--color-gold-bright);
+
+    &::after {
+      background-color: var(--color-gold-bright);
+    }
+  }
+}
+

@@ -1,0 +1,185 @@
+// =============================================================================
+// SRI SRINIVASA CATERS - LAYOUT & EDITORIAL STRUCTURE
+// Responsive Grid Rhythm, Editorial Sections & Viewport Boundaries
+// =============================================================================
+
+// Universal Container System
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 3.5vw, 2.5rem);
+  padding-right: clamp(1.25rem, 3.5vw, 2.5rem);
+}
+
+.container-narrow {
+  max-width: var(--container-narrative);
+}
+
+.container-compact {
+  max-width: var(--container-compact);
+}
+
+.container-wide {
+  max-width: 1480px;
+}
+
+.container-fluid {
+  max-width: 100%;
+  padding-left: clamp(1.25rem, 4vw, 3.5rem);
+  padding-right: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+// Section Architecture & Rhythm
+.section {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+  position: relative;
+  overflow: hidden;
+
+  &.section-sm {
+    padding-top: clamp(3rem, 5vw, 4.5rem);
+    padding-bottom: clamp(3rem, 5vw, 4.5rem);
+  }
+
+  &.section-lg {
+    padding-top: clamp(6rem, 10vw, 10.5rem);
+    padding-bottom: clamp(6rem, 10vw, 10.5rem);
+  }
+
+  // Section Surface Treatments
+  &.section-silk {
+    background-color: var(--color-bg-light);
+  }
+
+  &.section-warm {
+    background-color: var(--color-bg-warm);
+  }
+
+  &.section-dark {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #FFFFFF;
+    }
+
+    p {
+      color: var(--color-text-light-muted);
+    }
+
+    .section-title {
+      color: #FFFFFF;
+    }
+
+    .section-subtitle {
+      color: var(--color-text-light-muted);
+    }
+  }
+
+  &.section-leaf {
+    background-color: var(--color-leaf-900);
+    color: var(--color-text-light);
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #FFFFFF;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+}
+
+// Editorial Split Layout (Story on one side, Visual on other)
+.editorial-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+
+  &.split-reverse {
+    direction: rtl;
+
+    > * {
+      direction: ltr;
+    }
+  }
+
+  &.split-golden-ratio {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}
+
+// Editorial Card Grids
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.25rem, 2vw, 2rem);
+}
+
+// Editorial Cards Base
+.card-editorial {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  box-shadow: var(--shadow-subtle);
+  transition: 
+    transform var(--dur-normal) var(--ease-editorial),
+    box-shadow var(--dur-normal) var(--ease-editorial),
+    border-color var(--dur-normal) var(--ease-editorial);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-border-gold);
+  }
+}
+
+// Responsive Grid Breakpoints
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .editorial-split {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-4,
+  .grid-3,
+  .grid-2,
+  .editorial-split,
+  .editorial-split.split-golden-ratio {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .section {
+    padding-top: clamp(3.5rem, 7vw, 5rem);
+    padding-bottom: clamp(3.5rem, 7vw, 5rem);
+  }
+}
+

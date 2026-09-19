@@ -1,59 +1,214 @@
-.popular-menu-section {
-  padding: clamp(60px, 8vw, 100px) 0;
-  background-color: var(--background-color);
-}
+// =============================================================================
+// SRI SRINIVASA CATERS - EDITORIAL MENU (Section 6)
+// 10 Categories Tab Bar + Refined Editorial Typographic Rows
+// =============================================================================
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-  gap: 40px;
-  margin-bottom: 60px;
-}
-
-.menu-item {
-  background: #fff;
-  border-radius: 10px;
+.editorial-menu-section {
+  background-color: var(--color-bg-light);
+  padding: clamp(5.5rem, 9vw, 9rem) 0;
+  position: relative;
   overflow: hidden;
-  box-shadow: var(--box-shadow);
-  transition: all 0.3s ease;
+}
+
+// -----------------------------------------------------------------------------
+// 1. HORIZONTAL 10-CATEGORY TABS
+// -----------------------------------------------------------------------------
+.menu-categories-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) transparent;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 4px;
+  }
+}
+
+.category-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-warm);
+  border: 1px solid rgba(107, 15, 26, 0.12);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: 0.835rem;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-editorial);
+  flex-shrink: 0;
+
+  i {
+    font-size: 0.85rem;
+    color: var(--color-gold-700);
+    transition: color var(--dur-fast) var(--ease-editorial);
+  }
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+    color: var(--color-maroon-700);
+    border-color: var(--color-gold);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-subtle);
+  }
+
+  &.is-active {
+    background-color: var(--color-maroon-700);
+    border-color: var(--color-maroon-700);
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(90, 9, 24, 0.25);
+
+    i {
+      color: var(--color-gold-bright);
+    }
   }
 }
 
-.menu-item-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+// -----------------------------------------------------------------------------
+// 2. EDITORIAL MENU SHOWCASE
+// -----------------------------------------------------------------------------
+.editorial-menu-showcase {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  box-shadow: var(--shadow-card);
 }
 
-.menu-item-content {
-  padding: 30px;
+.active-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--color-bg-warm);
+  margin-bottom: 2rem;
 }
 
-@media screen and (max-width: 600px) {
-  .menu-grid {
-    gap: 24px;
-    margin-bottom: 40px;
+.active-category-title {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  color: var(--color-maroon-800);
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+}
+
+.menu-items-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.25rem clamp(2rem, 4vw, 4rem);
+}
+
+.menu-editorial-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.item-name {
+  font-family: var(--font-family-display);
+  font-size: 1.35rem;
+  color: var(--color-maroon-900);
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+}
+
+.item-tag {
+  font-family: var(--font-family-body);
+  font-size: 0.685rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-bg-warm);
+  color: var(--color-text-secondary);
+  border: 1px solid rgba(107, 15, 26, 0.1);
+  white-space: nowrap;
+
+  &.tag-signature {
+    background-color: var(--color-gold-subtle);
+    color: var(--color-gold-900);
+    border-color: var(--color-border-gold);
+  }
+}
+
+.row-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(107, 15, 26, 0.2);
+  margin-bottom: 4px;
+}
+
+.item-description {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+// -----------------------------------------------------------------------------
+// 3. MENU FOOTER CALLOUT
+// -----------------------------------------------------------------------------
+.menu-footer-callout {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-bg-warm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+
+  .callout-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.885rem;
+    color: var(--color-text-secondary);
+
+    i {
+      color: var(--color-leaf);
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 4. RESPONSIVE BEHAVIOR
+// -----------------------------------------------------------------------------
+@media (max-width: 960px) {
+  .menu-items-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
   }
 
-  .menu-item-content {
-    padding: 24px;
+  .item-name {
+    white-space: normal;
   }
-}
 
-.menu-item-title {
-  font-family: var(--font-family-headings);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--dark-color);
-  margin-bottom: 10px;
-}
+  .menu-footer-callout {
+    flex-direction: column;
+    align-items: flex-start;
 
-.menu-item-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-color);
+    .btn {
+      width: 100%;
+    }
+  }
 }

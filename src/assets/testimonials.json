@@ -1,26 +1,26 @@
 [
   {
     "id": 1,
-    "name": "Emily Johnson",
-    "event": "Wedding",
+    "name": "Smt. Radhika & Sri. Venkatachalam",
+    "event": "Grand Muhurtham & Reception",
     "rating": 5,
-    "review": "Sri Srinivasa Caters made our wedding day absolutely perfect. The food was incredible, and the service was impeccable. Our guests are still talking about the delicious salmon!",
-    "image": "assets/images/testimonials/emily.jpg"
+    "review": "Sri Srinivasa Caters turned our daughter’s wedding into a royal culinary festival. The Kalyana Murungakkai Sambar, Elaneer Payasam, and hot Ghee Mysore Pak are still praised by all our guests.",
+    "image": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200&auto=format&fit=crop"
   },
   {
     "id": 2,
-    "name": "John Smith",
-    "event": "Corporate Event",
+    "name": "Dr. Subramanian & Dr. Janaki",
+    "event": "60th Shashtipoorthi Celebrations",
     "rating": 5,
-    "review": "We hired Sri Srinivasa Caters for our annual corporate gala, and they exceeded all expectations. Professional, punctual, and the food was top-notch. Highly recommend!",
-    "image": "assets/images/testimonials/john.jpg"
+    "review": "The reverence with which their traditional servers laid out the banana leaf meals was deeply touching. Clean, punctual, and divine food cooked with 100% pure cow ghee.",
+    "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1200&auto=format&fit=crop"
   },
   {
     "id": 3,
-    "name": "Sarah Davis",
-    "event": "Birthday Party",
-    "rating": 4,
-    "review": "The catering for my 30th birthday was fantastic. The variety of appetizers was a huge hit. The only small issue was that they ran out of the lava cakes too quickly!",
-    "image": "assets/images/testimonials/sarah.jpg"
+    "name": "Ananya & Karthik Sundaram",
+    "event": "Traditional Wedding & Sangeet",
+    "rating": 5,
+    "review": "Managing 3,000 guests across 3 days without a single delay or cold dish is a monumental achievement. Their live dosa counter and brass davarah filter coffee station were the absolute stars!",
+    "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200&auto=format&fit=crop"
   }
 ]

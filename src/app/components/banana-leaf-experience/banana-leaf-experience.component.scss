@@ -1,0 +1,287 @@
+// =============================================================================
+// SRI SRINIVASA CATERS - BANANA LEAF EXPERIENCE (Section 5)
+// Fresh Leaf Aesthetic + Interactive Course Selector + Cultural Placement Notes
+// =============================================================================
+
+.banana-leaf-section {
+  background-color: var(--color-bg-warm);
+  padding: clamp(5.5rem, 9vw, 9rem) 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(35, 83, 56, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.kicker-leaf {
+  color: var(--color-leaf);
+}
+
+// -----------------------------------------------------------------------------
+// 1. HORIZONTAL COURSE SELECTOR CHIPS
+// -----------------------------------------------------------------------------
+.leaf-items-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem 1.5rem;
+  margin-bottom: 2rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-leaf) transparent;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-leaf);
+    border-radius: 4px;
+  }
+}
+
+.leaf-item-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-full);
+  background-color: #FFFFFF;
+  border: 1px solid rgba(35, 83, 56, 0.18);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: 0.825rem;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-editorial);
+  flex-shrink: 0;
+
+  .chip-number {
+    font-size: 0.725rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-leaf);
+  }
+
+  &:hover {
+    border-color: var(--color-leaf);
+    color: var(--color-leaf-900);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(35, 83, 56, 0.12);
+  }
+
+  &.is-active {
+    background-color: var(--color-leaf);
+    border-color: var(--color-leaf);
+    color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(35, 83, 56, 0.3);
+
+    .chip-number {
+      color: #FFFFFF;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 2. STAGE GRID
+// -----------------------------------------------------------------------------
+.leaf-stage-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.leaf-visual-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(30, 25, 23, 0.15);
+  background-color: var(--color-bg-dark);
+}
+
+.leaf-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &:hover .leaf-bg-image {
+    transform: scale(1.04);
+  }
+}
+
+.leaf-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-editorial);
+}
+
+.leaf-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 14, 13, 0.1) 0%,
+    transparent 50%,
+    rgba(18, 14, 13, 0.8) 100%
+  );
+}
+
+.leaf-floating-tag {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-sm);
+  background: rgba(18, 14, 13, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #FFFFFF;
+
+  .tag-pos {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.1em;
+    color: var(--color-gold-bright);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .tag-title {
+    font-family: var(--font-family-display);
+    font-size: 1.45rem;
+    color: #FFFFFF;
+    margin: 0;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .tag-regional {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(253, 251, 247, 0.85);
+    font-style: italic;
+    margin-top: 2px;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 3. RIGHT DETAIL CARD
+// -----------------------------------------------------------------------------
+.leaf-detail-card {
+  background-color: #FFFFFF;
+  padding: clamp(2rem, 4vw, 3rem);
+}
+
+.detail-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .taste-badge {
+    font-size: 0.775rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-maroon-700);
+    background: var(--color-maroon-light);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-xs);
+
+    i {
+      margin-right: 4px;
+    }
+  }
+}
+
+.detail-title {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  color: var(--color-maroon-800);
+  margin: 0 0 0.25rem;
+  line-height: 1.2;
+}
+
+.detail-regional-name {
+  font-family: var(--font-family-body);
+  font-size: 0.95rem;
+  color: var(--color-leaf);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 1.25rem;
+}
+
+.detail-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+  margin-bottom: 1.25rem;
+}
+
+.detail-section {
+  margin-bottom: 1.25rem;
+
+  .sub-heading {
+    font-family: var(--font-family-body);
+    font-size: 0.785rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 0.35rem;
+  }
+
+  .detail-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+}
+
+.detail-action-footer {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(107, 15, 26, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .servers-callout {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--color-leaf-800);
+
+    i {
+      color: var(--color-maroon-700);
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 4. RESPONSIVE BEHAVIOR
+// -----------------------------------------------------------------------------
+@media (max-width: 960px) {
+  .leaf-stage-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+

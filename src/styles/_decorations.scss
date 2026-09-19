@@ -1,0 +1,87 @@
+// =============================================================================
+// SRI SRINIVASA CATERS - TRADITIONAL MOTIFS & DECORATIVE ACCENTS
+// South Indian Wedding Cultural Lines, Kolam Motifs & Gold Accents
+// =============================================================================
+
+// 1. Traditional Hairline Gold Divider
+.divider-gold {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin: var(--space-md) auto;
+  width: 100%;
+  max-width: 320px;
+  color: var(--color-gold);
+
+  &::before, &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  }
+
+  i, svg {
+    font-size: 0.85rem;
+    color: var(--color-gold);
+    opacity: 0.85;
+  }
+}
+
+// 2. Kolam/Rangoli Inspired Corner Accents
+.ornament-corner {
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: var(--color-border-gold);
+    pointer-events: none;
+  }
+
+  &::before {
+    top: 12px;
+    left: 12px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  &::after {
+    bottom: 12px;
+    right: 12px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+  }
+}
+
+// 3. Cultural Tag / Stamp Badge
+.badge-cultural {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  background-color: var(--color-maroon-light);
+  color: var(--color-maroon-800);
+  border: 1px solid rgba(107, 15, 26, 0.15);
+
+  &.badge-leaf {
+    background-color: var(--color-leaf-subtle);
+    color: var(--color-leaf);
+    border-color: rgba(35, 83, 56, 0.2);
+  }
+
+  &.badge-gold {
+    background-color: var(--color-gold-subtle);
+    color: var(--color-gold-900);
+    border-color: var(--color-border-gold);
+  }
+}
+

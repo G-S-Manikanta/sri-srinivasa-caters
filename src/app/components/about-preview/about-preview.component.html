@@ -1,16 +1,89 @@
-<section class="about-preview-section">
+<section class="brand-story-section" id="brand-story" aria-label="Brand Story - Sri Srinivasa Caters">
   <div class="container">
-    <div class="about-preview-content">
-      <div class="about-preview-image">
-        <img src="https://images.unsplash.com/photo-1592861956120-e524fc739696?q=80&w=2940&auto=format&fit=crop" alt="Restaurant Interior">
+    
+    <div class="story-grid">
+      
+      <!-- Visual Column (Editorial Arched & Gold Framed) -->
+      <div class="story-visual-column">
+        <div class="story-image-composition">
+          <!-- Main Primary Visual -->
+          <div class="image-frame-primary frame-gold-border">
+            <img
+              src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=2600&auto=format&fit=crop"
+              alt="Traditional South Indian Cooking in Brass Urli"
+              loading="lazy"
+            />
+            <div class="image-overlay-warm"></div>
+          </div>
+          
+          <!-- Secondary Overlapping Visual (Silk Wedding Atmosphere) -->
+          <div class="image-frame-secondary">
+            <img
+              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200&auto=format&fit=crop"
+              alt="South Indian Wedding Mandapam Decor"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Cultural Badge Seal -->
+          <div class="heritage-seal">
+            <div class="seal-icon">
+              <i class="fas fa-crown" aria-hidden="true"></i>
+            </div>
+            <span class="seal-text">HERITAGE CATERING</span>
+          </div>
+
+          <!-- Ambient Light Glow -->
+          <div class="story-glow"></div>
+        </div>
       </div>
-      <div class="about-preview-text">
-        <h2 class="section-title">Discover Our Story</h2>
-        <p class="section-subtitle">
-          Founded with a passion for food and a commitment to excellence, Sri Srinivasa Caters has been serving exquisite culinary creations for over a decade. We blend traditional flavors with modern techniques to deliver a truly unique dining experience.
-        </p>
-        <a routerLink="/about" class="btn btn-secondary">Learn More About Us</a>
+
+      <!-- Narrative Text Column -->
+      <div class="story-text-column">
+        <div class="kicker">
+          <span>OUR SACRED CALLING</span>
+        </div>
+
+        <h2 class="display-title-lg story-heading">
+          More Than Food.<br>
+          <span class="text-gradient-gold">A Tradition We Serve.</span>
+        </h2>
+
+        <div class="story-lead-narrative">
+          <p class="text-lead">
+            At <strong>Sri Srinivasa Caters</strong>, we believe that an auspicious meal is the divine soul of every traditional South Indian wedding.
+          </p>
+          <p>
+            For over two decades, our master chefs have preserved the sacred culinary secrets of Andhra, Tamil, and Karnataka traditions — using unadulterated pure cow ghee, stone-ground masalas, and heirloom techniques to craft feasts that evoke warmth, sanctity, and unforgettable joy.
+          </p>
+        </div>
+
+        <!-- Editorial Quote Accent -->
+        <blockquote class="editorial-quote">
+          “When food is prepared with reverence and served with an open heart, it transforms an occasion into an everlasting blessing.”
+          <cite>Master Chef & Founder, Sri Srinivasa Caters</cite>
+        </blockquote>
+
+        <!-- Heritage Metrics Grid -->
+        <div class="story-stats-grid">
+          <div *ngFor="let stat of stats" class="stat-card">
+            <span class="stat-number">{{ stat.value }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
+            <span class="stat-subtext">{{ stat.subtext }}</span>
+          </div>
+        </div>
+
+        <!-- Action Link -->
+        <div class="story-action-wrapper">
+          <a routerLink="/about" class="btn btn-maroon">
+            <span>DISCOVER OUR FULL STORY</span>
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
       </div>
+
     </div>
+
   </div>
 </section>

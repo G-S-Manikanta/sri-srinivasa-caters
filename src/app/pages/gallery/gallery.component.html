@@ -1,33 +1,72 @@
-<div class="page-header">
-  <h1>Our Gallery</h1>
-</div>
-<section class="gallery-page-section">
-  <div class="container">
-    <div class="filter-buttons">
-      <button *ngFor="let category of categories"
-              [class.active]="category === selectedCategory"
-              (click)="filterImages(category)">
-        {{ category | titlecase }}
-      </button>
-    </div>
+<main class="gallery-page-wrapper">
+  
+  <!-- Page Header -->
+  <section class="page-hero-header section-dark text-center">
+    <div class="container">
+      <div class="kicker kicker-gold">
+        <span>SACRED VISUAL ARCHIVES</span>
+      </div>
+      <h1 class="display-title-xl text-light">
+        Our Visual <span class="text-gradient-gold">Gallery</span>
+      </h1>
+      <div class="divider-gold">
+        <i class="fas fa-camera" aria-hidden="true"></i>
+      </div>
+      <p class="section-subtitle text-light-muted">
+        Witness the grandeur of traditional South Indian mandapams, pristine banana leaf banquets, and authentic culinary moments.
+      </p>
 
-    <div class="gallery-grid">
-      <div class="gallery-item" *ngFor="let image of filteredImages" (click)="openLightbox(image.src)">
-        <img [src]="image.src" [alt]="image.alt">
-        <div class="gallery-item-overlay">
-          <div class="overlay-content">
-            <i class="fas fa-search-plus"></i>
-            <p>{{ image.category | titlecase }}</p>
+      <!-- Category Filter Buttons -->
+      <div class="filter-buttons">
+        <button
+          *ngFor="let category of categories"
+          type="button"
+          class="btn-pill"
+          [class.active]="category === selectedCategory"
+          (click)="filterImages(category)"
+        >
+          {{ category | titlecase }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid Section -->
+  <section class="gallery-page-section section-warm">
+    <div class="container">
+      
+      <div class="gallery-grid">
+        <div
+          class="gallery-item"
+          *ngFor="let image of filteredImages"
+          (click)="openLightbox(image.src, image.alt)"
+          tabindex="0"
+          role="button"
+          [attr.aria-label]="image.alt"
+        >
+          <div class="gallery-img-wrap frame-gold-border">
+            <img [src]="image.src" [alt]="image.alt" loading="lazy">
+            <div class="gallery-item-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                <p>{{ image.alt }}</p>
+                <span class="badge-cultural">{{ image.category | uppercase }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" *ngIf="selectedImage" (click)="closeLightbox()">
+    <button class="close-btn" (click)="closeLightbox()" aria-label="Close Lightbox">&times;</button>
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <img [src]="selectedImage" [alt]="selectedAlt">
+      <p class="lightbox-caption">{{ selectedAlt }}</p>
     </div>
   </div>
 
-  <div class="lightbox" *ngIf="selectedImage" (click)="closeLightbox()">
-    <span class="close-btn" (click)="closeLightbox()">&times;</span>
-    <div class="lightbox-content">
-      <img [src]="selectedImage" alt="Lightbox image">
-    </div>
-  </div>
-</section>
+</main>

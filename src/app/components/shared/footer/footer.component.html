@@ -1,51 +1,110 @@
-<footer class="footer-container">
-  <div class="footer-content">
-    <div class="footer-section about">
-      <h2 class="logo-text">
-        <img src="assets/sri_srinivasa_caters_logo.png" alt="Sri Srinivasa Caters logo">
-        <span>Sri Srinivasa </span> Caters
-      </h2>
-      <p>
-        We are dedicated to providing the most memorable culinary experiences for your events. Our team of expert chefs and event planners work tirelessly to ensure every detail is perfect.
-      </p>
-      <div class="contact-info">
-        <span><i class="fas fa-phone"></i> &nbsp; (123) 456-7890</span>
-        <span><i class="fas fa-envelope"></i> &nbsp; contact@authanacaters.com</span>
+<footer class="heritage-footer" aria-label="Footer">
+  <div class="container">
+    <div class="footer-main-grid">
+      
+      <!-- Brand & Mission Column -->
+      <div class="footer-col brand-col">
+        <div class="footer-logo-box">
+          <img src="assets/sri_srinivasa_caters_logo.png" alt="Sri Srinivasa Caters Emblem" class="footer-logo">
+          <div class="footer-brand-title">
+            <h3>Sri Srinivasa</h3>
+            <span>GRAND WEDDING CATERING</span>
+          </div>
+        </div>
+        
+        <p class="footer-brand-desc">
+          Crafting sacred South Indian culinary celebrations with 100% pure cow ghee, stone-ground masalas, and reverent banana leaf hospitality for over 25 years.
+        </p>
+
+        <div class="footer-heritage-badge">
+          <i class="fas fa-certificate"></i>
+          <span>Pure Vegetarian Vedic Culinary Sanctity</span>
+        </div>
       </div>
-      <div class="social-links">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Navigation</h4>
+        <ul class="footer-links-list">
+          <li><a routerLink="/"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a routerLink="/about"><i class="fas fa-chevron-right"></i> Our Heritage</a></li>
+          <li><a routerLink="/services"><i class="fas fa-chevron-right"></i> Catering Services</a></li>
+          <li><a routerLink="/menu"><i class="fas fa-chevron-right"></i> Authentic Menu</a></li>
+          <li><a routerLink="/gallery"><i class="fas fa-chevron-right"></i> Visual Gallery</a></li>
+          <li><a routerLink="/testimonials"><i class="fas fa-chevron-right"></i> Client Reviews</a></li>
+          <li><a routerLink="/contact"><i class="fas fa-chevron-right"></i> Contact & Booking</a></li>
+        </ul>
+      </div>
+
+      <!-- Services List -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Our Services</h4>
+        <ul class="footer-links-list">
+          <li><a routerLink="/services"><i class="fas fa-chevron-right"></i> Wedding Muhurtham Feasts</a></li>
+          <li><a routerLink="/services"><i class="fas fa-chevron-right"></i> Banana Leaf Virundhu</a></li>
+          <li><a routerLink="/services"><i class="fas fa-chevron-right"></i> Gruhapravesam (Housewarming)</a></li>
+          <li><a routerLink="/services"><i class="fas fa-chevron-right"></i> Engagements & Receptions</a></li>
+          <li><a routerLink="/services"><i class="fas fa-chevron-right"></i> Shashtipoorthi Milestones</a></li>
+          <li><a routerLink="/services"><i class="fas fa-chevron-right"></i> Satvik Temple Pujas</a></li>
+          <li><a routerLink="/services"><i class="fas fa-chevron-right"></i> Live Tiffin & Kaapi Counters</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Booking -->
+      <div class="footer-col contact-col">
+        <h4 class="footer-col-title">Booking Office</h4>
+        <ul class="footer-contact-details">
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <span class="contact-label">Direct Line</span>
+              <a href="tel:+919876543210" class="contact-val">+91 98765 43210</a>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <div>
+              <span class="contact-label">Email Inquiries</span>
+              <a href="mailto:contact@srisrinivasacaters.com" class="contact-val">contact&#64;srisrinivasacaters.com</a>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <span class="contact-label">Catering Locations</span>
+              <span class="contact-val">Chennai, Bangalore, Hyderabad & All South India</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="footer-social-strip">
+          <a href="#" aria-label="Facebook" class="social-icon-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram" class="social-icon-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube" class="social-icon-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="WhatsApp" class="social-icon-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Legal -->
+    <div class="footer-bottom-bar">
+      <div class="divider-gold">
+        <i class="fas fa-om" aria-hidden="true"></i>
+      </div>
+      <div class="bottom-flex">
+        <p class="copyright-text">
+          &copy; 2026 <strong>Sri Srinivasa Caters</strong>. All Rights Reserved. Crafted with devotion and authentic South Indian hospitality.
+        </p>
+        <div class="footer-legal-links">
+          <a routerLink="/contact">Inquiries</a>
+          <span class="sep">•</span>
+          <a routerLink="/about">Heritage</a>
+          <span class="sep">•</span>
+          <a routerLink="/menu">Menu</a>
+        </div>
       </div>
     </div>
 
-    <div class="footer-section links">
-      <h2>Quick Links</h2>
-      <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/about">About Us</a></li>
-        <li><a routerLink="/services">Services</a></li>
-        <li><a routerLink="/menu">Menu</a></li>
-        <li><a routerLink="/gallery">Gallery</a></li>
-        <li><a routerLink="/testimonials">Testimonials</a></li>
-        <li><a routerLink="/contact">Contact Us</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section contact-form-section">
-      <h2>Get in Touch</h2>
-      <form>
-        <input type="email" name="email" class="text-input" placeholder="Your email address...">
-        <textarea rows="4" name="message" class="text-input" placeholder="Your message..."></textarea>
-        <button type="submit" class="btn-submit">
-          <i class="fas fa-paper-plane"></i> Send
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    &copy; 2026 Sri Srinivasa Caters | All Rights Reserved.
   </div>
 </footer>

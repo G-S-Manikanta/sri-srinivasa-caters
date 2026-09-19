@@ -1,8 +1,90 @@
-<section class="hero-container">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">Experience Culinary Excellence</h1>
-    <p class="hero-subtitle">Creating unforgettable memories, one plate at a time.</p>
-    <button class="btn-primary" routerLink="/contact">Book an Event</button>
+<section class="hero-viewport" aria-label="Hero Section - Sri Srinivasa Caters">
+  <!-- 1. HTML5 Video Background Layer with Cinematic Overlay -->
+  <div class="video-container" [class.is-ready]="videoLoaded">
+    <video
+      #bgVideo
+      class="bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=2600&auto=format&fit=crop"
+    >
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-traditional-indian-wedding-festivities-43181-large.mp4" type="video/mp4">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-traditional-indian-wedding-ceremony-43180-large.mp4" type="video/mp4">
+      <!-- Fallback image if video is unsupported -->
+      <img
+        src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=2600&auto=format&fit=crop"
+        alt="Traditional South Indian Wedding Feast"
+        class="bg-poster-fallback"
+      />
+    </video>
+
+    <!-- Multi-Layer Atmospheric Lighting & Vignette Overlays -->
+    <div class="hero-overlay-dark"></div>
+    <div class="hero-overlay-gold-glow"></div>
+    <div class="hero-bottom-blend"></div>
+  </div>
+
+  <!-- 2. Central Editorial Content Flow (Directly Over Video) -->
+  <div class="hero-content-wrapper">
+    <div class="container hero-container">
+      
+      <!-- Sequence 2: Logo Medallion -->
+      <div class="hero-logo-box animate-logo">
+        <div class="logo-aura"></div>
+        <img
+          src="assets/sri_srinivasa_caters_logo.png"
+          alt="Sri Srinivasa Caters Emblem"
+          class="hero-logo"
+        />
+      </div>
+
+      <!-- Sequence 2b: Brand Kicker -->
+      <div class="hero-kicker-box animate-kicker">
+        <span class="hero-kicker">
+          <span class="kicker-line"></span>
+          SRI SRINIVASA CATERS
+          <span class="kicker-line"></span>
+        </span>
+      </div>
+
+      <!-- Sequence 3: Masked Clip-Path Headline -->
+      <h1 class="hero-headline">
+        <span class="mask-wrapper">
+          <span class="reveal-text animate-headline-1">A Feast Rooted</span>
+        </span>
+        <span class="mask-wrapper">
+          <span class="reveal-text text-gradient-gold animate-headline-2">in Tradition</span>
+        </span>
+      </h1>
+
+      <!-- Sequence 4: Upward Narrative Description -->
+      <p class="hero-description animate-description">
+        Authentic South Indian vegetarian cuisine, prepared with tradition and served with warmth.
+      </p>
+
+      <!-- Sequence 5: Action Buttons -->
+      <div class="hero-actions animate-actions">
+        <a routerLink="/menu" class="btn btn-gold btn-hero">
+          <span>EXPLORE OUR MENU</span>
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a routerLink="/contact" class="btn btn-outline-gold btn-hero">
+          <span>PLAN YOUR EVENT</span>
+          <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Sequence 6: Editorial Scroll Indicator -->
+  <div class="hero-scroll-indicator animate-scroll-indicator" (click)="scrollToNext()" role="button" tabindex="0" aria-label="Scroll down to explore catering experience">
+    <span class="scroll-text">SCROLL TO DISCOVER</span>
+    <div class="scroll-line-container">
+      <div class="scroll-line-glow"></div>
+    </div>
   </div>
 </section>

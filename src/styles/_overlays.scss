@@ -1,0 +1,132 @@
+// =============================================================================
+// SRI SRINIVASA CATERS - CINEMATIC OVERLAYS & IMAGE FRAMES
+// Mood-Setting Gradients, Vignettes & Motion-Ready Media Frames
+// =============================================================================
+
+// 1. Cinematic Gradient Overlays
+.overlay-cinematic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 14, 13, 0.45) 0%,
+    rgba(72, 7, 19, 0.55) 45%,
+    rgba(18, 14, 13, 0.88) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+// 2. Warm Gold Ambiance Overlay
+.overlay-warm-gold {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(212, 175, 55, 0.15) 0%,
+    rgba(72, 7, 19, 0.6) 70%,
+    rgba(18, 14, 13, 0.92) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+// 3. Dark Teak & Silk Vignette
+.overlay-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(18, 14, 13, 0.75) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+// 4. Subtle Ambient Glow Mesh
+.ambient-gold-glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, rgba(197, 160, 89, 0) 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-maroon-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(90, 9, 24, 0.18) 0%, rgba(90, 9, 24, 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+// 5. Editorial Image Frames with Zoom & Aura
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-warm);
+
+  img, video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--dur-slow) var(--ease-editorial), filter var(--dur-normal) var(--ease-editorial);
+    transform: scale(1.002);
+  }
+
+  &:hover img,
+  &:hover video {
+    transform: scale(1.05);
+  }
+
+  // Regal Hairline Gold Border on Media Frames
+  &.frame-gold-border {
+    border: 1px solid var(--color-border-gold);
+    box-shadow: var(--shadow-gold);
+  }
+
+  &.frame-arched {
+    border-radius: 200px 200px var(--radius-md) var(--radius-md);
+  }
+}
+
+// Aspect Ratio Helper Containers
+.aspect-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-hero {
+  min-height: min(100vh, 880px);
+  height: auto;
+}
+

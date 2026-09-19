@@ -1,34 +1,95 @@
-<nav class="navbar" [class.sticky]="isSticky">
+<header class="navbar-header" [class.sticky]="isSticky" [class.menu-open]="isMenuOpen">
   <div class="navbar-container">
-    <a routerLink="/" class="navbar-logo" (click)="closeMobileMenu()">
-      <img src="assets/sri_srinivasa_caters_logo.png" alt="Sri Srinivasa Caters logo">
-      Sri Srinivasa Caters
+    
+    <!-- Brand Logo -->
+    <a routerLink="/" class="navbar-logo" (click)="closeMobileMenu()" aria-label="Sri Srinivasa Caters Home">
+      <img src="assets/sri_srinivasa_caters_logo.png" alt="Sri Srinivasa Caters Emblem" class="logo-image">
+      <span class="logo-text-wrap">
+        <span class="logo-name">Sri Srinivasa</span>
+        <span class="logo-tagline">CATERS</span>
+      </span>
     </a>
-    <div class="menu-icon" (click)="toggleMenu()">
-      <i [ngClass]="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+
+    <!-- Desktop Navigation Menu -->
+    <nav class="nav-menu-desktop" aria-label="Main Navigation">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/about" routerLinkActive="active-link" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/services" routerLinkActive="active-link" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/menu" routerLinkActive="active-link" class="nav-link">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/gallery" routerLinkActive="active-link" class="nav-link">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/testimonials" routerLinkActive="active-link" class="nav-link">Testimonials</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contact" routerLinkActive="active-link" class="nav-link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header Action Button (Desktop) -->
+    <div class="nav-cta-wrapper">
+      <a routerLink="/contact" class="btn btn-gold btn-header-cta">
+        <span>BOOK EVENT</span>
+        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+      </a>
     </div>
-    <ul class="nav-menu" [ngClass]="{ active: isMenuOpen }">
-      <li class="nav-item">
-        <a routerLink="/" class="nav-links" (click)="closeMobileMenu()">Home</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/about" class="nav-links" (click)="closeMobileMenu()">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/services" class="nav-links" (click)="closeMobileMenu()">Services</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/menu" class="nav-links" (click)="closeMobileMenu()">Menu</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/gallery" class="nav-links" (click)="closeMobileMenu()">Gallery</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/testimonials" class="nav-links" (click)="closeMobileMenu()">Testimonials</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/contact" class="nav-links" (click)="closeMobileMenu()">Contact Us</a>
-      </li>
-    </ul>
+
+    <!-- Mobile Hamburger Button -->
+    <button
+      type="button"
+      class="mobile-toggle-btn"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-label="Toggle Navigation Menu"
+    >
+      <span class="hamburger-bar top" [class.open]="isMenuOpen"></span>
+      <span class="hamburger-bar middle" [class.open]="isMenuOpen"></span>
+      <span class="hamburger-bar bottom" [class.open]="isMenuOpen"></span>
+    </button>
+
   </div>
-</nav>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-drawer" [class.active]="isMenuOpen" (click)="closeMobileMenu()">
+    <div class="drawer-content" (click)="$event.stopPropagation()">
+      <div class="drawer-header">
+        <span class="drawer-brand">Sri Srinivasa Caters</span>
+        <span class="drawer-sub">Authentic South Indian Feasts</span>
+      </div>
+
+      <nav class="drawer-nav">
+        <ul class="drawer-list">
+          <li><a routerLink="/" routerLinkActive="drawer-active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()"><i class="fas fa-home"></i> Home</a></li>
+          <li><a routerLink="/about" routerLinkActive="drawer-active" (click)="closeMobileMenu()"><i class="fas fa-book-open"></i> About Us</a></li>
+          <li><a routerLink="/services" routerLinkActive="drawer-active" (click)="closeMobileMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
+          <li><a routerLink="/menu" routerLinkActive="drawer-active" (click)="closeMobileMenu()"><i class="fas fa-utensils"></i> Menu</a></li>
+          <li><a routerLink="/gallery" routerLinkActive="drawer-active" (click)="closeMobileMenu()"><i class="fas fa-images"></i> Gallery</a></li>
+          <li><a routerLink="/testimonials" routerLinkActive="drawer-active" (click)="closeMobileMenu()"><i class="fas fa-star"></i> Testimonials</a></li>
+          <li><a routerLink="/contact" routerLinkActive="drawer-active" (click)="closeMobileMenu()"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="drawer-footer">
+        <a routerLink="/contact" class="btn btn-gold btn-block" (click)="closeMobileMenu()">
+          <span>PLAN YOUR FEAST</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="drawer-contact-info">
+          <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+          <p><i class="fas fa-map-marker-alt"></i> Tamil Nadu & Andhra Pradesh</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

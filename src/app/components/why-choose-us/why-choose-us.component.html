@@ -1,28 +1,39 @@
-<section class="why-choose-us-section">
+<section class="homemade-specialties-section" id="homemade-specialties" aria-label="Homemade Specialties">
   <div class="container">
-    <h2 class="section-title text-center">Why Choose Sri Srinivasa Caters?</h2>
-    <div class="features-grid">
-      <div class="feature-item">
-        <div class="feature-icon">
-          <i class="fas fa-leaf"></i>
-        </div>
-        <h3 class="feature-title">Finest Ingredients</h3>
-        <p>We believe that great food starts with great ingredients. We are committed to sourcing the freshest, local, and seasonal produce for our dishes.</p>
+    
+    <!-- Section Header -->
+    <div class="section-header text-center">
+      <div class="kicker">
+        <span>OUR CULINARY PROMISE</span>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon">
-          <i class="fas fa-star"></i>
-        </div>
-        <h3 class="feature-title">Culinary Expertise</h3>
-        <p>Our team of talented chefs brings a wealth of experience and creativity to the table, crafting menus that are both innovative and delicious.</p>
+      <h2 class="display-title-xl">
+        Made Like Home. <br>
+        <span class="text-gradient-maroon">Served With Pride.</span>
+      </h2>
+      <div class="divider-gold">
+        <i class="fas fa-heart" aria-hidden="true"></i>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon">
-          <i class="fas fa-handshake"></i>
+      <p class="section-subtitle">
+        We treat every catering event as if cooking for our own family. Discover the three sacred pillars that set Sri Srinivasa Caters apart.
+      </p>
+    </div>
+
+    <!-- 3 Editorial Specialty Cards with Close-Up Imagery -->
+    <div class="specialties-grid">
+      <div *ngFor="let item of specialties" class="specialty-editorial-card">
+        <div class="specialty-image-wrapper frame-gold-border">
+          <img [src]="item.image" [alt]="item.title" loading="lazy" />
+          <div class="specialty-overlay"></div>
+          <span class="specialty-badge">{{ item.badge }}</span>
+          <span class="specialty-numeral">{{ item.id }}</span>
         </div>
-        <h3 class="feature-title">Exceptional Service</h3>
-        <p>We are dedicated to providing a seamless and stress-free experience. Our professional staff will ensure your event is a resounding success.</p>
+        
+        <div class="specialty-body">
+          <h3 class="specialty-title">{{ item.title }}</h3>
+          <p class="specialty-desc">{{ item.desc }}</p>
+        </div>
       </div>
     </div>
+
   </div>
 </section>

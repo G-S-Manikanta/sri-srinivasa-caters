@@ -1,0 +1,112 @@
+// =============================================================================
+// SRI SRINIVASA CATERS - TESTIMONIALS PAGE
+// =============================================================================
+
+.page-hero-header {
+  padding: clamp(6.5rem, 11vw, 9.5rem) 0 clamp(3.5rem, 6vw, 5rem);
+  background: linear-gradient(180deg, rgba(18, 14, 13, 0.95) 0%, rgba(56, 7, 15, 0.9) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-list-section {
+  padding: clamp(5rem, 8vw, 8rem) 0;
+}
+
+.reviews-vertical-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.review-story-card {
+  padding: clamp(2rem, 4vw, 3rem);
+  background: #FFFFFF;
+}
+
+.review-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+
+  .review-stars {
+    color: var(--color-gold-bright);
+    display: flex;
+    gap: 4px;
+    font-size: 1rem;
+  }
+}
+
+.review-body-quote {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--color-maroon-900);
+  margin: 0 0 1.5rem;
+}
+
+.review-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(107, 15, 26, 0.1);
+
+  .reviewer-name {
+    font-family: var(--font-family-display);
+    font-size: 1.3rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-maroon-800);
+    margin: 0 0 2px;
+  }
+
+  .reviewer-role {
+    font-size: 0.825rem;
+    color: var(--color-gold-700);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .event-venue-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+
+    i {
+      color: var(--color-maroon-700);
+      margin-right: 4px;
+    }
+  }
+}
+
+.testimonials-cta {
+  padding: clamp(5rem, 8vw, 7rem) 0;
+
+  .test-cta-btns {
+    margin-top: 1.75rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .review-footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .event-venue-meta {
+      align-items: flex-start;
+    }
+  }
+}
+

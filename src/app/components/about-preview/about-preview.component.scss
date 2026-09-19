@@ -1,47 +1,229 @@
-.about-preview-section {
-  padding: 100px 0;
-  background-color: var(--secondary-color);
+// =============================================================================
+// SRI SRINIVASA CATERS - BRAND STORY (Section 1)
+// Editorial Split Layout + Layered Media Frames + Heritage Metrics
+// =============================================================================
+
+.brand-story-section {
+  background-color: var(--color-bg-warm);
+  padding: clamp(5rem, 8vw, 8rem) 0;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(90, 9, 24, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
 }
 
-.about-preview-content {
+.story-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
   align-items: center;
 }
 
-.about-preview-image img {
+// -----------------------------------------------------------------------------
+// 1. VISUAL COLUMN WITH OVERLAPPING FRAMES
+// -----------------------------------------------------------------------------
+.story-visual-column {
+  position: relative;
+}
+
+.story-image-composition {
+  position: relative;
   width: 100%;
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
+  max-width: 520px;
+  margin: 0 auto;
 }
 
-.section-title {
-  text-align: left;
+.image-frame-primary {
+  width: 85%;
+  aspect-ratio: 4 / 5;
+  border-radius: 180px 180px var(--radius-md) var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 40px rgba(48, 5, 13, 0.2);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-editorial);
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
 }
 
-.section-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-color);
-  margin-bottom: 30px;
+.image-overlay-warm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 40%, rgba(18, 14, 13, 0.6) 100%);
+  pointer-events: none;
 }
 
-@media screen and (max-width: 960px) {
-  .about-preview-content {
+.image-frame-secondary {
+  position: absolute;
+  bottom: -24px;
+  right: 0;
+  width: 52%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 4px solid #FFFFFF;
+  box-shadow: 0 16px 36px rgba(48, 5, 13, 0.25);
+  z-index: 2;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-editorial);
+  }
+
+  &:hover img {
+    transform: scale(1.08);
+  }
+}
+
+.heritage-seal {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  background: #FFFFFF;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-gold);
+  box-shadow: var(--shadow-gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+
+  .seal-icon {
+    color: var(--color-gold-700);
+    font-size: 0.9rem;
+  }
+
+  .seal-text {
+    font-family: var(--font-family-body);
+    font-size: 0.685rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.15em;
+    color: var(--color-maroon-800);
+    text-transform: uppercase;
+  }
+}
+
+.story-glow {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+  filter: blur(35px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+// -----------------------------------------------------------------------------
+// 2. NARRATIVE TEXT COLUMN
+// -----------------------------------------------------------------------------
+.story-heading {
+  color: var(--color-maroon-800);
+  margin-bottom: var(--space-md);
+}
+
+.story-lead-narrative {
+  margin-bottom: var(--space-md);
+
+  p {
+    margin-bottom: var(--space-sm);
+  }
+}
+
+.story-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: var(--space-lg) 0;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(107, 15, 26, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform var(--dur-fast) var(--ease-editorial), box-shadow var(--dur-fast) var(--ease-editorial);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-subtle);
+    border-color: var(--color-gold);
+  }
+
+  .stat-number {
+    display: block;
+    font-family: var(--font-family-display);
+    font-size: 1.85rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-maroon-700);
+    line-height: 1.1;
+    margin-bottom: 2px;
+  }
+
+  .stat-label {
+    display: block;
+    font-family: var(--font-family-body);
+    font-size: 0.825rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+  }
+
+  .stat-subtext {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+}
+
+.story-action-wrapper {
+  margin-top: var(--space-md);
+}
+
+// -----------------------------------------------------------------------------
+// 3. RESPONSIVE BEHAVIOR
+// -----------------------------------------------------------------------------
+@media (max-width: 960px) {
+  .story-grid {
     grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  .about-preview-text {
-    text-align: center;
+  .story-image-composition {
+    max-width: 420px;
   }
+}
 
-  .section-title {
-    text-align: center;
-  }
-
-  .about-preview-image {
-    order: -1;
-    margin-bottom: 40px;
+@media (max-width: 600px) {
+  .story-stats-grid {
+    grid-template-columns: 1fr;
   }
 }

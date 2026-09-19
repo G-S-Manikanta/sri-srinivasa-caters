@@ -1,32 +1,85 @@
-<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+<form class="contact-form card-editorial" action="https://api.web3forms.com/submit" method="POST">
   <input type="hidden" name="access_key" value="801abe3a-94f4-40c6-9858-e8b5c6b0909a">
-  <input type="hidden" name="subject" value="New catering inquiry">
+  <input type="hidden" name="subject" value="New Catering Inquiry - Sri Srinivasa Caters">
+  <input type="hidden" name="from_name" value="Sri Srinivasa Caters Website">
 
   <div class="form-intro">
-    <span class="form-kicker">Start planning</span>
-    <h4>Tell us about your event</h4>
-    <p>Share a few details and our team will get back to you shortly.</p>
+    <span class="kicker kicker-gold">PLAN YOUR FEAST</span>
+    <h3 class="form-title">Tell Us About Your Celebration</h3>
+    <p class="form-subtitle">Share your event details and our banquet manager will get in touch within 24 hours.</p>
   </div>
 
   <div class="form-grid">
+    
+    <!-- Name -->
     <div class="form-group">
-      <label for="name">Your name</label>
-      <input class="form-control" type="text" id="name" name="name" required placeholder="Jane Smith" autocomplete="name">
+      <label for="name">Your Full Name *</label>
+      <input class="form-control" type="text" id="name" name="name" required placeholder="Sri. / Smt. Ramesh Kumar" autocomplete="name">
     </div>
 
+    <!-- Phone -->
     <div class="form-group">
-      <label for="email">Email address</label>
-      <input class="form-control" type="email" id="email" name="email" required placeholder="jane@example.com" autocomplete="email">
+      <label for="phone">Phone Number *</label>
+      <input class="form-control" type="tel" id="phone" name="phone" required placeholder="+91 98765 43210" autocomplete="tel">
     </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input class="form-control" type="email" id="email" name="email" required placeholder="ramesh@example.com" autocomplete="email">
+    </div>
+
+    <!-- Event Type -->
+    <div class="form-group">
+      <label for="event_type">Auspicious Occasion *</label>
+      <select class="form-control" id="event_type" name="event_type" required>
+        <option value="" disabled selected>Select Occasion</option>
+        <option value="Wedding Muhurtham & Reception">Wedding Muhurtham & Reception</option>
+        <option value="Traditional Banana Leaf Feast">Traditional Banana Leaf Feast</option>
+        <option value="Gruhapravesam (Housewarming)">Gruhapravesam (Housewarming)</option>
+        <option value="Engagement (Nischithartham)">Engagement (Nischithartham)</option>
+        <option value="60th Shashtipoorthi / Sathabhishekam">60th Shashtipoorthi / Sathabhishekam</option>
+        <option value="Religious Puja / Satvik Utsavam">Religious Puja / Satvik Utsavam</option>
+        <option value="Corporate Gala / Executive Lunch">Corporate Gala / Executive Lunch</option>
+        <option value="Other Auspicious Celebration">Other Auspicious Celebration</option>
+      </select>
+    </div>
+
+    <!-- Event Date -->
+    <div class="form-group">
+      <label for="event_date">Event Date *</label>
+      <input class="form-control" type="date" id="event_date" name="event_date" required>
+    </div>
+
+    <!-- Guest Count -->
+    <div class="form-group">
+      <label for="guest_count">Estimated Guest Count *</label>
+      <select class="form-control" id="guest_count" name="guest_count" required>
+        <option value="" disabled selected>Select Expected Guests</option>
+        <option value="50 - 200 Guests">50 - 200 Guests</option>
+        <option value="200 - 500 Guests">200 - 500 Guests</option>
+        <option value="500 - 1,000 Guests">500 - 1,000 Guests</option>
+        <option value="1,000 - 3,000 Guests">1,000 - 3,000 Guests</option>
+        <option value="3,000+ Grand Banquet">3,000+ Grand Banquet</option>
+      </select>
+    </div>
+
+    <!-- City / Venue -->
+    <div class="form-group full-width">
+      <label for="venue_city">Event City / Hall Name</label>
+      <input class="form-control" type="text" id="venue_city" name="venue_city" placeholder="e.g. Chennai, Bangalore, Hyderabad or Venue Hall Name">
+    </div>
+
+    <!-- Message / Dietary Requirements -->
+    <div class="form-group full-width">
+      <label for="message">Menu Preferences & Special Requests</label>
+      <textarea class="form-control" id="message" name="message" rows="4" placeholder="Tell us your desired regional cuisines (Andhra, Tamil, Karnataka), dietary needs (No Onion-Garlic, Pure Cow Ghee, Jain), or specific favorite dishes..."></textarea>
+    </div>
+
   </div>
 
-  <div class="form-group">
-    <label for="message">How can we help?</label>
-    <textarea class="form-control" id="message" name="message" required placeholder="Tell us about your date, guest count, and menu ideas..."></textarea>
-  </div>
-
-  <button class="btn-submit" type="submit">
-    Send inquiry
-    <span aria-hidden="true">&#8594;</span>
+  <button class="btn btn-gold btn-hero btn-submit" type="submit">
+    <span>SUBMIT CATERING INQUIRY</span>
+    <i class="fas fa-paper-plane" aria-hidden="true"></i>
   </button>
 </form>

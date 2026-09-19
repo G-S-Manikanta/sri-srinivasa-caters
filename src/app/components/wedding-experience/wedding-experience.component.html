@@ -1,0 +1,64 @@
+<section class="wedding-experience-section section-dark" id="wedding-experience" aria-label="Wedding Catering Experience">
+  
+  <!-- Atmospheric Fullscreen Video/Visual Background -->
+  <div class="wedding-bg-layer">
+    <img
+      src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2600&auto=format&fit=crop"
+      alt="Grand South Indian Wedding Mandapam Decor"
+      class="wedding-bg-img"
+      loading="lazy"
+    />
+    <div class="wedding-overlay-silk"></div>
+    <div class="wedding-overlay-gold"></div>
+  </div>
+
+  <div class="container wedding-content-container">
+    
+    <div class="wedding-editorial-box">
+      <div class="kicker kicker-gold">
+        <span>SACRED MUHURTHAM SPECIALISTS</span>
+      </div>
+
+      <h2 class="display-title-xl wedding-title">
+        For Celebrations That <br>
+        <span class="text-gradient-gold">Deserve a Feast</span>
+      </h2>
+
+      <div class="divider-gold">
+        <i class="fas fa-ring" aria-hidden="true"></i>
+      </div>
+
+      <p class="wedding-lead-text">
+        A South Indian wedding is a once-in-a-lifetime milestone. We turn every dining hall into a grand royal banquet where guests are treated as family and every morsel is celebrated.
+      </p>
+
+      <!-- 4 Wedding Pillars Grid -->
+      <div class="wedding-highlights-grid">
+        <div *ngFor="let item of weddingHighlights" class="wedding-hl-card">
+          <div class="hl-bullet-icon">
+            <i class="fas fa-award" aria-hidden="true"></i>
+          </div>
+          <div class="hl-content">
+            <h3 class="hl-title">{{ item.title }}</h3>
+            <p class="hl-desc">{{ item.desc }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wedding Action Buttons -->
+      <div class="wedding-actions">
+        <a routerLink="/contact" class="btn btn-gold btn-hero">
+          <span>SCHEDULE WEDDING TASTING</span>
+          <i class="fas fa-calendar-check" aria-hidden="true"></i>
+        </a>
+        <a routerLink="/menu" class="btn btn-outline-gold btn-hero">
+          <span>EXPLORE WEDDING MENUS</span>
+          <i class="fas fa-utensils" aria-hidden="true"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+

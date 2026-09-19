@@ -1,1 +1,126 @@
-<p>about-us works!</p>
+<main class="about-page-wrapper">
+  
+  <!-- Page Hero Header -->
+  <section class="page-hero-header section-dark">
+    <div class="container text-center">
+      <div class="kicker kicker-gold">
+        <span>OUR SACRED HERITAGE</span>
+      </div>
+      <h1 class="display-title-xl text-light">
+        A Legacy of <span class="text-gradient-gold">Auspicious Feasts</span>
+      </h1>
+      <div class="divider-gold">
+        <i class="fas fa-om" aria-hidden="true"></i>
+      </div>
+      <p class="section-subtitle text-light-muted">
+        For over 25 years, Sri Srinivasa Caters has been the heart of South Indian wedding celebrations, transforming sacred occasions into divine culinary memories.
+      </p>
+    </div>
+  </section>
+
+  <!-- Narrative Split Story Section -->
+  <section class="about-narrative-section section-warm">
+    <div class="container">
+      <div class="editorial-split">
+        <div class="narrative-text">
+          <div class="kicker">
+            <span>THE ESSENCE OF OUR CRAFT</span>
+          </div>
+          <h2 class="display-title-lg">
+            Where Tradition Meets Devotion
+          </h2>
+          <p class="text-lead">
+            Food at a South Indian wedding is not merely a meal; it is a sacred offering of gratitude, happiness, and family pride.
+          </p>
+          <p>
+            Rooted in the rich cultural tapestries of Andhra Pradesh, Tamil Nadu, Karnataka, and Kerala, Sri Srinivasa Caters was founded with a singular commitment: to honor the age-old Vedic culinary traditions without compromise.
+          </p>
+          <p>
+            From boiling the morning's first decoction for degree filter coffee to the final sweet swirl of warm payasam at the wedding reception, our team approaches every dish with devotion and deep culinary mastery.
+          </p>
+
+          <blockquote class="editorial-quote">
+            “Our kitchen is our temple, and every guest is our revered deity.”
+            <cite>Founding Philosophy</cite>
+          </blockquote>
+        </div>
+
+        <div class="narrative-visual">
+          <div class="image-frame frame-gold-border aspect-4-3">
+            <img
+              src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=2600&auto=format&fit=crop"
+              alt="Traditional South Indian Brass Vessel Cooking"
+              loading="lazy"
+            />
+            <div class="image-overlay-warm"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Pillars of Vedic Sanctity -->
+  <section class="about-values-section section-silk">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="kicker kicker-gold">
+          <span>OUR CORE PILLARS</span>
+        </div>
+        <h2 class="display-title-lg">
+          The Foundations of <span class="text-gradient-maroon">Sri Srinivasa</span>
+        </h2>
+        <div class="divider-gold">
+          <i class="fas fa-gem" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <div *ngFor="let val of values" class="value-editorial-card">
+          <div class="value-icon">
+            <i [class]="val.icon" aria-hidden="true"></i>
+          </div>
+          <h3 class="value-title">{{ val.title }}</h3>
+          <p class="value-desc">{{ val.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Timeline -->
+  <section class="about-timeline-section section-dark">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="kicker kicker-gold">
+          <span>THE EXPEDITION</span>
+        </div>
+        <h2 class="display-title-lg text-light">
+          Milestones Across <span class="text-gradient-gold">Generations</span>
+        </h2>
+        <div class="divider-gold">
+          <i class="fas fa-history" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="timeline-grid">
+        <div *ngFor="let step of timeline" class="timeline-card">
+          <span class="timeline-year">{{ step.year }}</span>
+          <h3 class="timeline-title">{{ step.title }}</h3>
+          <p class="timeline-desc">{{ step.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="about-cta-section section-warm text-center">
+    <div class="container">
+      <h2 class="display-title-lg">Experience Our Culinary Craft</h2>
+      <p class="section-subtitle">We invite couples and families to schedule an exclusive menu tasting and consultation.</p>
+      <div class="about-cta-btns">
+        <a routerLink="/contact" class="btn btn-gold">Plan Your Wedding Feast</a>
+        <a routerLink="/menu" class="btn btn-outline-maroon">Browse Complete Menu</a>
+      </div>
+    </div>
+  </section>
+
+</main>

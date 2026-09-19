@@ -1,0 +1,139 @@
+// =============================================================================
+// SRI SRINIVASA CATERS - ABOUT US PAGE
+// Heritage Page Header + Editorial Narrative + Values Grid + Timeline
+// =============================================================================
+
+.page-hero-header {
+  padding: clamp(6.5rem, 11vw, 9.5rem) 0 clamp(3.5rem, 6vw, 5rem);
+  background: linear-gradient(180deg, rgba(18, 14, 13, 0.95) 0%, rgba(56, 7, 15, 0.9) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-narrative-section {
+  padding: clamp(5rem, 8vw, 8rem) 0;
+}
+
+.about-values-section {
+  padding: clamp(5rem, 8vw, 8rem) 0;
+}
+
+.value-editorial-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid var(--color-border-light);
+  transition: all var(--dur-normal) var(--ease-editorial);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-border-gold);
+
+    .value-icon {
+      background: var(--color-maroon-700);
+      color: var(--color-gold-bright);
+    }
+  }
+
+  .value-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-warm);
+    color: var(--color-maroon-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    transition: all var(--dur-fast) var(--ease-editorial);
+  }
+
+  .value-title {
+    font-family: var(--font-family-display);
+    font-size: 1.35rem;
+    color: var(--color-maroon-800);
+    margin: 0 0 0.5rem;
+  }
+
+  .value-desc {
+    font-size: 0.885rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.about-timeline-section {
+  padding: clamp(5.5rem, 9vw, 9rem) 0;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.timeline-card {
+  background: rgba(37, 31, 28, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  transition: all var(--dur-fast) var(--ease-editorial);
+
+  &:hover {
+    background: rgba(37, 31, 28, 0.95);
+    border-color: var(--color-gold-bright);
+    transform: translateY(-4px);
+  }
+
+  .timeline-year {
+    display: inline-block;
+    font-family: var(--font-family-display);
+    font-size: 1.85rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gold-bright);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-title {
+    font-family: var(--font-family-display);
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    margin: 0 0 0.5rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.885rem;
+    color: rgba(253, 251, 247, 0.78);
+    line-height: 1.55;
+    margin: 0;
+  }
+}
+
+.about-cta-section {
+  padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+
+  .about-cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 1024px) {
+  .timeline-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

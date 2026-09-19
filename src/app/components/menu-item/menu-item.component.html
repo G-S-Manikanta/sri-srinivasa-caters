@@ -1,10 +1,10 @@
-<div class="menu-item-card">
-  <div class="menu-item-image">
-    <img [src]="item.image" [alt]="item.name">
+<div class="menu-item-card card-editorial">
+  <div class="menu-item-image frame-gold-border">
+    <img [src]="item.image" [alt]="item.name" loading="lazy">
+    <span class="item-badge">{{ item.price }}</span>
   </div>
   <div class="menu-item-details">
     <h4 class="menu-item-name">{{ item.name }}</h4>
     <p class="menu-item-description">{{ item.description }}</p>
-    <p class="menu-item-price">{{ item.price }}</p>
   </div>
 </div>

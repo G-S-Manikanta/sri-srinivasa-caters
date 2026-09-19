@@ -1,0 +1,54 @@
+<section class="food-experience-section section-dark" id="food-experience" aria-label="Food Experience">
+  <div class="container">
+    
+    <!-- Editorial Header -->
+    <div class="section-header text-center">
+      <div class="kicker kicker-gold">
+        <span>THE CULINARY SANCTITY</span>
+      </div>
+      <h2 class="display-title-xl text-light">
+        Served the <span class="text-gradient-gold">Traditional Way</span>
+      </h2>
+      <div class="divider-gold">
+        <i class="fas fa-fire-alt" aria-hidden="true"></i>
+      </div>
+      <p class="section-subtitle text-light-muted">
+        Every dish we serve is an authentic tribute to time-tested South Indian cooking traditions, prepared with reverence, uncompromised purity, and warmth.
+      </p>
+    </div>
+
+    <!-- Cinematic Media Banner with Parallax Feel -->
+    <div class="cinematic-visual-banner">
+      <div class="banner-media-frame">
+        <img
+          src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=2600&auto=format&fit=crop"
+          alt="Authentic South Indian Vegetarian Feast Preparation"
+          class="banner-image"
+          loading="lazy"
+        />
+        <div class="banner-overlay-dark"></div>
+        <div class="banner-overlay-gold"></div>
+        
+        <!-- Center Floating Statement -->
+        <div class="banner-floating-statement">
+          <span class="statement-kicker">HERITAGE SECRET</span>
+          <h3 class="statement-title">Slow Cooking in Heavy Brass Urli</h3>
+          <p class="statement-desc">Preserving authentic nutrition, aromatic temperings, and the genuine taste of tradition.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Traditional Pillars Grid -->
+    <div class="pillars-grid">
+      <div *ngFor="let pillar of pillars; let i = index" class="pillar-card">
+        <div class="pillar-icon-box">
+          <i [class]="pillar.icon" aria-hidden="true"></i>
+        </div>
+        <h3 class="pillar-title">{{ pillar.title }}</h3>
+        <p class="pillar-desc">{{ pillar.description }}</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+

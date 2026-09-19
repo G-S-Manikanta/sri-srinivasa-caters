@@ -1,0 +1,199 @@
+// =============================================================================
+// SRI SRINIVASA CATERS - TYPOGRAPHY SYSTEM
+// Cormorant Garamond Display Serif + Plus Jakarta Sans UI Body
+// =============================================================================
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-maroon-800);
+  line-height: var(--line-height-heading);
+  margin-top: 0;
+  margin-bottom: var(--space-xs);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
+}
+
+// Display Typography (Hero & Feature Headers)
+.display-title-2xl {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-display-2xl);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.03em;
+}
+
+.display-title-xl {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-display-xl);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.025em;
+}
+
+.display-title-lg {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-display-lg);
+  line-height: var(--line-height-display);
+  font-weight: var(--font-weight-semibold);
+}
+
+// Editorial Section Headings
+.section-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  
+  &.text-center {
+    text-align: center;
+  }
+}
+
+.section-title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h2);
+  color: var(--color-maroon-800);
+  margin-bottom: var(--space-xs);
+}
+
+.section-subtitle {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-lead);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+// Editorial Eyebrow / Kicker
+.kicker, .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-kicker);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-kicker);
+  color: var(--color-gold-700);
+  margin-bottom: var(--space-xs);
+
+  &::before, &::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.65;
+  }
+
+  &.kicker-maroon {
+    color: var(--color-maroon-700);
+  }
+
+  &.kicker-leaf {
+    color: var(--color-leaf);
+  }
+
+  &.kicker-no-lines::before,
+  &.kicker-no-lines::after {
+    display: none;
+  }
+}
+
+// Body & Content Typography
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  line-height: var(--line-height-body);
+  color: var(--color-text-secondary);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.text-lead {
+  font-size: var(--font-size-lead);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-regular);
+}
+
+.text-caption {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-muted);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+// Editorial Quotes & Heritage Statements
+.editorial-quote {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-maroon-900);
+  border-left: 2px solid var(--color-gold);
+  padding-left: var(--space-md);
+  margin: var(--space-lg) 0;
+
+  cite {
+    display: block;
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body-sm);
+    font-style: normal;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: uppercase;
+    color: var(--color-gold-700);
+    margin-top: var(--space-xs);
+  }
+}
+
+// Metallic & Gradient Text
+.text-gradient-gold {
+  background: linear-gradient(135deg, #ECC878 0%, #C5A059 50%, #9B7828 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-maroon {
+  background: linear-gradient(135deg, #841624 0%, #5A0918 60%, #30050D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Text Color Utility Modifiers
+.text-maroon { color: var(--color-maroon); }
+.text-gold { color: var(--color-gold-700); }
+.text-leaf { color: var(--color-leaf); }
+.text-light { color: var(--color-text-light); }
+.text-muted { color: var(--color-text-muted); }
+.text-italic { font-style: italic; }
+

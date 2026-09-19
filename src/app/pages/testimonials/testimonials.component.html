@@ -1,1 +1,67 @@
-<p>testimonials works!</p>
+<main class="testimonials-page-wrapper">
+  
+  <!-- Page Header -->
+  <section class="page-hero-header section-dark text-center">
+    <div class="container">
+      <div class="kicker kicker-gold">
+        <span>WORDS OF BLESSINGS</span>
+      </div>
+      <h1 class="display-title-xl text-light">
+        Client <span class="text-gradient-gold">Testimonials</span>
+      </h1>
+      <div class="divider-gold">
+        <i class="fas fa-heart" aria-hidden="true"></i>
+      </div>
+      <p class="section-subtitle text-light-muted">
+        Read real stories from families and newlyweds across South India who entrusted their most auspicious celebrations to Sri Srinivasa Caters.
+      </p>
+    </div>
+  </section>
+
+  <!-- Detailed Reviews Grid -->
+  <section class="testimonials-list-section section-warm">
+    <div class="container">
+      <div class="reviews-vertical-list">
+        <article *ngFor="let rev of reviews" class="review-story-card card-editorial">
+          
+          <div class="review-header-row">
+            <div class="review-stars">
+              <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5]"></i>
+            </div>
+            <span class="badge-cultural badge-gold">
+              <i class="fas fa-utensils"></i> Favorite: {{ rev.highlightDish }}
+            </span>
+          </div>
+
+          <blockquote class="review-body-quote">
+            “{{ rev.quote }}”
+          </blockquote>
+
+          <div class="review-footer-row">
+            <div class="reviewer-info">
+              <h3 class="reviewer-name">{{ rev.name }}</h3>
+              <span class="reviewer-role">{{ rev.familyTitle }} • {{ rev.event }}</span>
+            </div>
+            <div class="event-venue-meta">
+              <span><i class="fas fa-map-marker-alt"></i> {{ rev.venue }}</span>
+              <span><i class="fas fa-users"></i> {{ rev.guestCount }}</span>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="testimonials-cta section-dark text-center">
+    <div class="container">
+      <h2 class="display-title-lg text-light">Be Part of Our 25-Year Legacy of Joy</h2>
+      <p class="section-subtitle text-light-muted">Reserve your auspicious wedding or event dates with Sri Srinivasa Caters today.</p>
+      <div class="test-cta-btns">
+        <a routerLink="/contact" class="btn btn-gold">Inquire For Your Celebration</a>
+      </div>
+    </div>
+  </section>
+
+</main>

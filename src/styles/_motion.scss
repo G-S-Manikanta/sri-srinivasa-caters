@@ -1,0 +1,190 @@
+// =============================================================================
+// SRI SRINIVASA CATERS - REUSABLE MOTION & INTERACTION SYSTEM
+// Physics-Inspired Editorial Motion Engine (Opacity, Transform, Scale, Clip-Path)
+// + Full Accessibility Prefers-Reduced-Motion Support
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// 1. KEYFRAME ANIMATIONS
+// -----------------------------------------------------------------------------
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes clipRevealUp {
+  from {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.45);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 2. SCROLL REVEAL PRIMITIVES (Controlled by .is-revealed or Direct Class)
+// -----------------------------------------------------------------------------
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: 
+    opacity var(--dur-slow) var(--ease-editorial),
+    transform var(--dur-slow) var(--ease-editorial);
+  will-change: opacity, transform;
+
+  &.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-fade-down {
+  opacity: 0;
+  transform: translateY(-24px);
+  transition: 
+    opacity var(--dur-slow) var(--ease-editorial),
+    transform var(--dur-slow) var(--ease-editorial);
+  will-change: opacity, transform;
+
+  &.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-scale-in {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: 
+    opacity var(--dur-slow) var(--ease-editorial),
+    transform var(--dur-slow) var(--ease-editorial);
+  will-change: opacity, transform;
+
+  &.is-revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.clip-reveal-up {
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 
+    clip-path var(--dur-cinematic) var(--ease-cinematic),
+    opacity var(--dur-slow) var(--ease-cinematic),
+    transform var(--dur-cinematic) var(--ease-cinematic);
+  will-change: clip-path, opacity, transform;
+
+  &.is-revealed {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 3. STAGGER DELAY UTILITIES
+// -----------------------------------------------------------------------------
+.stagger-1 { transition-delay: 80ms; }
+.stagger-2 { transition-delay: 160ms; }
+.stagger-3 { transition-delay: 240ms; }
+.stagger-4 { transition-delay: 320ms; }
+.stagger-5 { transition-delay: 400ms; }
+.stagger-6 { transition-delay: 480ms; }
+
+// -----------------------------------------------------------------------------
+// 4. MICRO-INTERACTIONS & HOVER DYNAMICS
+// -----------------------------------------------------------------------------
+.hover-lift {
+  transition: transform var(--dur-fast) var(--ease-editorial), box-shadow var(--dur-fast) var(--ease-editorial);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+.hover-scale {
+  transition: transform var(--dur-fast) var(--ease-editorial);
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.float-gentle {
+  animation: gentleFloat 6s ease-in-out infinite;
+}
+
+// -----------------------------------------------------------------------------
+// 5. ACCESSIBILITY: PREFERS-REDUCED-MOTION OVERRIDES
+// -----------------------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-fade-up,
+  .reveal-fade-down,
+  .reveal-scale-in,
+  .clip-reveal-up {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .float-gentle {
+    animation: none !important;
+  }
+
+  .btn::after {
+    display: none !important;
+  }
+}
+

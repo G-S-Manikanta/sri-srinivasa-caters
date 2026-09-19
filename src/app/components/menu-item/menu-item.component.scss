@@ -1,52 +1,77 @@
+// =============================================================================
+// SRI SRINIVASA CATERS - MENU ITEM COMPONENT
+// =============================================================================
+
 .menu-item-card {
   display: flex;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  margin-bottom: 30px;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem;
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  transition: all var(--dur-fast) var(--ease-editorial);
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-border-gold);
+
+    .menu-item-image img {
+      transform: scale(1.06);
+    }
   }
 }
 
 .menu-item-image {
-  flex: 0 0 150px;
-  height: 150px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-bg-dark);
+  margin-bottom: 1rem;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-editorial);
+  }
+
+  .item-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(18, 14, 13, 0.82);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: var(--color-gold-bright);
+    font-size: 0.725rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-xs);
   }
 }
 
 .menu-item-details {
-  padding: 20px;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .menu-item-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #4A4A4A;
-  margin: 0 0 10px;
+  font-family: var(--font-family-display);
+  font-size: 1.3rem;
+  color: var(--color-maroon-800);
+  margin: 0 0 0.35rem;
+  font-weight: var(--font-weight-semibold);
 }
 
 .menu-item-description {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #6c6c6c;
-  flex-grow: 1;
-}
-
-.menu-item-price {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #8B4513;
-  margin-top: 10px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin: 0;
 }

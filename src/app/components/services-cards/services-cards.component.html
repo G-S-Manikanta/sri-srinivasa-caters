@@ -1,35 +1,117 @@
-<section class="services-section">
+<section class="services-interactive-section" id="services" aria-label="Our Catering Services">
   <div class="container">
-    <h2 class="section-title text-center">Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-concierge-bell"></i>
-        </div>
-        <h3 class="service-title">Corporate Events</h3>
-        <p>From boardroom lunches to grand galas, we deliver professional and polished catering services that reflect your company's brand.</p>
+    
+    <!-- Section Header -->
+    <div class="section-header text-center">
+      <div class="kicker">
+        <span>AUSPICIOUS CELEBRATIONS</span>
       </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-ring"></i>
-        </div>
-        <h3 class="service-title">Weddings</h3>
-        <p>Your special day deserves nothing but the best. Our elegant wedding catering will leave a lasting impression on you and your guests.</p>
+      <h2 class="display-title-xl">
+        Bespoke Catering for <span class="text-gradient-maroon">Every Occasion</span>
+      </h2>
+      <div class="divider-gold">
+        <i class="fas fa-utensils" aria-hidden="true"></i>
       </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-birthday-cake"></i>
-        </div>
-        <h3 class="service-title">Private Parties</h3>
-        <p>Celebrate life's moments with our bespoke catering for birthdays, anniversaries, and any private gathering.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-utensils"></i>
-        </div>
-        <h3 class="service-title">Custom Menus</h3>
-        <p>Our culinary team will work with you to design a menu that is tailored to your unique tastes and dietary requirements.</p>
-      </div>
+      <p class="section-subtitle">
+        From grand traditional weddings to intimate family pujas, explore our dedicated catering services designed to delight your guests.
+      </p>
     </div>
+
+    <!-- Interactive Split Stage -->
+    <div class="services-interactive-stage">
+      
+      <!-- Left Column: Interactive Editorial Service List -->
+      <div class="services-list-column">
+        <div
+          *ngFor="let service of services; let i = index"
+          class="service-interactive-row"
+          [class.is-active]="i === activeServiceIndex"
+          (mouseenter)="selectService(i)"
+          (click)="selectService(i)"
+          tabindex="0"
+          role="button"
+          [attr.aria-label]="service.title"
+        >
+          <div class="row-left">
+            <span class="service-index">0{{ service.id }}</span>
+            <div class="service-titles">
+              <h3 class="service-name">{{ service.title }}</h3>
+              <span class="service-category">{{ service.category }}</span>
+            </div>
+          </div>
+
+          <div class="row-right">
+            <span class="service-capacity">{{ service.capacity }}</span>
+            <div class="row-arrow">
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <!-- Mobile Inline Accordion Content (Visible only on mobile) -->
+          <div class="mobile-service-details" *ngIf="i === activeServiceIndex">
+            <div class="mobile-service-img">
+              <img [src]="service.image" [alt]="service.title" loading="lazy" />
+            </div>
+            <p class="mobile-desc">{{ service.description }}</p>
+            <div class="mobile-highlights">
+              <span *ngFor="let hl of service.highlights" class="badge-cultural">
+                <i class="fas fa-check"></i> {{ hl }}
+              </span>
+            </div>
+            <a routerLink="/contact" class="btn btn-sm btn-maroon mobile-btn">Enquire for this event</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Sticky Visual Showcase (Desktop) -->
+      <div class="services-preview-column">
+        <div class="sticky-preview-wrapper">
+          
+          <!-- Ambient Glow -->
+          <div class="preview-glow"></div>
+
+          <!-- Preview Frame -->
+          <div class="preview-media-frame frame-gold-border">
+            <div
+              *ngFor="let service of services; let i = index"
+              class="preview-slide"
+              [class.is-active]="i === activeServiceIndex"
+            >
+              <img
+                [src]="service.image"
+                [alt]="service.title"
+                class="preview-img"
+                loading="lazy"
+              />
+              <div class="preview-overlay"></div>
+
+              <!-- Floating Info Card -->
+              <div class="preview-floating-card">
+                <div class="card-header">
+                  <span class="badge-cultural badge-gold">{{ service.category }}</span>
+                  <span class="capacity-tag"><i class="fas fa-users"></i> {{ service.capacity }}</span>
+                </div>
+                <h4 class="card-title">{{ service.title }}</h4>
+                <p class="card-desc">{{ service.description }}</p>
+                <div class="card-highlights">
+                  <span *ngFor="let hl of service.highlights" class="hl-tag">
+                    <i class="fas fa-check-circle"></i> {{ hl }}
+                  </span>
+                </div>
+                <div class="card-action">
+                  <a routerLink="/contact" class="btn btn-gold btn-sm">
+                    <span>PLAN THIS EVENT</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
