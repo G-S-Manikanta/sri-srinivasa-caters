@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-interface CateringServiceItem {
+export interface CateringServiceItem {
   id: number;
+  number: string;
   title: string;
   category: string;
   description: string;
@@ -17,32 +18,36 @@ interface CateringServiceItem {
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './services-cards.component.html',
-  styleUrls: ['./services-cards.component.scss']
+  styleUrls: ['./services-cards.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServicesCardsComponent {
-  activeServiceIndex = 0;
+  readonly activeServiceIndex = signal(0);
 
-  services: CateringServiceItem[] = [
+  readonly services: CateringServiceItem[] = [
     {
       id: 1,
+      number: '01',
       title: 'Wedding Catering',
       category: 'Muhurtham & Reception',
-      description: 'Grand, auspicious traditional wedding feasts curated with bespoke menus, live counters, and reverent banana leaf service.',
+      description: 'Grand, auspicious traditional wedding feasts curated with bespoke multi-course menus, live counters, and reverent banana leaf service.',
       capacity: '500 to 10,000+ Guests',
       image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2600&auto=format&fit=crop',
       highlights: ['Traditional Banana Leaf Feast', 'Live Dosa & Tiffin Counters', 'Grand Sweet Display']
     },
     {
       id: 2,
+      number: '02',
       title: 'Traditional South Indian Meals',
       category: 'Authentic Virundhu',
-      description: 'Classic Elai Saapadu featuring 24+ traditional dishes, fragrant ghee, slow-cooked sambar, and artisanal payasams.',
+      description: 'Classic Elai Saapadu featuring 24+ traditional dishes, fragrant cow ghee, slow-cooked sambar, and artisanal payasams.',
       capacity: '100 to 5,000 Guests',
       image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=2600&auto=format&fit=crop',
       highlights: ['Authentic 24-Item Spread', 'Aru Suvai Balance', 'Traditional Servers in Veshti']
     },
     {
       id: 3,
+      number: '03',
       title: 'Housewarming Functions',
       category: 'Gruhapravesam',
       description: 'Auspicious morning tiffins, fragrant filter coffee, and joyous afternoon feasts to bless your new home with prosperity.',
@@ -52,6 +57,7 @@ export class ServicesCardsComponent {
     },
     {
       id: 4,
+      number: '04',
       title: 'Engagements',
       category: 'Nischithartham',
       description: 'Elegant gatherings celebrating family alliances with sophisticated sweet platters, savoury delicacies, and curated buffets.',
@@ -61,15 +67,17 @@ export class ServicesCardsComponent {
     },
     {
       id: 5,
+      number: '05',
       title: 'Birthday Celebrations',
       category: 'Milestones & Shashtipoorthi',
-      description: 'From 1st birthdays to 60th Shashtipoorthi and 80th Sathabhishekam celebrations, honouring milestones with warmth.',
+      description: 'From 1st birthdays to 60th Shashtipoorthi and 80th Sathabhishekam celebrations, honouring life milestones with warmth.',
       capacity: '50 to 800 Guests',
       image: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2600&auto=format&fit=crop',
       highlights: ['Custom Multi-course Menu', 'Traditional & Modern Sweets', 'Kid & Elder Friendly Options']
     },
     {
       id: 6,
+      number: '06',
       title: 'Corporate Events',
       category: 'Executive Hospitality',
       description: 'Punctual, hygienic, and impeccable executive dining for corporate galas, seminars, conferences, and annual meets.',
@@ -79,6 +87,7 @@ export class ServicesCardsComponent {
     },
     {
       id: 7,
+      number: '07',
       title: 'Religious Functions',
       category: 'Pujas, Vrathams & Utsavams',
       description: 'Strictly Satvik and pure vegetarian prasadam, cooked with religious sanctity and traditional Vedic guidelines (No onion/garlic options).',
@@ -88,6 +97,7 @@ export class ServicesCardsComponent {
     },
     {
       id: 8,
+      number: '08',
       title: 'Family Gatherings',
       category: 'Seemantham & Reunions',
       description: 'Intimate celebrations and baby showers featuring traditional 5-rice varieties (Chitrannam) and festive snacks.',
@@ -97,6 +107,7 @@ export class ServicesCardsComponent {
     },
     {
       id: 9,
+      number: '09',
       title: 'Private Events',
       category: 'Bespoke Dining',
       description: 'Tailored culinary hospitality for VIP gatherings, private banquets, and exclusive lawn dining celebrations.',
@@ -107,6 +118,6 @@ export class ServicesCardsComponent {
   ];
 
   selectService(index: number): void {
-    this.activeServiceIndex = index;
+    this.activeServiceIndex.set(index);
   }
 }

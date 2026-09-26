@@ -1,103 +1,129 @@
-<section class="banana-leaf-section" id="banana-leaf-experience" aria-label="The Banana Leaf Experience">
-  <div class="container">
+<section class="scene-banana-leaf" id="banana-leaf-experience" aria-label="Scene 05 - The Sacred Banana Leaf Geometry">
+  
+  <!-- Giant Background Editorial Backdrop -->
+  <div class="leaf-bg-watermark" aria-hidden="true">
+    <span>VIRUNDHU</span>
+  </div>
+
+  <div class="container-fluid-cinematic">
     
-    <!-- Section Header -->
-    <div class="section-header text-center">
-      <div class="kicker kicker-leaf">
-        <span>THE SACRED GEOMETRY OF DINING</span>
+    <!-- Editorial Header -->
+    <header class="scene-header text-center">
+      <div class="scene-eyebrow justify-center">
+        <span class="scene-index">SCENE 05</span>
+        <span class="eyebrow-divider">•</span>
+        <span class="scene-category">THE SACRED GEOMETRY</span>
       </div>
-      <h2 class="display-title-xl">
-        The Banana Leaf. <br>
+
+      <h2 class="scene-display-heading">
+        <span>The Banana Leaf.</span>
         <span class="text-gradient-maroon">The Heart of the Feast.</span>
       </h2>
-      <div class="divider-gold">
-        <i class="fas fa-leaf" aria-hidden="true"></i>
-      </div>
-      <p class="section-subtitle">
-        In South Indian tradition, the placement of each dish on the fresh plantain leaf is a time-honoured science of taste, digestion, and cultural reverence.
+
+      <p class="scene-lead mx-auto">
+        In Vedic South Indian tradition, the placement of every single preparation on the fresh plantain leaf is an ancient science of taste, digestion, and hospitality.
       </p>
+    </header>
+
+    <!-- Horizontal Fast Selector Chips -->
+    <div class="leaf-selector-bar" role="tablist" aria-label="Select banana leaf course">
+      <button
+        *ngFor="let item of leafCourses; let i = index"
+        type="button"
+        class="leaf-chip"
+        [class.is-active]="i === selectedItemIndex()"
+        (click)="selectItem(i)"
+        role="tab"
+        [attr.aria-selected]="i === selectedItemIndex()"
+      >
+        <span class="chip-num">{{ item.number }}</span>
+        <span class="chip-label">{{ item.name }}</span>
+      </button>
     </div>
 
-    <!-- Interactive Banana Leaf Visual Stage -->
-    <div class="leaf-interactive-container">
+    <!-- Main Spatial Stage: Interactive Leaf Canvas + Spotlight Panel -->
+    <div class="leaf-spatial-stage">
       
-      <!-- Top Interactive Leaf Map / Badge Selector -->
-      <div class="leaf-items-selector" role="tablist" aria-label="Banana Leaf Food Courses">
-        <button
-          *ngFor="let item of leafCourses; let i = index"
-          type="button"
-          class="leaf-item-chip"
-          [class.is-active]="i === selectedItemIndex"
-          (click)="selectLeafItem(i)"
-          role="tab"
-          [attr.aria-selected]="i === selectedItemIndex"
-        >
-          <span class="chip-number">{{ item.id }}</span>
-          <span class="chip-name">{{ item.name }}</span>
-        </button>
-      </div>
+      <!-- Interactive Leaf Map Visual Stage -->
+      <div class="leaf-canvas-card frame-gold-border">
+        <div class="leaf-visual-frame">
+          <img
+            src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=2600&auto=format&fit=crop"
+            alt="Traditional South Indian Banana Leaf Virundhu"
+            class="leaf-main-img"
+            loading="lazy"
+          />
+          <div class="leaf-canvas-tint"></div>
 
-      <!-- Main Leaf Stage Split (Interactive Leaf Illustration Card + Detailed Spotlight Card) -->
-      <div class="leaf-stage-grid">
-        
-        <!-- Left: Visually Rich Banana Leaf Showcase -->
-        <div class="leaf-visual-card frame-gold-border">
-          <div class="leaf-canvas">
-            <img
-              src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=2600&auto=format&fit=crop"
-              alt="Authentic South Indian Banana Leaf Meal Spread"
-              class="leaf-bg-image"
-              loading="lazy"
-            />
-            <div class="leaf-overlay"></div>
+          <!-- Interactive Course Coordinate Pins on the Leaf -->
+          <div class="leaf-pins-layer" aria-hidden="true">
+            <button
+              *ngFor="let item of leafCourses; let i = index"
+              type="button"
+              class="leaf-pin"
+              [class.is-active]="i === selectedItemIndex()"
+              [style.top.%]="item.gridY"
+              [style.left.%]="item.gridX"
+              (click)="selectItem(i)"
+              [attr.title]="item.name"
+            >
+              <span class="pin-dot"></span>
+              <span class="pin-label">{{ item.number }}</span>
+            </button>
+          </div>
 
-            <!-- Floating Spotlight Tag on Visual -->
-            <div class="leaf-floating-tag">
-              <span class="tag-pos"><i class="fas fa-map-marker-alt"></i> {{ leafCourses[selectedItemIndex].position }}</span>
-              <h3 class="tag-title">{{ leafCourses[selectedItemIndex].name }}</h3>
-              <span class="tag-regional">{{ leafCourses[selectedItemIndex].regionalName }}</span>
+          <!-- Bottom Floating Status Overlay -->
+          <div class="leaf-floating-overlay">
+            <div class="pos-badge">
+              <i class="fas fa-location-dot"></i>
+              <span>{{ leafCourses[selectedItemIndex()].position }}</span>
             </div>
+            <h3 class="pos-title">{{ leafCourses[selectedItemIndex()].name }}</h3>
+            <span class="pos-regional">{{ leafCourses[selectedItemIndex()].regionalName }}</span>
           </div>
         </div>
+      </div>
 
-        <!-- Right: Spotlight Deep-Dive Card -->
-        <div class="leaf-detail-card card-editorial">
-          <div class="detail-badge-row">
-            <span class="badge-cultural badge-leaf">
-              <i class="fas fa-leaf"></i> Course 0{{ leafCourses[selectedItemIndex].id }} / 12
-            </span>
-            <span class="taste-badge">
-              <i class="fas fa-tint"></i> {{ leafCourses[selectedItemIndex].taste }}
-            </span>
+      <!-- Right Spotlight Deep-Dive Card -->
+      <div class="leaf-spotlight-card">
+        <div class="spotlight-top-row">
+          <span class="course-index-badge">
+            <i class="fas fa-leaf"></i> COURSE {{ leafCourses[selectedItemIndex()].number }} / 12
+          </span>
+          <span class="taste-pill">
+            <i class="fas fa-sparkles"></i> {{ leafCourses[selectedItemIndex()].taste }}
+          </span>
+        </div>
+
+        <h3 class="spotlight-headline">{{ leafCourses[selectedItemIndex()].name }}</h3>
+        <p class="spotlight-subhead">{{ leafCourses[selectedItemIndex()].regionalName }}</p>
+
+        <div class="spotlight-divider"></div>
+
+        <div class="spotlight-block">
+          <h4 class="block-label">SACRED DINING SIGNIFICANCE</h4>
+          <p class="block-text">{{ leafCourses[selectedItemIndex()].significance }}</p>
+        </div>
+
+        <div class="spotlight-block">
+          <h4 class="block-label">VEDIC PLACEMENT RULE</h4>
+          <p class="block-text">
+            Served specifically at <strong>{{ leafCourses[selectedItemIndex()].position }}</strong> to honour the traditional sequence of digestion.
+          </p>
+        </div>
+
+        <div class="spotlight-footer">
+          <div class="warmth-tag">
+            <i class="fas fa-heart"></i>
+            <span>Served by traditional veshti-clad servers with warmth & reverence</span>
           </div>
 
-          <h3 class="detail-title">{{ leafCourses[selectedItemIndex].name }}</h3>
-          <p class="detail-regional-name">{{ leafCourses[selectedItemIndex].regionalName }}</p>
-
-          <div class="detail-divider"></div>
-
-          <div class="detail-section">
-            <h4 class="sub-heading">Sacred Dining Significance</h4>
-            <p class="detail-text">{{ leafCourses[selectedItemIndex].significance }}</p>
-          </div>
-
-          <div class="detail-section">
-            <h4 class="sub-heading">Placement Rule</h4>
-            <p class="detail-text">Positioned at the <strong>{{ leafCourses[selectedItemIndex].position }}</strong> according to Vedic culinary traditions.</p>
-          </div>
-
-          <!-- Bottom Prompt -->
-          <div class="detail-action-footer">
-            <div class="servers-callout">
-              <i class="fas fa-heart" aria-hidden="true"></i>
-              <span>Served with warmth by traditional veshti-clad staff</span>
-            </div>
-            <a routerLink="/menu" class="btn btn-outline-maroon btn-sm">
-              <span>EXPLORE FULL FEAST MENU</span>
+          <div class="action-btn-wrap">
+            <a routerLink="/menu" class="btn btn-maroon btn-cinematic w-full">
+              <span>EXPLORE COMPLETE 24-ITEM BANQUET</span>
               <i class="fas fa-arrow-right"></i>
             </a>
           </div>
-
         </div>
 
       </div>
@@ -106,4 +132,3 @@
 
   </div>
 </section>
-

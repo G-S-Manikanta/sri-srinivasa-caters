@@ -1,203 +1,384 @@
 // =============================================================================
-// SRI SRINIVASA CATERS - FOOD EXPERIENCE (Section 2)
-// Dark Cinematic Atmosphere + Visual Banner + Culinary Pillars
+// SCENE 04: KITCHEN & CULINARY SANCTITY (FoodExperienceComponent)
+// Spatial depth, ambient ember glow, interactive pillar navigation & brass trims
 // =============================================================================
 
-.food-experience-section {
+.scene-kitchen {
+  position: relative;
   background-color: var(--color-bg-dark);
-  padding: clamp(5.5rem, 9vw, 9rem) 0;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    height: 400px;
-    background: radial-gradient(ellipse at top, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-}
-
-.text-light-muted {
-  color: rgba(253, 251, 247, 0.78);
-}
-
-// -----------------------------------------------------------------------------
-// 1. CINEMATIC VISUAL BANNER
-// -----------------------------------------------------------------------------
-.cinematic-visual-banner {
-  margin: clamp(2.5rem, 5vw, 4rem) 0;
-}
-
-.banner-media-frame {
-  position: relative;
-  width: 100%;
-  height: clamp(340px, 50vh, 520px);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-
-  &:hover .banner-image {
-    transform: scale(1.04);
-  }
-}
-
-.banner-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 45%;
-  transition: transform var(--dur-slow) var(--ease-editorial);
-  will-change: transform;
-}
-
-.banner-overlay-dark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(18, 14, 13, 0.4) 0%,
-    rgba(18, 14, 13, 0.75) 100%
-  );
-}
-
-.banner-overlay-gold {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-
-.banner-floating-statement {
-  position: absolute;
-  bottom: clamp(1.5rem, 4vw, 3rem);
-  left: clamp(1.5rem, 4vw, 3rem);
-  right: clamp(1.5rem, 4vw, 3rem);
-  max-width: 600px;
-  background: rgba(18, 14, 13, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  padding: 1.5rem 2rem;
-  border-radius: var(--radius-sm);
   color: #FFFFFF;
+  padding: clamp(6rem, 10vw, 10rem) 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
 
-  .statement-kicker {
-    display: block;
-    font-family: var(--font-family-body);
-    font-size: 0.725rem;
-    font-weight: var(--font-weight-bold);
-    letter-spacing: 0.2em;
-    color: var(--color-gold-bright);
-    margin-bottom: 4px;
-    text-transform: uppercase;
+.kitchen-glow-ambient {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(212, 175, 55, 0.12) 0%,
+    rgba(107, 15, 26, 0.15) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.ember-spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--color-gold-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 12px 2px rgba(212, 175, 55, 0.8);
+  pointer-events: none;
+  animation: emberFloat 8s ease-in-out infinite alternate;
+
+  &.ember-1 {
+    top: 30%;
+    left: 15%;
+    animation-duration: 9s;
   }
 
-  .statement-title {
-    font-family: var(--font-family-display);
-    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-    color: #FFFFFF;
-    margin: 0 0 6px;
-    font-weight: var(--font-weight-semibold);
-  }
-
-  .statement-desc {
-    font-size: 0.9rem;
-    color: rgba(253, 251, 247, 0.85);
-    margin: 0;
-    line-height: 1.5;
+  &.ember-2 {
+    bottom: 25%;
+    right: 12%;
+    animation-duration: 11s;
   }
 }
 
-// -----------------------------------------------------------------------------
-// 2. PILLARS GRID
-// -----------------------------------------------------------------------------
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+@keyframes emberFloat {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-40px) scale(1.4);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-80px) scale(0.6);
+    opacity: 0.2;
+  }
 }
 
-.pillar-card {
-  background: rgba(37, 31, 28, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
-  padding: 2rem 1.5rem;
-  transition: all var(--dur-normal) var(--ease-editorial);
+.kitchen-bg-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-family-display);
+  font-size: clamp(8rem, 24vw, 22rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.02);
+  letter-spacing: 0.15em;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.container-fluid-cinematic {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
   position: relative;
-
-  &:hover {
-    background: rgba(37, 31, 28, 0.95);
-    border-color: rgba(212, 175, 55, 0.4);
-    transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-
-    .pillar-icon-box {
-      background: var(--color-gold);
-      color: var(--color-maroon-900);
-      transform: scale(1.08);
-    }
-  }
+  z-index: 1;
 }
 
-.pillar-icon-box {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-sm);
-  background: rgba(107, 15, 26, 0.4);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: var(--color-gold-bright);
+// -----------------------------------------------------------------------------
+// Header
+// -----------------------------------------------------------------------------
+.scene-header {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.scene-eyebrow {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.35rem;
-  margin-bottom: var(--space-sm);
-  transition: all var(--dur-fast) var(--ease-editorial);
+  gap: 0.75rem;
+  font-family: var(--font-family-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+
+  .eyebrow-divider {
+    opacity: 0.5;
+  }
 }
 
-.pillar-title {
+.scene-display-heading {
   font-family: var(--font-family-display);
-  font-size: 1.35rem;
-  color: #FFFFFF;
-  margin: 0 0 0.5rem;
-  font-weight: var(--font-weight-semibold);
+  font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+  line-height: 1.05;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.pillar-desc {
-  font-size: 0.875rem;
-  color: rgba(253, 251, 247, 0.72);
-  line-height: 1.6;
+.scene-lead {
+  font-family: var(--font-family-body);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.7;
+  color: rgba(253, 251, 247, 0.75);
+  max-width: 680px;
   margin: 0;
 }
 
 // -----------------------------------------------------------------------------
-// 3. RESPONSIVE BREAKPOINTS
+// Interactive Stage Grid
 // -----------------------------------------------------------------------------
-@media (max-width: 1024px) {
-  .pillars-grid {
-    grid-template-columns: repeat(2, 1fr);
+.kitchen-interactive-stage {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.stage-visual-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.visual-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  background-color: #0d0a09;
+}
+
+.visual-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-editorial);
+}
+
+.visual-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 40%, rgba(18, 14, 13, 0.8) 100%),
+              linear-gradient(180deg, transparent 60%, rgba(18, 14, 13, 0.85) 100%);
+  pointer-events: none;
+}
+
+.visual-floating-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  background: rgba(18, 14, 13, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+
+  .badge-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold-bright);
+
+    i {
+      color: var(--color-gold);
+    }
+  }
+
+  .badge-temp {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: rgba(253, 251, 247, 0.8);
+    font-weight: 500;
   }
 }
 
-@media (max-width: 640px) {
-  .pillars-grid {
+.kitchen-quote-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--radius-md);
+  background: rgba(37, 31, 28, 0.5);
+  border-left: 3px solid var(--color-gold);
+
+  .quote-icon {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    flex-shrink: 0;
+  }
+
+  .quote-text {
+    font-family: var(--font-family-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: rgba(253, 251, 247, 0.9);
+    margin: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Controls / Accordion
+// -----------------------------------------------------------------------------
+.stage-controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pillars-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pillar-item {
+  border-radius: var(--radius-md);
+  background: rgba(37, 31, 28, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all var(--dur-normal) var(--ease-editorial);
+
+  &:hover {
+    background: rgba(37, 31, 28, 0.8);
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+
+  &.is-active {
+    background: rgba(37, 31, 28, 0.95);
+    border-color: var(--color-gold);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+
+    .pillar-num {
+      color: var(--color-gold-bright);
+    }
+
+    .pillar-indicator {
+      transform: rotate(90deg);
+      color: var(--color-gold-bright);
+    }
+  }
+}
+
+.pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.pillar-num {
+  font-family: var(--font-family-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.25);
+  transition: color var(--dur-fast) var(--ease-editorial);
+}
+
+.pillar-titles {
+  flex: 1;
+
+  .pillar-title {
+    font-family: var(--font-family-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin: 0 0 0.2rem;
+  }
+
+  .pillar-sub {
+    font-family: var(--font-family-body);
+    font-size: 0.825rem;
+    color: rgba(253, 251, 247, 0.6);
+  }
+}
+
+.pillar-indicator {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.3);
+  transition: transform var(--dur-normal) var(--ease-editorial), color var(--dur-normal) var(--ease-editorial);
+}
+
+.pillar-body {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  animation: fadeIn 0.3s ease-in-out;
+
+  .pillar-description {
+    font-size: 0.925rem;
+    line-height: 1.65;
+    color: rgba(253, 251, 247, 0.82);
+    margin: 0 0 1rem;
+  }
+
+  .pillar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .ptag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-gold-bright);
+      background: rgba(212, 175, 55, 0.1);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-xs);
+
+      i {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+.stage-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .kitchen-interactive-stage {
     grid-template-columns: 1fr;
   }
-
-  .banner-floating-statement {
-    padding: 1.25rem;
-  }
 }
-

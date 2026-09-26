@@ -1,54 +1,115 @@
-<section class="food-experience-section section-dark" id="food-experience" aria-label="Food Experience">
-  <div class="container">
-    
-    <!-- Editorial Header -->
-    <div class="section-header text-center">
-      <div class="kicker kicker-gold">
-        <span>THE CULINARY SANCTITY</span>
+<section class="scene-kitchen" id="food-experience" aria-label="Scene 04 - The Kitchen and Culinary Sanctity">
+  <!-- Atmospheric Glow & Floating Ember Orbs -->
+  <div class="kitchen-glow-ambient" aria-hidden="true"></div>
+  <div class="ember-spark ember-1" aria-hidden="true"></div>
+  <div class="ember-spark ember-2" aria-hidden="true"></div>
+
+  <!-- Giant Background Editorial Backdrop -->
+  <div class="kitchen-bg-watermark" aria-hidden="true">
+    <span>KITCHEN</span>
+  </div>
+
+  <div class="container-fluid-cinematic">
+    <!-- Top Editorial Header -->
+    <header class="scene-header">
+      <div class="scene-eyebrow">
+        <span class="scene-index">SCENE 04</span>
+        <span class="eyebrow-divider">•</span>
+        <span class="scene-category">THE CULINARY SANCTITY</span>
       </div>
-      <h2 class="display-title-xl text-light">
-        Served the <span class="text-gradient-gold">Traditional Way</span>
+
+      <h2 class="scene-display-heading">
+        <span class="heading-line line-1">MADE FRESH.</span>
+        <span class="heading-line line-2 text-gradient-gold">MADE TRADITIONAL.</span>
       </h2>
-      <div class="divider-gold">
-        <i class="fas fa-fire-alt" aria-hidden="true"></i>
-      </div>
-      <p class="section-subtitle text-light-muted">
-        Every dish we serve is an authentic tribute to time-tested South Indian cooking traditions, prepared with reverence, uncompromised purity, and warmth.
+
+      <p class="scene-lead">
+        No shortcuts. No commercial premixes. Every feast is prepared in consecrated brass vessels over slow woodhearths, celebrating timeless South Indian culinary discipline.
       </p>
-    </div>
+    </header>
 
-    <!-- Cinematic Media Banner with Parallax Feel -->
-    <div class="cinematic-visual-banner">
-      <div class="banner-media-frame">
-        <img
-          src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=2600&auto=format&fit=crop"
-          alt="Authentic South Indian Vegetarian Feast Preparation"
-          class="banner-image"
-          loading="lazy"
-        />
-        <div class="banner-overlay-dark"></div>
-        <div class="banner-overlay-gold"></div>
-        
-        <!-- Center Floating Statement -->
-        <div class="banner-floating-statement">
-          <span class="statement-kicker">HERITAGE SECRET</span>
-          <h3 class="statement-title">Slow Cooking in Heavy Brass Urli</h3>
-          <p class="statement-desc">Preserving authentic nutrition, aromatic temperings, and the genuine taste of tradition.</p>
+    <!-- Interactive 4-Pillar Stage Grid -->
+    <div class="kitchen-interactive-stage">
+      
+      <!-- Left: Dynamic Visual Showcase with Depth Overlay -->
+      <div class="stage-visual-container">
+        <div class="visual-viewport frame-gold-border">
+          <img
+            [src]="pillars[activeIndex()].image"
+            [alt]="pillars[activeIndex()].title"
+            class="visual-image"
+            loading="lazy"
+          />
+          <div class="visual-vignette"></div>
+
+          <!-- Bottom floating badge -->
+          <div class="visual-floating-badge">
+            <div class="badge-tag">
+              <i [class]="pillars[activeIndex()].icon"></i>
+              <span>{{ pillars[activeIndex()].badge }}</span>
+            </div>
+            <div class="badge-temp">
+              <i class="fas fa-clock"></i>
+              <span>{{ pillars[activeIndex()].temperature }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Quote Callout -->
+        <div class="kitchen-quote-bar">
+          <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
+          <p class="quote-text">
+            "The aroma of stone-ground spices and pure ghee simmering in brass is the unmistakable sign of a sacred wedding feast."
+          </p>
         </div>
       </div>
-    </div>
 
-    <!-- 4 Traditional Pillars Grid -->
-    <div class="pillars-grid">
-      <div *ngFor="let pillar of pillars; let i = index" class="pillar-card">
-        <div class="pillar-icon-box">
-          <i [class]="pillar.icon" aria-hidden="true"></i>
+      <!-- Right: Interactive Pillar Navigation & Deep Detail -->
+      <div class="stage-controls-container">
+        <div class="pillars-accordion">
+          <div
+            *ngFor="let pillar of pillars; let i = index"
+            class="pillar-item"
+            [class.is-active]="i === activeIndex()"
+            (click)="selectPillar(i)"
+            role="button"
+            tabindex="0"
+            (keyup.enter)="selectPillar(i)"
+            (keyup.space)="selectPillar(i)"
+            [attr.aria-expanded]="i === activeIndex()"
+          >
+            <div class="pillar-header">
+              <span class="pillar-num">{{ pillar.number }}</span>
+              <div class="pillar-titles">
+                <h3 class="pillar-title">{{ pillar.title }}</h3>
+                <span class="pillar-sub">{{ pillar.subtitle }}</span>
+              </div>
+              <div class="pillar-indicator">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </div>
+
+            <div class="pillar-body" *ngIf="i === activeIndex()">
+              <p class="pillar-description">{{ pillar.description }}</p>
+              <div class="pillar-tags">
+                <span class="ptag"><i class="fas fa-check"></i> Authentic Vedic Method</span>
+                <span class="ptag"><i class="fas fa-check"></i> Master Chefs</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <h3 class="pillar-title">{{ pillar.title }}</h3>
-        <p class="pillar-desc">{{ pillar.description }}</p>
-      </div>
-    </div>
 
+        <div class="stage-action-row">
+          <a routerLink="/menu" class="btn btn-gold btn-cinematic">
+            <span>VIEW OUR CULINARY MENU</span>
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a routerLink="/services" class="btn btn-outline-gold btn-cinematic">
+            <span>OUR CATERING SERVICES</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
-

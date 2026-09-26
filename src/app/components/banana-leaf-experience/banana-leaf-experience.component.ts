@@ -1,15 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-interface LeafCourseItem {
+export interface LeafCourseItem {
   id: number;
+  number: string;
   position: string;
+  gridX: number; // percentage X on leaf
+  gridY: number; // percentage Y on leaf
   name: string;
   regionalName: string;
   taste: string;
   significance: string;
   icon: string;
+  image: string;
 }
 
 @Component({
@@ -17,124 +21,172 @@ interface LeafCourseItem {
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './banana-leaf-experience.component.html',
-  styleUrls: ['./banana-leaf-experience.component.scss']
+  styleUrls: ['./banana-leaf-experience.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BananaLeafExperienceComponent {
-  selectedItemIndex = 6; // Default active on Sona Masoori Rice & Ghee
+  readonly selectedItemIndex = signal(6); // Default on Rice & Pure Cow Ghee
 
-  leafCourses: LeafCourseItem[] = [
+  readonly leafCourses: LeafCourseItem[] = [
     {
       id: 1,
-      position: 'Top Left Corner',
+      number: '01',
+      position: 'Top Left Tip',
+      gridX: 12,
+      gridY: 22,
       name: 'Pristine Sea Salt',
       regionalName: 'Kallu Uppu',
       taste: 'Salty (Lavana)',
-      significance: 'Placed first as a symbol of hospitality, friendship, and unshakeable trust between host and guest.',
-      icon: 'fas fa-gem'
+      significance: 'Placed first as a sacred symbol of hospitality, loyalty, and lifelong trust between the host family and guest.',
+      icon: 'fas fa-gem',
+      image: 'https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 2,
-      position: 'Top Left',
+      number: '02',
+      position: 'Top Upper Left',
+      gridX: 24,
+      gridY: 18,
       name: 'Spiced Mango Pickle',
       regionalName: 'Avakaya / Maangai Oorugai',
       taste: 'Pungent & Tangy (Katu & Amla)',
-      significance: 'Hand-pickled mangoes in cold-pressed sesame oil and stone-ground mustard to awaken the palate.',
-      icon: 'fas fa-pepper-hot'
+      significance: 'Steeped in cold-pressed sesame oil and stone-ground mustard to stimulate salivary enzymes and awaken digestion.',
+      icon: 'fas fa-pepper-hot',
+      image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 3,
-      position: 'Top Center-Left',
+      number: '03',
+      position: 'Top Left Center',
+      gridX: 38,
+      gridY: 16,
       name: 'Pineapple Sweet Pachadi',
       regionalName: 'Inippu Pachadi',
-      taste: 'Sweet & Tangy (Madhura)',
-      significance: 'Cooked with jaggery and mustard seeds, symbolizing that life is a harmonious blend of sweet and sour.',
-      icon: 'fas fa-apple-alt'
+      taste: 'Sweet & Tangy (Madhura & Amla)',
+      significance: 'Simmered with country jaggery and tempered mustard seeds, symbolizing the philosophy that life is a harmonious mix of sweet and sour.',
+      icon: 'fas fa-apple-whole',
+      image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 4,
+      number: '04',
       position: 'Top Center',
+      gridX: 52,
+      gridY: 15,
       name: 'Seasonal Vegetable Poriyal',
       regionalName: 'Beans & Carrot Thoran / Vepudu',
       taste: 'Astringent & Earthy (Kashaya)',
-      significance: 'Fresh tender vegetables sautéed with freshly grated coconut, curry leaves, and mustard tempering.',
-      icon: 'fas fa-carrot'
+      significance: 'Crisp hand-cut garden vegetables sautéed with fresh grated coconut, curry leaves, and cumin.',
+      icon: 'fas fa-carrot',
+      image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 5,
-      position: 'Top Center-Right',
+      number: '05',
+      position: 'Top Right Center',
+      gridX: 68,
+      gridY: 16,
       name: 'Kerala Avial / Classic Kootu',
       regionalName: 'Mukkootu Avial',
-      taste: 'Mild Creamy & Coconut Rich',
-      significance: 'A medley of 7 traditional root vegetables simmered in cumin-coconut paste and pure coconut oil.',
-      icon: 'fas fa-leaf'
+      taste: 'Creamy Coconut Rich',
+      significance: 'A sacred medley of 7 traditional country vegetables simmered in cumin-coconut paste and pure coconut oil.',
+      icon: 'fas fa-leaf',
+      image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 6,
+      number: '06',
       position: 'Bottom Left',
+      gridX: 18,
+      gridY: 72,
       name: 'Crispy Medu Vadai',
       regionalName: 'Ulundu Vadai / Garelu',
-      taste: 'Crispy, Savoury & Peppery',
-      significance: 'Golden, crispy whole urad dal doughnut with cracked peppercorns and ginger, fried in pure groundnut oil.',
-      icon: 'fas fa-circle-notch'
+      taste: 'Crispy & Peppery Savoury',
+      significance: 'Golden whole urad dal fritters with cracked black peppercorns and fresh ginger, fried in pure groundnut oil.',
+      icon: 'fas fa-circle-notch',
+      image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 7,
-      position: 'Center Bottom',
-      name: 'Steaming Sona Masoori Rice & Cow Ghee',
+      number: '07',
+      position: 'Sacred Heart (Center Bottom)',
+      gridX: 45,
+      gridY: 65,
+      name: 'Steaming Rice & Pure Cow Ghee',
       regionalName: 'Paruppu Nei Sadham',
-      taste: 'Nourishing, Warm & Golden',
-      significance: 'The sacred heart of the meal. Fluffy aged rice served with yellow moong dal and a generous ladle of melted pure cow ghee.',
-      icon: 'fas fa-bowl-rice'
+      taste: 'Nourishing & Golden Comfort',
+      significance: 'The sacred foundation of the meal. Fluffy aged Sona Masoori rice served with yellow moong dal and a steaming ladle of pure melted cow ghee.',
+      icon: 'fas fa-bowl-rice',
+      image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 8,
+      number: '08',
       position: 'Center Ladled',
+      gridX: 52,
+      gridY: 55,
       name: 'Heritage Drumstick Sambar',
       regionalName: 'Murungakkai Sambar',
       taste: 'Rich, Aromatic & Soulful',
-      significance: 'Simmered with toor dal, shallots, native drumsticks, and freshly roasted coriander-chili spice blend.',
-      icon: 'fas fa-utensils'
+      significance: 'Slow simmered with native drumsticks, Madras shallots, toor dal, and freshly roasted stone-ground spice mix.',
+      icon: 'fas fa-utensils',
+      image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 9,
-      position: 'Center Ladled',
+      number: '09',
+      position: 'Secondary Ladle',
+      gridX: 62,
+      gridY: 58,
       name: 'Cumin Pepper Tomato Rasam',
-      regionalName: 'Mysore / Kollu Rasam',
-      taste: 'Digestive, Peppery & Zesty',
-      significance: 'Clarified digestive broth infused with crushed cumin, black pepper, garlic, and fresh coriander leaves.',
-      icon: 'fas fa-mug-hot'
+      regionalName: 'Mysore Rasam',
+      taste: 'Digestive, Zesty & Peppery',
+      significance: 'Clarified digestive elixir infused with heirloom tomatoes, crushed black pepper, toasted cumin seeds, and fresh coriander.',
+      icon: 'fas fa-mug-hot',
+      image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 10,
+      number: '10',
       position: 'Bottom Right',
+      gridX: 82,
+      gridY: 68,
       name: 'Elaneer Payasam & Mysore Pak',
       regionalName: 'Tender Coconut Kheer',
       taste: 'Divine Sweetness (Madhura)',
-      significance: 'Slow-condensed milk infused with tender coconut pulp and cardamom, served alongside melt-in-the-mouth ghee Mysore Pak.',
-      icon: 'fas fa-ice-cream'
+      significance: 'Chilled condensed milk infused with tender coconut pulp and cardamom, served alongside melt-in-mouth golden ghee Mysore Pak.',
+      icon: 'fas fa-ice-cream',
+      image: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 11,
-      position: 'Bottom Placed',
+      number: '11',
+      position: 'Left Lower Edge',
+      gridX: 28,
+      gridY: 82,
       name: 'Crispy Urad Dal Appalam',
       regionalName: 'Pappadum / Vadam',
       taste: 'Crunchy Accent',
-      significance: 'Hand-rolled sundried lentil crisps that provide the celebratory crunch to every rice morsel.',
-      icon: 'fas fa-sun'
+      significance: 'Hand-rolled sun-dried lentil crisps that provide the celebratory crunch to every rice morsel.',
+      icon: 'fas fa-sun',
+      image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2600&auto=format&fit=crop'
     },
     {
       id: 12,
+      number: '12',
       position: 'Concluding Course',
-      name: 'Farm Curd & Ginger Buttermilk',
+      gridX: 74,
+      gridY: 82,
+      name: 'Farm Curd & Spiced Buttermilk',
       regionalName: 'Thair Sadham & Majjiga',
       taste: 'Cooling, Soothing & Satvik',
-      significance: 'Thick, unpasteurized buffalo curd served with pomegranate pearls and green chili tempered buttermilk to complete the feast.',
-      icon: 'fas fa-glass-whiskey'
+      significance: 'Thick farm buffalo curd served with pomegranate pearls, concluding the sacred feast with calming digestive harmony.',
+      icon: 'fas fa-glass-water',
+      image: 'https://images.unsplash.com/photo-1551893309-c4a45a3536df?q=80&w=2600&auto=format&fit=crop'
     }
   ];
 
-  selectLeafItem(index: number): void {
-    this.selectedItemIndex = index;
+  selectItem(index: number): void {
+    this.selectedItemIndex.set(index);
   }
 }
-

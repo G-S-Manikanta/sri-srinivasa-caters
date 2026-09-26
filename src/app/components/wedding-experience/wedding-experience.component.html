@@ -1,64 +1,64 @@
-<section class="wedding-experience-section section-dark" id="wedding-experience" aria-label="Wedding Catering Experience">
-  
-  <!-- Atmospheric Fullscreen Video/Visual Background -->
-  <div class="wedding-bg-layer">
-    <img
-      src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2600&auto=format&fit=crop"
-      alt="Grand South Indian Wedding Mandapam Decor"
-      class="wedding-bg-img"
-      loading="lazy"
-    />
-    <div class="wedding-overlay-silk"></div>
-    <div class="wedding-overlay-gold"></div>
-  </div>
-
-  <div class="container wedding-content-container">
+<section #weddingTrack class="wedding-scene-track" id="wedding-scene" aria-label="Wedding Experience Scene">
+  <div class="wedding-sticky-viewport">
     
-    <div class="wedding-editorial-box">
-      <div class="kicker kicker-gold">
-        <span>SACRED MUHURTHAM SPECIALISTS</span>
-      </div>
+    <!-- Primary Visual (Mandapam Scene with dynamic scale) -->
+    <div
+      class="wedding-visual-layer primary"
+      [style.transform]="'scale(' + (0.92 + scrollProgress * 0.18) + ')'"
+      [style.opacity]="1 - scrollProgress * 0.75"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2600&auto=format&fit=crop"
+        alt="Grand South Indian Wedding Mandapam and Silk Sarees"
+        class="scene-img"
+        loading="lazy"
+      />
+      <div class="scene-overlay-maroon"></div>
+    </div>
 
-      <h2 class="display-title-xl wedding-title">
-        For Celebrations That <br>
-        <span class="text-gradient-gold">Deserve a Feast</span>
-      </h2>
+    <!-- Secondary Visual (Enters during scroll: Dining Transition) -->
+    <div
+      class="wedding-visual-layer secondary"
+      [style.transform]="'translate3d(0, ' + ((1 - scrollProgress) * 40) + 'px, 0) scale(' + (1.08 - scrollProgress * 0.08) + ')'"
+      [style.opacity]="scrollProgress * 1.2"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2600&auto=format&fit=crop"
+        alt="South Indian Wedding Feast Dining Hall"
+        class="scene-img"
+        loading="lazy"
+      />
+      <div class="scene-overlay-dark"></div>
+    </div>
 
-      <div class="divider-gold">
-        <i class="fas fa-ring" aria-hidden="true"></i>
-      </div>
-
-      <p class="wedding-lead-text">
-        A South Indian wedding is a once-in-a-lifetime milestone. We turn every dining hall into a grand royal banquet where guests are treated as family and every morsel is celebrated.
-      </p>
-
-      <!-- 4 Wedding Pillars Grid -->
-      <div class="wedding-highlights-grid">
-        <div *ngFor="let item of weddingHighlights" class="wedding-hl-card">
-          <div class="hl-bullet-icon">
-            <i class="fas fa-award" aria-hidden="true"></i>
-          </div>
-          <div class="hl-content">
-            <h3 class="hl-title">{{ item.title }}</h3>
-            <p class="hl-desc">{{ item.desc }}</p>
-          </div>
+    <!-- Oversized Editorial Typography Layer -->
+    <div class="wedding-typography-layer">
+      <div class="container wedding-text-box">
+        
+        <div class="kicker kicker-gold">
+          <span>SCENE 03 — AUSPICIOUS CELEBRATIONS</span>
         </div>
-      </div>
 
-      <!-- Wedding Action Buttons -->
-      <div class="wedding-actions">
-        <a routerLink="/contact" class="btn btn-gold btn-hero">
-          <span>SCHEDULE WEDDING TASTING</span>
-          <i class="fas fa-calendar-check" aria-hidden="true"></i>
-        </a>
-        <a routerLink="/menu" class="btn btn-outline-gold btn-hero">
-          <span>EXPLORE WEDDING MENUS</span>
-          <i class="fas fa-utensils" aria-hidden="true"></i>
-        </a>
-      </div>
+        <h2
+          class="wedding-giant-title"
+          [style.transform]="'translate3d(' + (scrollProgress * -30) + 'px, 0, 0)'"
+        >
+          FOR EVERY<br>
+          <span class="text-gradient-gold">CELEBRATION</span>
+        </h2>
 
+        <p class="wedding-narrative-lead">
+          From sacred Vedic Muhurtham vows to grand evening receptions, we create feasts that become cherished family folklore.
+        </p>
+
+        <div class="wedding-pills-row">
+          <span class="badge-cultural"><i class="fas fa-gem"></i> Silk Saree & Dhoti Tradition</span>
+          <span class="badge-cultural"><i class="fas fa-users"></i> Up to 10,000+ Guests</span>
+          <span class="badge-cultural"><i class="fas fa-award"></i> 25+ Years of Trust</span>
+        </div>
+
+      </div>
     </div>
 
   </div>
 </section>
-

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -10,23 +10,19 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./wedding-experience.component.scss']
 })
 export class WeddingExperienceComponent {
-  weddingHighlights = [
-    {
-      title: 'Auspicious Muhurtham Feasts',
-      desc: 'Pristine morning and afternoon traditional banana-leaf dining executed with synchronized traditional servers.'
-    },
-    {
-      title: 'Grand Evening Reception Buffets',
-      desc: 'Multi-regional South Indian and Pan-Indian culinary spreads, live stations, chaat corners, and artisanal desserts.'
-    },
-    {
-      title: 'Live Tiffin & Kaapi Counters',
-      desc: 'Steaming Podi Thatte Idlis, paper dosas, Kuzhi Paniyaram, and authentic degree filter coffee brewed in pure brass davarahs.'
-    },
-    {
-      title: 'End-to-End Banquet Management',
-      desc: 'Complete dining hall styling, traditional plantain leaf setup, welcoming beverages, and spotless dining hygiene.'
-    }
-  ];
-}
+  @ViewChild('weddingTrack') trackRef?: ElementRef<HTMLElement>;
 
+  scrollProgress = 0;
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(): void {
+    if (!this.trackRef) return;
+    const el = this.trackRef.nativeElement;
+    const rect = el.getBoundingClientRect();
+    const total = el.offsetHeight - window.innerHeight;
+    if (total > 0) {
+      const curr = -rect.top;
+      this.scrollProgress = Math.max(0, Math.min(1, curr / total));
+    }
+  }
+}

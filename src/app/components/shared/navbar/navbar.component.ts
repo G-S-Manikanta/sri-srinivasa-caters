@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -12,18 +12,33 @@ import { RouterModule } from '@angular/router';
 export class NavbarComponent {
   isMenuOpen = false;
   isSticky = false;
+  isHidden = false;
+  private lastScrollPosition = 0;
 
-  toggleMenu() {
+  toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  closeMobileMenu() {
+  closeMobileMenu(): void {
     this.isMenuOpen = false;
   }
 
-  @HostListener('window:scroll', ['$event'])
-  checkScroll() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    this.isSticky = scrollPosition > 10;
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
+
+    // Sticky state
+    this.isSticky = currentScroll > 30;
+
+    // Smart directional hide/reveal
+    if (currentScroll > 120 && currentScroll > this.lastScrollPosition && !this.isMenuOpen) {
+      // Scrolling down -> hide navbar
+      this.isHidden = true;
+    } else {
+      // Scrolling up -> reveal navbar
+      this.isHidden = false;
+    }
+
+    this.lastScrollPosition = Math.max(0, currentScroll);
   }
 }

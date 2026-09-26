@@ -1,109 +1,119 @@
-<section class="services-interactive-section" id="services" aria-label="Our Catering Services">
-  <div class="container">
+<section class="scene-services" id="services" aria-label="Scene 07 - Our Catering Services">
+  
+  <!-- Giant Background Editorial Watermark -->
+  <div class="services-bg-watermark" aria-hidden="true">
+    <span>SERVICES</span>
+  </div>
+
+  <div class="container-fluid-cinematic">
     
-    <!-- Section Header -->
-    <div class="section-header text-center">
-      <div class="kicker">
-        <span>AUSPICIOUS CELEBRATIONS</span>
+    <!-- Editorial Header -->
+    <header class="scene-header">
+      <div class="scene-eyebrow">
+        <span class="scene-index">SCENE 07</span>
+        <span class="eyebrow-divider">•</span>
+        <span class="scene-category">AUSPICIOUS OCCASIONS</span>
       </div>
-      <h2 class="display-title-xl">
-        Bespoke Catering for <span class="text-gradient-maroon">Every Occasion</span>
+
+      <h2 class="scene-display-heading">
+        <span>Bespoke Feasts for</span>
+        <span class="text-gradient-maroon">Every Sacred Milestone.</span>
       </h2>
-      <div class="divider-gold">
-        <i class="fas fa-utensils" aria-hidden="true"></i>
-      </div>
-      <p class="section-subtitle">
-        From grand traditional weddings to intimate family pujas, explore our dedicated catering services designed to delight your guests.
+
+      <p class="scene-lead">
+        From grand multiday kalyana virundhu to auspicious sunrise gruhapravesam tiffins, we orchestrate seamless South Indian culinary experiences.
       </p>
-    </div>
+    </header>
 
     <!-- Interactive Split Stage -->
     <div class="services-interactive-stage">
       
-      <!-- Left Column: Interactive Editorial Service List -->
-      <div class="services-list-column">
+      <!-- Left Column: Editorial Numbered Service Index -->
+      <div class="services-list-column" role="tablist" aria-label="Catering services list">
         <div
           *ngFor="let service of services; let i = index"
-          class="service-interactive-row"
-          [class.is-active]="i === activeServiceIndex"
+          class="service-editorial-row"
+          [class.is-active]="i === activeServiceIndex()"
           (mouseenter)="selectService(i)"
           (click)="selectService(i)"
+          role="tab"
+          [attr.aria-selected]="i === activeServiceIndex()"
           tabindex="0"
-          role="button"
-          [attr.aria-label]="service.title"
+          (keyup.enter)="selectService(i)"
+          (keyup.space)="selectService(i)"
         >
-          <div class="row-left">
-            <span class="service-index">0{{ service.id }}</span>
-            <div class="service-titles">
-              <h3 class="service-name">{{ service.title }}</h3>
-              <span class="service-category">{{ service.category }}</span>
-            </div>
+          <div class="row-num-col">
+            <span class="service-idx">{{ service.number }}</span>
           </div>
 
-          <div class="row-right">
-            <span class="service-capacity">{{ service.capacity }}</span>
-            <div class="row-arrow">
-              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          <div class="row-title-col">
+            <h3 class="service-title">{{ service.title }}</h3>
+            <span class="service-sub">{{ service.category }}</span>
+          </div>
+
+          <div class="row-meta-col">
+            <span class="capacity-pill">{{ service.capacity }}</span>
+            <div class="row-arrow-icon" aria-hidden="true">
+              <i class="fas fa-arrow-right"></i>
             </div>
           </div>
 
           <!-- Mobile Inline Accordion Content (Visible only on mobile) -->
-          <div class="mobile-service-details" *ngIf="i === activeServiceIndex">
-            <div class="mobile-service-img">
+          <div class="mobile-accordion-body" *ngIf="i === activeServiceIndex()">
+            <div class="mobile-media-box">
               <img [src]="service.image" [alt]="service.title" loading="lazy" />
             </div>
-            <p class="mobile-desc">{{ service.description }}</p>
-            <div class="mobile-highlights">
-              <span *ngFor="let hl of service.highlights" class="badge-cultural">
+            <p class="mobile-text">{{ service.description }}</p>
+            <div class="mobile-tags">
+              <span *ngFor="let hl of service.highlights" class="mob-tag">
                 <i class="fas fa-check"></i> {{ hl }}
               </span>
             </div>
-            <a routerLink="/contact" class="btn btn-sm btn-maroon mobile-btn">Enquire for this event</a>
+            <a routerLink="/contact" class="btn btn-sm btn-maroon w-full">
+              <span>ENQUIRE FOR THIS EVENT</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Sticky Visual Showcase (Desktop) -->
-      <div class="services-preview-column">
-        <div class="sticky-preview-wrapper">
+      <!-- Right Column: Sticky Morphing Visual Showcase (Desktop) -->
+      <div class="services-sticky-column" aria-hidden="true">
+        <div class="sticky-viewport-frame frame-gold-border">
           
-          <!-- Ambient Glow -->
-          <div class="preview-glow"></div>
+          <div
+            *ngFor="let service of services; let i = index"
+            class="visual-slide"
+            [class.is-active]="i === activeServiceIndex()"
+          >
+            <img
+              [src]="service.image"
+              [alt]="service.title"
+              class="slide-img"
+              loading="lazy"
+            />
+            <div class="slide-overlay"></div>
 
-          <!-- Preview Frame -->
-          <div class="preview-media-frame frame-gold-border">
-            <div
-              *ngFor="let service of services; let i = index"
-              class="preview-slide"
-              [class.is-active]="i === activeServiceIndex"
-            >
-              <img
-                [src]="service.image"
-                [alt]="service.title"
-                class="preview-img"
-                loading="lazy"
-              />
-              <div class="preview-overlay"></div>
+            <!-- Floating Info Card -->
+            <div class="slide-floating-card">
+              <div class="slide-card-top">
+                <span class="slide-cat-badge">{{ service.category }}</span>
+                <span class="slide-cap"><i class="fas fa-users"></i> {{ service.capacity }}</span>
+              </div>
+              <h3 class="slide-title">{{ service.title }}</h3>
+              <p class="slide-desc">{{ service.description }}</p>
+              
+              <div class="slide-highlights">
+                <span *ngFor="let hl of service.highlights" class="hl-badge">
+                  <i class="fas fa-check-circle"></i> {{ hl }}
+                </span>
+              </div>
 
-              <!-- Floating Info Card -->
-              <div class="preview-floating-card">
-                <div class="card-header">
-                  <span class="badge-cultural badge-gold">{{ service.category }}</span>
-                  <span class="capacity-tag"><i class="fas fa-users"></i> {{ service.capacity }}</span>
-                </div>
-                <h4 class="card-title">{{ service.title }}</h4>
-                <p class="card-desc">{{ service.description }}</p>
-                <div class="card-highlights">
-                  <span *ngFor="let hl of service.highlights" class="hl-tag">
-                    <i class="fas fa-check-circle"></i> {{ hl }}
-                  </span>
-                </div>
-                <div class="card-action">
-                  <a routerLink="/contact" class="btn btn-gold btn-sm">
-                    <span>PLAN THIS EVENT</span>
-                    <i class="fas fa-arrow-right"></i>
-                  </a>
-                </div>
+              <div class="slide-action">
+                <a routerLink="/contact" class="btn btn-gold btn-sm">
+                  <span>PLAN THIS EVENT</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>

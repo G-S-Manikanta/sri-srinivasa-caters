@@ -1,4 +1,4 @@
-<section class="hero-viewport" aria-label="Hero Section - Sri Srinivasa Caters">
+<section class="hero-viewport" aria-label="Hero Scene - Sri Srinivasa Caters">
   <!-- 1. HTML5 Video Background Layer with Cinematic Overlay -->
   <div class="video-container" [class.is-ready]="videoLoaded">
     <video
@@ -13,7 +13,6 @@
     >
       <source src="https://assets.mixkit.co/videos/preview/mixkit-traditional-indian-wedding-festivities-43181-large.mp4" type="video/mp4">
       <source src="https://assets.mixkit.co/videos/preview/mixkit-traditional-indian-wedding-ceremony-43180-large.mp4" type="video/mp4">
-      <!-- Fallback image if video is unsupported -->
       <img
         src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=2600&auto=format&fit=crop"
         alt="Traditional South Indian Wedding Feast"
@@ -27,54 +26,67 @@
     <div class="hero-bottom-blend"></div>
   </div>
 
-  <!-- 2. Central Editorial Content Flow (Directly Over Video) -->
+  <!-- Floating Traditional Depth Motifs (Foreground Layer) -->
+  <div class="hero-floating-elements" aria-hidden="true">
+    <div class="floating-motif jasmine-1"></div>
+    <div class="floating-motif jasmine-2"></div>
+    <div class="floating-motif brass-glow"></div>
+  </div>
+
+  <!-- Edge-Anchored Editorial Labels -->
+  <div class="hero-edge-tags">
+    <div class="edge-tag tag-top-left">
+      <span class="dot"></span>
+      <span>EST. 1998 • VEDIC SANCTITY</span>
+    </div>
+    <div class="edge-tag tag-top-right">
+      <span>CHENNAI • BANGALORE • HYDERABAD</span>
+    </div>
+  </div>
+
+  <!-- 2. Asymmetric Editorial Content Layer -->
   <div class="hero-content-wrapper">
-    <div class="container hero-container">
+    <div class="hero-asymmetric-canvas">
       
-      <!-- Sequence 2: Logo Medallion -->
-      <div class="hero-logo-box animate-logo">
-        <div class="logo-aura"></div>
-        <img
-          src="assets/sri_srinivasa_caters_logo.png"
-          alt="Sri Srinivasa Caters Emblem"
-          class="hero-logo"
-        />
+      <!-- Brand Seal & Kicker -->
+      <div class="hero-brand-block animate-brand">
+        <div class="brand-seal-frame">
+          <img
+            src="assets/sri_srinivasa_caters_logo.png"
+            alt="Sri Srinivasa Caters Logo"
+            class="brand-logo"
+          />
+        </div>
+        <div class="kicker-group">
+          <span class="kicker kicker-gold kicker-no-lines">GRAND WEDDING CATERING</span>
+          <span class="kicker-sub">SRI SRINIVASA CATERS</span>
+        </div>
       </div>
 
-      <!-- Sequence 2b: Brand Kicker -->
-      <div class="hero-kicker-box animate-kicker">
-        <span class="hero-kicker">
-          <span class="kicker-line"></span>
-          SRI SRINIVASA CATERS
-          <span class="kicker-line"></span>
-        </span>
-      </div>
-
-      <!-- Sequence 3: Masked Clip-Path Headline -->
-      <h1 class="hero-headline">
-        <span class="mask-wrapper">
-          <span class="reveal-text animate-headline-1">A Feast Rooted</span>
-        </span>
-        <span class="mask-wrapper">
-          <span class="reveal-text text-gradient-gold animate-headline-2">in Tradition</span>
-        </span>
+      <!-- Giant Asymmetric Multi-Line Headline -->
+      <h1 class="hero-giant-headline">
+        <div class="mask-line"><span class="headline-part line-1">A FEAST</span></div>
+        <div class="mask-line"><span class="headline-part line-2 text-gradient-gold">ROOTED</span></div>
+        <div class="mask-line"><span class="headline-part line-3">IN TRADITION</span></div>
       </h1>
 
-      <!-- Sequence 4: Upward Narrative Description -->
-      <p class="hero-description animate-description">
-        Authentic South Indian vegetarian cuisine, prepared with tradition and served with warmth.
-      </p>
+      <!-- Editorial Narrative Footer Row -->
+      <div class="hero-editorial-footer animate-footer">
+        <p class="hero-lead-description">
+          Authentic South Indian vegetarian cuisine, prepared with age-old Vedic recipes, pure cow ghee, and served with unconditional warmth.
+        </p>
 
-      <!-- Sequence 5: Action Buttons -->
-      <div class="hero-actions animate-actions">
-        <a routerLink="/menu" class="btn btn-gold btn-hero">
-          <span>EXPLORE OUR MENU</span>
-          <i class="fas fa-arrow-right" aria-hidden="true"></i>
-        </a>
-        <a routerLink="/contact" class="btn btn-outline-gold btn-hero">
-          <span>PLAN YOUR EVENT</span>
-          <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-        </a>
+        <!-- Action Triggers -->
+        <div class="hero-action-buttons">
+          <a routerLink="/menu" class="btn btn-gold btn-hero">
+            <span>EXPLORE OUR MENU</span>
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a routerLink="/contact" class="btn btn-outline-gold btn-hero">
+            <span>PLAN YOUR EVENT</span>
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
 
     </div>
@@ -82,7 +94,7 @@
 
   <!-- Sequence 6: Editorial Scroll Indicator -->
   <div class="hero-scroll-indicator animate-scroll-indicator" (click)="scrollToNext()" role="button" tabindex="0" aria-label="Scroll down to explore catering experience">
-    <span class="scroll-text">SCROLL TO DISCOVER</span>
+    <span class="scroll-text">ENTER THE FEAST</span>
     <div class="scroll-line-container">
       <div class="scroll-line-glow"></div>
     </div>

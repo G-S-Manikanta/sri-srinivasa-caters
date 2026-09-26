@@ -1,137 +1,81 @@
-<section class="visual-story-section" id="visual-story" aria-label="Visual Narrative of Sri Srinivasa Caters">
-  <div class="container">
+<section #trackContainer class="tradition-pinned-track" id="tradition-scene" aria-label="Tradition Scene">
+  <div class="sticky-viewport-canvas">
     
-    <!-- Editorial Section Header -->
-    <div class="story-header text-center">
-      <div class="kicker">
-        <span>SACRED VISUAL JOURNEY</span>
-      </div>
-      <h2 class="display-title-xl story-main-title">
-        The Art of South Indian Wedding Feasting
-      </h2>
-      <div class="divider-gold">
-        <i class="fas fa-om" aria-hidden="true"></i>
-      </div>
-      <p class="section-subtitle">
-        An immersive five-chapter journey tracing the auspicious transition from sacred wedding mandapam vows to the timeless ritual of banana leaf hospitality.
-      </p>
-
-      <!-- Chapter Quick Nav Selector (Pills) -->
-      <nav class="chapter-nav-pills" aria-label="Chapter Navigation">
-        <button
-          *ngFor="let chapter of chapters; let i = index"
-          type="button"
-          class="nav-pill"
-          [class.is-active]="i === activeChapterIndex"
-          (click)="setActiveChapter(i)"
-        >
-          <span class="pill-number">{{ chapter.step }}</span>
-          <span class="pill-name">{{ chapter.id | titlecase }}</span>
-        </button>
-      </nav>
+    <!-- Background Environmental Layer -->
+    <div class="canvas-bg-env">
+      <img
+        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2600&auto=format&fit=crop"
+        alt="Traditional South Indian Wedding Environment"
+        class="env-image"
+        [style.transform]="'scale(' + (1.05 + scrollProgress * 0.12) + ')'"
+        loading="lazy"
+      />
+      <div class="env-overlay-silk"></div>
     </div>
 
-    <!-- Split Sticky Editorial Stage -->
-    <div class="story-stage-grid">
-      
-      <!-- Left Column: Scrolling Narrative Chapters -->
-      <div class="story-chapters-column">
-        <article
-          #chapterItem
-          *ngFor="let chapter of chapters; let i = index"
-          class="chapter-card"
-          [class.is-active]="i === activeChapterIndex"
-          [attr.data-chapter-index]="i"
-          [id]="'story-chapter-' + chapter.id"
-        >
-          <!-- Progress Line & Step -->
-          <div class="chapter-indicator-line">
-            <span class="step-numeral">{{ chapter.step }}</span>
-            <span class="step-dot"></span>
-          </div>
-
-          <div class="chapter-content">
-            <!-- Kicker -->
-            <span class="chapter-kicker">{{ chapter.kicker }}</span>
-            
-            <!-- Headline -->
-            <h3 class="chapter-title">{{ chapter.title }}</h3>
-            
-            <!-- Subtitle -->
-            <p class="chapter-subtitle">{{ chapter.subtitle }}</p>
-            
-            <!-- Mobile-only inline visual (visible only on small screens) -->
-            <div class="mobile-visual-frame">
-              <img [src]="chapter.image" [alt]="chapter.imageAlt" loading="lazy" />
-              <div class="mobile-frame-glow"></div>
-            </div>
-
-            <!-- Narrative Description -->
-            <p class="chapter-description">{{ chapter.description }}</p>
-
-            <!-- Tags -->
-            <div class="chapter-tags">
-              <span *ngFor="let tag of chapter.tags" class="badge-cultural" [class.badge-leaf]="chapter.id === 'serving' || chapter.id === 'food'">
-                <i class="fas fa-check" aria-hidden="true"></i> {{ tag }}
-              </span>
-            </div>
-
-            <!-- Editorial Quote Box -->
-            <blockquote class="chapter-quote">
-              <p>“{{ chapter.quote }}”</p>
-              <cite>{{ chapter.quoteAuthor }}</cite>
-            </blockquote>
-          </div>
-        </article>
+    <!-- Midground Floating Traditional Objects (Parallax) -->
+    <div class="canvas-midground-layer" aria-hidden="true">
+      <!-- Drifting Brass Urli Object -->
+      <div
+        class="floating-brass-urli"
+        [style.transform]="'translate3d(' + (scrollProgress * -80) + 'px, ' + (scrollProgress * 40) + 'px, 0)'"
+      >
+        <div class="urli-glow"></div>
       </div>
 
-      <!-- Right Column: Sticky Visual Canvas (Desktop) -->
-      <div class="story-sticky-column">
-        <div class="sticky-visual-wrapper">
-          
-          <!-- Ambient Lighting & Glow Backdrop -->
-          <div class="ambient-visual-glow"></div>
+      <!-- Marigold & Jasmine Floral Stream -->
+      <div
+        class="floating-marigold"
+        [style.transform]="'translate3d(' + (scrollProgress * 120) + 'px, ' + (scrollProgress * -60) + 'px, 0)'"
+      ></div>
+    </div>
 
-          <!-- The Active Visual Frame -->
-          <div class="visual-canvas-frame">
-            <div
-              *ngFor="let chapter of chapters; let i = index"
-              class="visual-slide"
-              [class.is-active]="i === activeChapterIndex"
-            >
-              <img
-                [src]="chapter.image"
-                [alt]="chapter.imageAlt"
-                class="slide-image"
-                loading="lazy"
-              />
-              <div class="slide-overlay-vignette"></div>
-              
-              <!-- Floating Chapter Badge Overlay -->
-              <div class="slide-caption-badge">
-                <span class="badge-step">{{ chapter.step }} / 05</span>
-                <span class="badge-title">{{ chapter.title }}</span>
-              </div>
-            </div>
+    <!-- Giant Horizontal Typography Stream -->
+    <div
+      class="giant-horizontal-text-track"
+      [style.transform]="'translate3d(' + (scrollProgress * -45) + '%, 0, 0)'"
+      aria-hidden="true"
+    >
+      <span class="giant-word stroke-text">TRADITION</span>
+      <span class="giant-word solid-text text-gradient-gold">PARAMAPARA</span>
+      <span class="giant-word stroke-text">HERITAGE</span>
+    </div>
 
-            <!-- Ornamental Brass Corners -->
-            <div class="brass-corner top-left"></div>
-            <div class="brass-corner top-right"></div>
-            <div class="brass-corner bottom-left"></div>
-            <div class="brass-corner bottom-right"></div>
-          </div>
-
-          <!-- Bottom Visual Footnote -->
-          <div class="sticky-footnote">
-            <span class="footnote-dot"></span>
-            <span class="footnote-text">Authentic South Indian Heritage Feast by Sri Srinivasa Caters</span>
-          </div>
-
+    <!-- Foreground Content Layer -->
+    <div class="canvas-foreground-container">
+      <div class="container tradition-inner-flex">
+        
+        <!-- Top Editorial Kicker -->
+        <div class="tradition-header">
+          <span class="kicker kicker-gold">SCENE 02 — THE VEDIC FOUNDATION</span>
+          <h2 class="tradition-sub-title">Where Generations Gather</h2>
         </div>
-      </div>
 
+        <!-- Center Active Theme Quadrant -->
+        <div class="tradition-words-carousel">
+          <div
+            *ngFor="let item of subWords; let i = index"
+            class="theme-word-row"
+            [class.is-active]="i === activeSubWord"
+          >
+            <span class="theme-num">0{{ i + 1 }}</span>
+            <div class="theme-info">
+              <h3 class="theme-heading">{{ item.text }}</h3>
+              <p class="theme-desc">{{ item.desc }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Heritage Footnote -->
+        <div class="tradition-bottom-bar">
+          <div class="progress-line-track">
+            <div class="progress-line-fill" [style.width]="(scrollProgress * 100) + '%'"></div>
+          </div>
+          <span class="footnote-label">SCROLL TO WITNESS THE FEAST UNFOLD</span>
+        </div>
+
+      </div>
     </div>
 
   </div>
 </section>
-

@@ -1,6 +1,6 @@
 // =============================================================================
-// SRI SRINIVASA CATERS - CINEMATIC HERO SECTION
-// 100svh Fullscreen Video + Staged Entrance Animation Choreography
+// SRI SRINIVASA CATERS - ASYMMETRIC OPENING HERO SCENE
+// Fullscreen Video + Giant Typography + Edge Labels + Floating Depth Motifs
 // =============================================================================
 
 .hero-viewport {
@@ -11,8 +11,7 @@
   height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
   overflow: hidden;
   background-color: var(--color-bg-dark);
   color: var(--color-text-light);
@@ -20,7 +19,7 @@
 }
 
 // -----------------------------------------------------------------------------
-// 1. VIDEO BACKGROUND & CINEMATIC LIGHTING OVERLAYS
+// 1. VIDEO BACKGROUND & ATMOSPHERIC LIGHTING
 // -----------------------------------------------------------------------------
 .video-container {
   position: absolute;
@@ -42,10 +41,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 38%;
-  filter: brightness(0.85) contrast(1.08) saturate(1.15);
+  object-position: center 35%;
+  filter: brightness(0.78) contrast(1.1) saturate(1.2);
   transform: scale(1.04);
-  animation: slowZoomIn 25s ease-out infinite alternate;
+  animation: slowZoomIn 30s ease-out infinite alternate;
 }
 
 .bg-poster-fallback {
@@ -57,7 +56,6 @@
   object-fit: cover;
 }
 
-// Dark Silk Vignette Overlay
 .hero-overlay-dark {
   position: absolute;
   top: 0;
@@ -66,15 +64,14 @@
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(18, 14, 13, 0.62) 0%,
-    rgba(56, 7, 15, 0.45) 40%,
-    rgba(18, 14, 13, 0.78) 80%,
-    rgba(18, 14, 13, 0.96) 100%
+    rgba(18, 14, 13, 0.55) 0%,
+    rgba(56, 7, 15, 0.45) 45%,
+    rgba(18, 14, 13, 0.82) 80%,
+    rgba(18, 14, 13, 0.98) 100%
   );
   z-index: 1;
 }
 
-// Warm Golden Radial Ambient Light
 .hero-overlay-gold-glow {
   position: absolute;
   top: 0;
@@ -82,9 +79,9 @@
   width: 100%;
   height: 100%;
   background: radial-gradient(
-    circle at 50% 45%,
-    rgba(212, 175, 55, 0.18) 0%,
-    rgba(107, 15, 26, 0.25) 50%,
+    circle at 75% 35%,
+    rgba(212, 175, 55, 0.2) 0%,
+    rgba(107, 15, 26, 0.28) 50%,
     transparent 80%
   );
   z-index: 2;
@@ -92,198 +89,259 @@
   pointer-events: none;
 }
 
-// Bottom Canvas Blend Gradient
 .hero-bottom-blend {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 140px;
-  background: linear-gradient(to top, rgba(18, 14, 13, 1) 0%, rgba(18, 14, 13, 0) 100%);
+  height: 160px;
+  background: linear-gradient(to top, rgba(18, 14, 13, 1) 0%, transparent 100%);
   z-index: 2;
   pointer-events: none;
 }
 
 // -----------------------------------------------------------------------------
-// 2. CENTRAL EDITORIAL CONTENT LAYER
+// 2. FLOATING FOREGROUND DEPTH MOTIFS
+// -----------------------------------------------------------------------------
+.hero-floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.floating-motif {
+  position: absolute;
+  border-radius: 50%;
+
+  &.brass-glow {
+    top: 20%;
+    right: 12%;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
+    filter: blur(40px);
+    animation: pulseAura 5s ease-in-out infinite;
+  }
+
+  &.jasmine-1 {
+    top: 15%;
+    left: 8%;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    filter: blur(12px);
+    animation: gentleFloat 7s ease-in-out infinite;
+  }
+
+  &.jasmine-2 {
+    bottom: 25%;
+    right: 8%;
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+    filter: blur(16px);
+    animation: gentleFloat 9s ease-in-out infinite reverse;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 3. EDGE ANCHORED TAGS
+// -----------------------------------------------------------------------------
+.hero-edge-tags {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.edge-tag {
+  font-family: var(--font-family-body);
+  font-size: 0.725rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.22em;
+  color: var(--color-gold-bright);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-gold-bright);
+    box-shadow: 0 0 8px var(--color-gold-bright);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 4. ASYMMETRIC EDITORIAL CONTENT LAYER
 // -----------------------------------------------------------------------------
 .hero-content-wrapper {
   position: relative;
   z-index: 10;
   width: 100%;
-  padding: 5rem 1.5rem 4.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: clamp(5rem, 8vw, 7rem) clamp(1.5rem, 4vw, 4rem) clamp(3.5rem, 6vw, 5rem);
 }
 
-.hero-container {
-  max-width: 980px;
+.hero-asymmetric-canvas {
+  max-width: 1320px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
-// Logo Medallion
-.hero-logo-box {
-  position: relative;
-  width: 86px;
-  height: 86px;
-  margin-bottom: var(--space-sm);
+.hero-brand-block {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 1rem;
+  margin-bottom: var(--space-sm);
 }
 
-.logo-aura {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.brand-seal-frame {
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0) 70%);
-  filter: blur(10px);
-  animation: pulseAura 4s ease-in-out infinite;
-}
+  background: rgba(18, 14, 13, 0.7);
+  border: 1px solid var(--color-border-gold);
+  padding: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 
-.hero-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.6));
-  position: relative;
-  z-index: 2;
-}
-
-// Brand Kicker / Eyebrow
-.hero-kicker-box {
-  margin-bottom: var(--space-xs);
-}
-
-.hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  font-family: var(--font-family-body);
-  font-size: clamp(0.75rem, 1.2vw, 0.885rem);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-gold-bright);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-
-  .kicker-line {
-    width: 28px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-gold-bright));
-
-    &:last-child {
-      background: linear-gradient(90deg, var(--color-gold-bright), transparent);
-    }
+  .brand-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
 
-// Headline Masking
-.hero-headline {
-  font-family: var(--font-family-display);
-  font-size: var(--font-size-display-2xl);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  color: #FFFFFF;
-  margin: 0 0 var(--space-md);
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.65);
+.kicker-group {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  .kicker-gold {
+    margin-bottom: 0;
+    font-size: 0.775rem;
+    letter-spacing: 0.2em;
+  }
+
+  .kicker-sub {
+    font-family: var(--font-family-display);
+    font-size: 1.15rem;
+    font-weight: var(--font-weight-semibold);
+    color: #FFFFFF;
+    letter-spacing: 0.05em;
+  }
 }
 
-.mask-wrapper {
+// Giant Asymmetric Typography
+.hero-giant-headline {
+  font-family: var(--font-family-display);
+  font-size: clamp(3.2rem, 9.5vw, 8.5rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin: 0 0 var(--space-lg);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+}
+
+.mask-line {
   display: block;
   overflow: hidden;
-  padding: 0.1em 0;
+  padding: 0.05em 0;
 }
 
-.reveal-text {
+.headline-part {
   display: block;
-  transform: translateY(110%);
-  opacity: 0;
-  will-change: transform, opacity;
+  transform: translateY(115%);
+  will-change: transform;
+
+  &.line-1 {
+    animation: headlineMaskUp 1.3s var(--ease-cinematic) forwards 0.5s;
+  }
+
+  &.line-2 {
+    animation: headlineMaskUp 1.3s var(--ease-cinematic) forwards 0.7s;
+    padding-left: clamp(0rem, 4vw, 3rem); // Asymmetric editorial indentation
+  }
+
+  &.line-3 {
+    animation: headlineMaskUp 1.3s var(--ease-cinematic) forwards 0.9s;
+  }
 }
 
-// Description
-.hero-description {
+// Editorial Footer Row
+.hero-editorial-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.hero-lead-description {
   font-family: var(--font-family-body);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-relaxed);
-  color: rgba(253, 251, 247, 0.92);
-  max-width: 660px;
-  margin: 0 auto var(--space-xl);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-  opacity: 0;
-  transform: translateY(24px);
-  will-change: transform, opacity;
+  color: rgba(253, 251, 247, 0.9);
+  max-width: 580px;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-// Action Buttons
-.hero-actions {
+.hero-action-buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
+  gap: 1rem;
   flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(20px);
-  will-change: transform, opacity;
-}
-
-.btn-hero {
-  padding: 1rem 2.25rem;
-  font-size: 0.885rem;
-  letter-spacing: 0.12em;
-  border-radius: var(--radius-sm);
 }
 
 // -----------------------------------------------------------------------------
-// 3. EDITORIAL SCROLL INDICATOR
+// 5. SCROLL INDICATOR
 // -----------------------------------------------------------------------------
 .hero-scroll-indicator {
   position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 20px;
+  right: clamp(1.5rem, 4vw, 4rem);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   cursor: pointer;
   z-index: 10;
-  opacity: 0;
-  transition: transform var(--dur-fast) var(--ease-editorial), opacity var(--dur-fast) var(--ease-editorial);
+  transition: opacity var(--dur-fast) var(--ease-editorial);
 
-  &:hover {
-    transform: translateX(-50%) translateY(3px);
-
-    .scroll-text {
-      color: var(--color-gold-bright);
-    }
+  &:hover .scroll-text {
+    color: var(--color-gold-bright);
   }
 }
 
 .scroll-text {
   font-family: var(--font-family-body);
-  font-size: 0.68rem;
+  font-size: 0.685rem;
   font-weight: var(--font-weight-bold);
-  letter-spacing: 0.25em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(253, 251, 247, 0.7);
-  transition: color var(--dur-fast) var(--ease-editorial);
 }
 
 .scroll-line-container {
-  width: 1px;
-  height: 38px;
+  width: 32px;
+  height: 1px;
   background-color: rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
@@ -291,54 +349,32 @@
 
 .scroll-line-glow {
   position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(to bottom, transparent, var(--color-gold-bright), transparent);
-  animation: scrollDrop 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  left: -100%;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(to right, transparent, var(--color-gold-bright), transparent);
+  animation: scrollLineSweep 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
 // -----------------------------------------------------------------------------
-// 4. CHOREOGRAPHED ENTRANCE ANIMATIONS
+// 6. KEYFRAME CHOREOGRAPHY
 // -----------------------------------------------------------------------------
-// Step 2: Logo reveal
-.animate-logo {
-  animation: logoEntrance 1.2s var(--ease-cinematic) forwards 0.35s;
+.animate-brand {
+  animation: fadeIn 1.2s var(--ease-cinematic) forwards 0.3s;
   opacity: 0;
 }
 
-// Step 2b: Kicker reveal
-.animate-kicker {
-  animation: kickerEntrance 1s var(--ease-cinematic) forwards 0.55s;
+.animate-footer {
+  animation: fadeIn 1.2s var(--ease-cinematic) forwards 1.1s;
   opacity: 0;
 }
 
-// Step 3: Masked Headline lines
-.animate-headline-1 {
-  animation: headlineMaskUp 1.3s var(--ease-cinematic) forwards 0.75s;
-}
-
-.animate-headline-2 {
-  animation: headlineMaskUp 1.3s var(--ease-cinematic) forwards 0.95s;
-}
-
-// Step 4: Narrative Description
-.animate-description {
-  animation: descriptionFadeUp 1.2s var(--ease-cinematic) forwards 1.25s;
-}
-
-// Step 5: Buttons Stagger
-.animate-actions {
-  animation: actionsReveal 1.1s var(--ease-cinematic) forwards 1.55s;
-}
-
-// Step 6: Scroll Indicator
 .animate-scroll-indicator {
-  animation: indicatorReveal 1s var(--ease-cinematic) forwards 1.95s;
+  animation: fadeIn 1s var(--ease-cinematic) forwards 1.4s;
+  opacity: 0;
 }
 
-// Keyframes
 @keyframes videoFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -346,148 +382,56 @@
 
 @keyframes slowZoomIn {
   from { transform: scale(1.02); }
-  to { transform: scale(1.09); }
+  to { transform: scale(1.08); }
 }
 
 @keyframes pulseAura {
-  0%, 100% { transform: scale(1); opacity: 0.4; }
-  50% { transform: scale(1.15); opacity: 0.75; }
-}
-
-@keyframes logoEntrance {
-  from {
-    opacity: 0;
-    transform: scale(0.85) translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes kickerEntrance {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.6; }
 }
 
 @keyframes headlineMaskUp {
-  from {
-    opacity: 0;
-    transform: translateY(115%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0%);
-  }
+  from { transform: translateY(115%); }
+  to { transform: translateY(0%); }
 }
 
-@keyframes descriptionFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes actionsReveal {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes indicatorReveal {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-@keyframes scrollDrop {
-  0% {
-    top: -50%;
-  }
-  100% {
-    top: 150%;
-  }
+@keyframes scrollLineSweep {
+  0% { left: -50%; }
+  100% { left: 150%; }
 }
 
 // -----------------------------------------------------------------------------
-// 5. RESPONSIVE BREAKPOINTS
+// 7. RESPONSIVE BREAKPOINTS
 // -----------------------------------------------------------------------------
-@media (max-width: 768px) {
-  .hero-viewport {
-    height: 100svh;
+@media (max-width: 960px) {
+  .hero-edge-tags {
+    display: none;
   }
 
-  .hero-content-wrapper {
-    padding: 4.5rem 1.25rem 5rem;
+  .hero-giant-headline {
+    font-size: clamp(2.8rem, 11vw, 4.5rem);
   }
 
-  .hero-logo-box {
-    width: 68px;
-    height: 68px;
-    margin-bottom: var(--space-xs);
+  .headline-part.line-2 {
+    padding-left: 0;
   }
 
-  .hero-headline {
-    font-size: clamp(2.4rem, 10vw, 3.4rem);
-    margin-bottom: var(--space-xs);
-  }
-
-  .hero-description {
-    font-size: 0.95rem;
-    margin-bottom: var(--space-lg);
-    line-height: 1.55;
-  }
-
-  .hero-actions {
+  .hero-editorial-footer {
     flex-direction: column;
-    width: 100%;
-    gap: 0.75rem;
+    align-items: flex-start;
 
-    .btn-hero {
+    .hero-action-buttons {
       width: 100%;
-      max-width: 320px;
-      padding: 0.875rem 1.5rem;
+
+      .btn {
+        width: 100%;
+      }
     }
-  }
-
-  .hero-scroll-indicator {
-    bottom: 16px;
-  }
-}
-
-@media (max-height: 680px) and (orientation: landscape) {
-  .hero-viewport {
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .hero-content-wrapper {
-    padding: 6rem 1.5rem 4rem;
-  }
-
-  .hero-logo-box {
-    width: 50px;
-    height: 50px;
   }
 
   .hero-scroll-indicator {
@@ -496,34 +440,19 @@
 }
 
 // -----------------------------------------------------------------------------
-// 6. PREFERS-REDUCED-MOTION OVERRIDES
+// 8. PREFERS-REDUCED-MOTION
 // -----------------------------------------------------------------------------
 @media (prefers-reduced-motion: reduce) {
-  .video-container,
-  .animate-logo,
-  .animate-kicker,
-  .animate-headline-1,
-  .animate-headline-2,
-  .animate-description,
-  .animate-actions,
+  .headline-part,
+  .animate-brand,
+  .animate-footer,
   .animate-scroll-indicator {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
 
-  .reveal-text {
-    transform: none !important;
-    opacity: 1 !important;
-  }
-
   .bg-video {
-    animation: none !important;
-    transform: none !important;
-  }
-
-  .logo-aura,
-  .scroll-line-glow {
     animation: none !important;
   }
 }

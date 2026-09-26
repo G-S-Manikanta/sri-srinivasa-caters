@@ -1,72 +1,85 @@
-<section class="editorial-menu-section" id="popular-menu" aria-label="Authentic South Indian Catering Menu">
-  <div class="container">
+<section class="scene-menu" id="popular-menu" aria-label="Scene 08 - Menu Discovery Track">
+  
+  <!-- Watermark -->
+  <div class="menu-bg-watermark" aria-hidden="true">
+    <span>MENU</span>
+  </div>
+
+  <div class="container-fluid-cinematic">
     
     <!-- Section Header -->
-    <div class="section-header text-center">
-      <div class="kicker kicker-gold">
-        <span>CURATED REGIONAL DELICACIES</span>
+    <header class="scene-header text-center">
+      <div class="scene-eyebrow justify-center">
+        <span class="scene-index">SCENE 08</span>
+        <span class="eyebrow-divider">•</span>
+        <span class="scene-category">CURATED REGIONAL DELICACIES</span>
       </div>
-      <h2 class="display-title-xl">
-        Authentic Flavours of <br>
-        <span class="text-gradient-maroon">South Indian Heritage</span>
-      </h2>
-      <div class="divider-gold">
-        <i class="fas fa-utensils" aria-hidden="true"></i>
-      </div>
-      <p class="section-subtitle">
-        Explore our authentic recipes passed down across generations. Every dish is cooked fresh with pure cow ghee and stone-ground spices.
-      </p>
-    </div>
 
-    <!-- 10 Categories Horizontal Tab Bar -->
-    <div class="menu-categories-tabs" role="tablist" aria-label="Menu Categories">
+      <h2 class="scene-display-heading">
+        <span>Authentic Flavours of</span>
+        <span class="text-gradient-maroon">South Indian Heritage.</span>
+      </h2>
+
+      <p class="scene-lead mx-auto">
+        Explore our authentic recipes passed down through generations. Every dish is cooked fresh with pure cow ghee and freshly roasted stone-ground spices.
+      </p>
+    </header>
+
+    <!-- 10 Categories Horizontal Tab Discovery Track -->
+    <div class="menu-track-bar" role="tablist" aria-label="Menu Categories">
       <button
         *ngFor="let cat of categories"
         type="button"
-        class="category-tab-btn"
-        [class.is-active]="cat.id === activeCategory"
+        class="track-tab-btn"
+        [class.is-active]="cat.id === activeCategory()"
         (click)="selectCategory(cat.id)"
         role="tab"
-        [attr.aria-selected]="cat.id === activeCategory"
+        [attr.aria-selected]="cat.id === activeCategory()"
       >
         <i [class]="cat.icon" aria-hidden="true"></i>
         <span>{{ cat.name }}</span>
       </button>
     </div>
 
-    <!-- Editorial Menu Showcase Grid -->
-    <div class="editorial-menu-showcase">
-      <div class="active-category-header">
-        <h3 class="active-category-title">{{ getActiveCategory().name }}</h3>
-        <span class="badge-cultural badge-gold">
-          {{ getActiveCategory().items.length }} Signature Preparations
+    <!-- Editorial Menu Showcase Box -->
+    <div class="editorial-menu-canvas frame-gold-border">
+      
+      <div class="category-spotlight-head">
+        <div>
+          <span class="cat-kicker">{{ currentCategory().kicker }}</span>
+          <h3 class="cat-title">{{ currentCategory().name }}</h3>
+        </div>
+        <span class="cat-count-badge">
+          <i class="fas fa-sparkles"></i>
+          {{ currentCategory().items.length }} Master Dishes
         </span>
       </div>
 
-      <div class="menu-items-editorial-grid">
-        <div *ngFor="let item of getActiveCategory().items" class="menu-editorial-row">
-          <div class="row-header">
-            <h4 class="item-name">{{ item.name }}</h4>
-            <span *ngIf="item.tag" class="item-tag" [class.tag-signature]="item.isSignature">
+      <div class="menu-editorial-grid">
+        <div *ngFor="let item of currentCategory().items" class="menu-dish-card">
+          <div class="dish-row-top">
+            <h4 class="dish-name">{{ item.name }}</h4>
+            <span *ngIf="item.tag" class="dish-tag" [class.tag-signature]="item.isSignature">
               {{ item.tag }}
             </span>
-            <div class="row-dots"></div>
+            <div class="dish-dots"></div>
           </div>
-          <p class="item-description">{{ item.description }}</p>
+          <p class="dish-desc">{{ item.description }}</p>
         </div>
       </div>
 
-      <!-- Menu Footer Callout -->
-      <div class="menu-footer-callout">
-        <div class="callout-text">
-          <i class="fas fa-check-circle" aria-hidden="true"></i>
-          <span>Custom wedding and banquet menus tailored to your community traditions and preferences.</span>
+      <!-- Footer Callout -->
+      <div class="menu-canvas-footer">
+        <div class="footer-msg">
+          <i class="fas fa-certificate" aria-hidden="true"></i>
+          <span>Custom wedding and banquet menus tailored to your specific community traditions and preferences.</span>
         </div>
         <a routerLink="/menu" class="btn btn-maroon btn-sm">
-          <span>VIEW COMPLETE 100+ DISH REPERTOIRE</span>
+          <span>EXPLORE COMPLETE 100+ DISH REPERTOIRE</span>
           <i class="fas fa-arrow-right"></i>
         </a>
       </div>
+
     </div>
 
   </div>
